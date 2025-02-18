@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+    <queries>
+        <package android:name="com.android.vending" />
+        <package android:name="com.google.android.gm" />
+        <!-- Другие пакеты -->
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -13,19 +21,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SenderNT"
         tools:targetApi="31">
-
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- Объявление сервиса для получения уведомлений -->
+        </activity> <!-- Объявление сервиса для получения уведомлений -->
         <service
-            android:name=".service.NotificationLoggerService"
+            android:name=".data.service.NotificationLoggerService"
             android:exported="true"
             android:label="Notification Logger"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
