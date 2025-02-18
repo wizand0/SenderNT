@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <queries>
         <package android:name="com.android.vending" />
         <package android:name="com.google.android.gm" />
@@ -21,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SenderNT"
         tools:targetApi="31">
+        <activity
+            android:name=".presentation.SettingsGlobalActivity"
+            android:exported="false" />
         <activity
             android:name=".presentation.SettingsActivity"
             android:exported="false" />

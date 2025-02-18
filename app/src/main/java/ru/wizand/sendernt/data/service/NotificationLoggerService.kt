@@ -9,6 +9,9 @@ import android.util.Log
 import okhttp3.*
 import ru.wizand.sendernt.data.utils.AllowedAppsPreferences
 import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class NotificationLoggerService : NotificationListenerService() {
 
@@ -20,7 +23,7 @@ class NotificationLoggerService : NotificationListenerService() {
         private const val TELEGRAM_CHAT_ID = "299472815"
 
         // Задержка 20 секунд в миллисекундах
-        private const val DELAY_DURATION_MS = 20_000L
+        private const val DELAY_DURATION_MS = 10_000L
     }
 
     // Карта, которая хранит для каждого пакета время последней отправки уведомления
@@ -49,20 +52,20 @@ class NotificationLoggerService : NotificationListenerService() {
 
 
             // Логирование информации об уведомлении
-            Log.d(TAG, "Уведомление получено от пакета: ${it.packageName}")
-            Log.d(TAG, "ID уведомления: ${it.id}")
-            Log.d(TAG, "Время: ${it.postTime}")
+//            Log.d(TAG, "Уведомление получено от пакета: ${it.packageName}")
+//            Log.d(TAG, "ID уведомления: ${it.id}")
+//            Log.d(TAG, "Время: ${it.postTime}")
 
             // Здесь можно выполнить отправку уведомления на сервер
 
-            if (sbn.packageName != "com.google.android.gms") {
-                sendNotificationToServer(it)
-            }
+//            if (sbn.packageName != "com.google.android.gms") {
+//                sendNotificationToServer(it)
+//            }
 
             // Проверка, что уведомление приходит от разрешенного пакета
             if (allowedPackages.contains(packageName)) {
 
-                Log.d(TAG, "Уведомление разрешено и отправлено: ${it.packageName}")
+//                Log.d(TAG, "Уведомление разрешено и отправлено: ${it.packageName}")
 //                sendNotificationToServer(it)
 
                 // Проверка, что уведомления не частят (константа DELAY_DURATION_MS)
@@ -74,23 +77,24 @@ class NotificationLoggerService : NotificationListenerService() {
                     pendingTasks[packageName]?.let { pendingTask ->
                         handler.removeCallbacks(pendingTask)
                         pendingTasks.remove(packageName)
-                        Log.d(TAG, "Отмена предыдущей запланированной задачи для пакета $packageName")
+//                        Log.d(TAG, "Отмена предыдущей запланированной задачи для пакета $packageName")
                     }
                     lastNotificationTimePerPackage[packageName] = currentTime
+
                     sendNotificationToServer(it)
 
                 } else {
                     // Если менее 20 секунд – рассчитываем оставшуюся задержку и планируем задачу
                     val remainingDelay = DELAY_DURATION_MS - (currentTime - lastSentTime)
-                    Log.d(
-                        TAG,
-                        "Запланирована отправка уведомления от пакета $packageName через $remainingDelay мс"
-                    )
+//                    Log.d(
+//                        TAG,
+//                        "Запланирована отправка уведомления от пакета $packageName через $remainingDelay мс"
+//                    )
 
                     // Если ранее уже была запланирована задача для этого пакета - удаляем её.
                     pendingTasks[packageName]?.let { pendingTask ->
                         handler.removeCallbacks(pendingTask)
-                        Log.d(TAG, "Отмена ранее запланированной задачи для пакета $packageName")
+//                        Log.d(TAG, "Отмена ранее запланированной задачи для пакета $packageName")
                     }
 
                     // Чтобы избежать повторных запусков для одного и того же уведомления,
@@ -119,7 +123,7 @@ class NotificationLoggerService : NotificationListenerService() {
 
             } else {
                 // Можно, например, просто игнорировать уведомление
-                Log.d("MyNLS", "Уведомление от $packageName проигнорировано")
+//                Log.d("MyNLS", "Уведомление от $packageName проигнорировано")
             }
         }
     }
@@ -129,7 +133,7 @@ class NotificationLoggerService : NotificationListenerService() {
     override fun onNotificationRemoved(sbn: StatusBarNotification?) {
         super.onNotificationRemoved(sbn)
         sbn?.let {
-            Log.d(TAG, "Уведомление удалено из пакета: ${it.packageName}")
+//            Log.d(TAG, "Уведомление удалено из пакета: ${it.packageName}")
         }
     }
 
@@ -151,20 +155,23 @@ class NotificationLoggerService : NotificationListenerService() {
 
         val packageName = sbn.packageName
         val notification = sbn.notification
+//        val time = sbn.postTime
+        val time = convertTimestampToReadableFormat(sbn.getPostTime())
         val extras = notification.extras
 
-        Log.d(TAG, "Отправка уведомления от $packageName на сервер...")
+
+//        Log.d(TAG, "Отправка уведомления от $packageName на сервер...")
 
         // Получаем текст уведомления
         val text = extras.getCharSequence(Notification.EXTRA_TEXT)?.toString() ?: ""
         // Также можно получить заголовок уведомления
         val title = extras.getCharSequence(Notification.EXTRA_TITLE)?.toString() ?: ""
 
-        val message = "$packageName: $title - $text"
+        val message = " -> $packageName:$time - $title - $text"
 
 
         // Реализация
-        Log.d(TAG, "Подготавливаем отправку уведомления в Telegram: $message")
+//        Log.d(TAG, "Подготавливаем отправку уведомления в Telegram: $message")
 
         // Формируем URL запроса к Telegram Bot API
         val url = "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage"
@@ -184,18 +191,25 @@ class NotificationLoggerService : NotificationListenerService() {
         // Выполняем запрос асинхронно
         httpClient.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
+//                Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
             }
 
             override fun onResponse(call: Call, response: Response) {
                 if (!response.isSuccessful) {
-                    Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${response.message}")
+//                    Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${response.message}")
                 } else {
-                    Log.d(TAG, "Сообщение успешно отправлено через Telegram")
+//                    Log.d(TAG, "Сообщение успешно отправлено через Telegram")
                 }
                 response.close()
             }
         })
     }
+
+    fun convertTimestampToReadableFormat(timestamp: Long): String {
+        val sdf = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
+        val date = Date(timestamp)
+        return sdf.format(date)
+    }
+
 }
 

@@ -8,14 +8,29 @@
     tools:context=".presentation.MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="При первом запуске дать доступ"
-        app:layout_constraintBottom_toTopOf="@+id/btnEnableNotificationAccess"
+        android:layout_marginTop="36dp"
+        android:text="Sender Notifications to Telegram"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:padding="8dp"
+        android:text="The application forwards all notifications from your phone to Telegram via a bot.
+Note: The Telegram Bot API token and the chat number must be specified during the application setup (coming soon).
+Additionally, you will soon be able to filter and forward notifications only from selected apps.
+The application requires permissions to access the network and notifications."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMain" />
 
     <Button
         android:id="@+id/btnEnableNotificationAccess"
@@ -31,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Выбрать приложения:"
+        android:text="Выбрать какие уведомления нужны:"
         app:layout_constraintBottom_toTopOf="@+id/btnSettings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

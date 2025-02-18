@@ -3,9 +3,11 @@ package ru.wizand.sendernt.presentation
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
+import android.view.View
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ru.wizand.sendernt.R
@@ -25,9 +27,16 @@ class MainActivity : AppCompatActivity() {
 //        setContentView(R.layout.activity_main)
 
         setContentView(binding.root)
-        binding.btnEnableNotificationAccess.setOnClickListener {
-            // Переход к настройкам уведомлений для данного приложения
-            startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
+
+        // Если разрешение на доступ к уведомлениям уже дано, скрываем кнопку
+        if (isNotificationServiceEnabled()) {
+            binding.btnEnableNotificationAccess.visibility = View.GONE
+        } else {
+            // Если разрешения нет, назначаем обработчик клика для перехода к настройкам
+            binding.btnEnableNotificationAccess.setOnClickListener {
+                // Переход к настройкам уведомлений для данного приложения
+                startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
+            }
         }
 
 
@@ -42,12 +51,20 @@ class MainActivity : AppCompatActivity() {
         val btnSettings = findViewById<Button>(R.id.btnSettings)
         btnSettings.setOnClickListener {
             // Создаем Intent для перехода в SettingsActivity
-            val intent = Intent(this, SettingsActivity::class.java)
+            val intent = Intent(this, SettingsGlobalActivity::class.java)
             startActivity(intent)
         }
 
 
 
 
+    }
+
+    /**
+     * Проверяет, включен ли доступ к уведомлениям для данного приложения.
+     */
+    private fun isNotificationServiceEnabled(): Boolean {
+        val enabledPackages = NotificationManagerCompat.getEnabledListenerPackages(this)
+        return enabledPackages.contains(packageName)
     }
 }
