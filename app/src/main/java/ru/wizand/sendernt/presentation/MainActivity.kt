@@ -1,10 +1,12 @@
 package ru.wizand.sendernt.presentation
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationManagerCompat
@@ -38,6 +40,19 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
             }
         }
+
+        // Достаем данные из SharedPreferences
+        val sharedPref = getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
+        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "Нет данных")
+        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "Нет данных")
+
+        // Проверка на null или значение по умолчанию
+        if (botId.isNullOrEmpty() || chatId.isNullOrEmpty() || botId == "Нет данных" || chatId == "Нет данных") {
+            Toast.makeText(this, "Пожалуйста, укажите значения в настройках", Toast.LENGTH_SHORT).show()
+        }
+//        else {
+//            // Данные получены, можно работать с botId и chatId
+//        }
 
 
 

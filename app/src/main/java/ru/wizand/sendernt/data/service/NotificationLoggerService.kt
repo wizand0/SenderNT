@@ -1,6 +1,7 @@
 package ru.wizand.sendernt.data.service
 
 import android.app.Notification
+import android.content.Context
 import android.os.Looper
 import android.os.Handler
 import android.service.notification.NotificationListenerService
@@ -8,6 +9,7 @@ import android.service.notification.StatusBarNotification
 import android.util.Log
 import okhttp3.*
 import ru.wizand.sendernt.data.utils.AllowedAppsPreferences
+import ru.wizand.sendernt.presentation.SettingsGlobalActivity
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -26,6 +28,8 @@ class NotificationLoggerService : NotificationListenerService() {
         private const val DELAY_DURATION_MS = 10_000L
     }
 
+
+
     // Карта, которая хранит для каждого пакета время последней отправки уведомления
     private val lastNotificationTimePerPackage = mutableMapOf<String, Long>()
 
@@ -39,6 +43,7 @@ class NotificationLoggerService : NotificationListenerService() {
     // Вызывается, когда новое уведомление появляется в панели уведомлений
     override fun onNotificationPosted(sbn: StatusBarNotification?) {
         super.onNotificationPosted(sbn)
+
         sbn?.let {
 
             // Cписок пакетов от которых можно пересылать уведомления
@@ -149,6 +154,14 @@ class NotificationLoggerService : NotificationListenerService() {
 
     // Пример функции отправки уведомления на сервер
     private fun sendNotificationToServer(sbn: StatusBarNotification) {
+
+        // Достаем данные из SharedPreferences
+        val sharedPref = getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
+        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "Нет данных")
+        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "Нет данных")
+
+
+
         // Здесь можно реализовать отправку данных на сервер с помощью Retrofit, Volley или любой другой библиотеки.
         // Для простоты выводим лог.
 //        val message = sbn.toString()
@@ -174,11 +187,13 @@ class NotificationLoggerService : NotificationListenerService() {
 //        Log.d(TAG, "Подготавливаем отправку уведомления в Telegram: $message")
 
         // Формируем URL запроса к Telegram Bot API
-        val url = "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage"
+//        val url = "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage"
+        val url = "https://api.telegram.org/bot$botId/sendMessage"
 
         // Формируем тело запроса с параметрами chat_id и text
         val requestBody = FormBody.Builder()
-            .add("chat_id", TELEGRAM_CHAT_ID)
+//            .add("chat_id", TELEGRAM_CHAT_ID)
+            .add("chat_id", chatId!!)
             .add("text", message)
             .build()
 
@@ -192,6 +207,7 @@ class NotificationLoggerService : NotificationListenerService() {
         httpClient.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
 //                Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
+
             }
 
             override fun onResponse(call: Call, response: Response) {
