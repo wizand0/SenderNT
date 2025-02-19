@@ -1,19 +1,24 @@
 package ru.wizand.sendernt.presentation
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import android.widget.ToggleButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ru.wizand.sendernt.R
+import ru.wizand.sendernt.data.service.NotificationLoggerService
 import ru.wizand.sendernt.databinding.ActivityMainBinding
+import ru.wizand.sendernt.presentation.SettingsGlobalActivity.Companion.KEY_SERVICE_ENABLED
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,17 +47,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Достаем данные из SharedPreferences
-        val sharedPref = getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
-        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "Нет данных")
-        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "Нет данных")
+        val sharedPref =
+            getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
+        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, getString(R.string.no_data))
+        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, getString(R.string.no_data))
 
-        // Проверка на null или значение по умолчанию
-        if (botId.isNullOrEmpty() || chatId.isNullOrEmpty() || botId == "Нет данных" || chatId == "Нет данных") {
-            Toast.makeText(this, "Пожалуйста, укажите значения в настройках", Toast.LENGTH_SHORT).show()
-        }
-//        else {
-//            // Данные получены, можно работать с botId и chatId
-//        }
+        // Кнопка инициализации службы
+        val toggleService = findViewById<ToggleButton>(R.id.toggle_service)
+
+
 
 
 
@@ -71,6 +74,25 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        // Получаем сохраненное состояние работы службы, по умолчанию false
+        val isServiceEnabled = sharedPref.getBoolean(KEY_SERVICE_ENABLED, false)
+
+        // Устанавливаем положение переключателя
+        toggleService.isChecked = isServiceEnabled
+
+        // Применяем состояние службы: включаем или выключаем компонент
+        setNotificationServiceEnabled(isServiceEnabled)
+
+        // Слушатель переключения toggleButton
+        toggleService.setOnCheckedChangeListener { _, isChecked ->
+            // Изменяем состояние службы
+            setNotificationServiceEnabled(isChecked)
+            // Сохраняем новое состояние в SharedPreferences
+            with(sharedPref.edit()) {
+                putBoolean(KEY_SERVICE_ENABLED, isChecked)
+                apply() // можно использовать commit(), если нужна синхронная запись
+            }
+        }
 
 
     }
@@ -81,5 +103,59 @@ class MainActivity : AppCompatActivity() {
     private fun isNotificationServiceEnabled(): Boolean {
         val enabledPackages = NotificationManagerCompat.getEnabledListenerPackages(this)
         return enabledPackages.contains(packageName)
+    }
+
+    /**
+     * Включает или отключает компонент NotificationLoggerService.
+     *
+     * При включении компонент переводится в состояние
+     * PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+     * при отключении – в состояние COMPONENT_ENABLED_STATE_DISABLED.
+     *
+     *
+     * Note: При отключенном состоянии служба не будет активироваться системой.
+     */
+    private fun setNotificationServiceEnabled(enabled: Boolean) {
+        val componentName = ComponentName(this, NotificationLoggerService::class.java)
+
+        // Достаем данные из SharedPreferences
+        val sharedPref =
+            getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
+        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID,
+            getString(R.string.no_data))
+        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, getString(R.string.no_data))
+
+        Toast.makeText(this, "botId: $botId; chatId: $chatId", Toast.LENGTH_SHORT).show()
+
+        val newState = if (enabled)
+            PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+        else
+            PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+
+
+        // Проверка на null настроек чата telegram или значение по умолчанию
+        if (botId.isNullOrEmpty() || chatId.isNullOrEmpty() || botId == getString(R.string.no_data) || chatId == getString(R.string.no_data)) {
+
+//            Toast.makeText(this, "botId: $botId; chatId: $chatId", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(this, getString(R.string.preferences_for_telegram), Toast.LENGTH_SHORT)
+                .show()
+        } else {
+
+//            Toast.makeText(this, "botId: $botId; chatId: $chatId", Toast.LENGTH_SHORT).show()
+            // Данные получены, можно работать с botId и chatId
+            packageManager.setComponentEnabledSetting(
+                componentName,
+                newState,
+                PackageManager.DONT_KILL_APP
+            )
+        }
+
+
+//        packageManager.setComponentEnabledSetting(
+//            componentName,
+//            newState,
+//            PackageManager.DONT_KILL_APP
+//        )
     }
 }

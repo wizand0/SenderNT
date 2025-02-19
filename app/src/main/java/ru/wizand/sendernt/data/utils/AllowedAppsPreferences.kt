@@ -4,7 +4,7 @@ import android.content.Context
 
 // Утилита для сохранения/выбора разрешённых приложений
 object AllowedAppsPreferences {
-    private const val PREFS_NAME = "allowed_apps_prefs"
+    private const val PREFS_NAME = "MyPrefs"
     private const val KEY_ALLOWED_PACKAGES = "allowed_packages"
 
     fun saveAllowedPackages(context: Context, allowedPackages: Set<String>) {

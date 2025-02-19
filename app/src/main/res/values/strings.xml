@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">SenderNT</string>
+    <string name="no_data">No data</string>
+    <string name="preferences_for_telegram">Please specify the settings for Telegram</string>
+    <string name="allow_notifications">Allow access to notifications</string>
+    <string name="preferences">Service settings:</string>
+    <string name="go_to_preferences">Go to settings</string>
+    <string name="big_main_text">The application forwards all notifications from your phone to Telegram via a bot. Note: The Telegram Bot API token and the chat number must be specified during the application setup. Additionally, you will soon be able to filter and forward notifications only from selected apps. The application requires permissions to access the network and notifications.</string>
+    <string name="service_off">Service is off</string>
+    <string name="service_on">Service is on</string>
+    <string name="full_name">Sender Notification to Telegram</string>
+    <string name="main_name">SenderNT</string>
+    <string name="back_btn">Back</string>
+    <string name="apps">Applications</string>
+    <string name="battery_optimization_btn">Disable battery optimization</string>
+    <string name="save">Save</string>
+    <string name="id_chat_textview">Enter the your chat ID</string>
+    <string name="id_telegram_bot_textview">Enter the Telegram bot ID</string>
+    <string name="permission_granted">Permission already granted</string>
+    <string name="enter_all_fields">Please fill in both fields correctly</string>
+    <string name="data_saved">Data saved</string>
 </resources>

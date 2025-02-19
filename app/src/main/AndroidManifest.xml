@@ -36,14 +36,14 @@
             </intent-filter>
         </activity> <!-- Объявление сервиса для получения уведомлений -->
         <service
-            android:name=".data.service.NotificationLoggerService"
-            android:exported="true"
-            android:label="Notification Logger"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService" />
-            </intent-filter>
-        </service>
+        android:name=".data.service.NotificationLoggerService"
+        android:exported="true"
+        android:label="Notification Logger"
+        android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+        <intent-filter>
+            <action android:name="android.service.notification.NotificationListenerService" />
+        </intent-filter>
+    </service>
     </application>
 
 </manifest>

@@ -21,8 +21,8 @@ class NotificationLoggerService : NotificationListenerService() {
         private const val TAG = "NotificationLogger"
 
         // Замените YOUR_BOT_TOKEN и YOUR_CHAT_ID на реальные данные
-        private const val TELEGRAM_BOT_TOKEN = "8141905611:AAG5T_2oqEhE4tQi4SmgsTSlLzq9tHiTM1U"
-        private const val TELEGRAM_CHAT_ID = "299472815"
+//        private const val TELEGRAM_BOT_TOKEN = "8141905611:AAG5T_2oqEhE4tQi4SmgsTSlLzq9tHiTM1U"
+//        private const val TELEGRAM_CHAT_ID = "299472815"
 
         // Задержка 20 секунд в миллисекундах
         private const val DELAY_DURATION_MS = 10_000L
@@ -157,8 +157,8 @@ class NotificationLoggerService : NotificationListenerService() {
 
         // Достаем данные из SharedPreferences
         val sharedPref = getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
-        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "Нет данных")
-        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "Нет данных")
+        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "No_data")
+        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "No_data")
 
 
 
@@ -206,15 +206,15 @@ class NotificationLoggerService : NotificationListenerService() {
         // Выполняем запрос асинхронно
         httpClient.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-//                Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
+                Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
 
             }
 
             override fun onResponse(call: Call, response: Response) {
                 if (!response.isSuccessful) {
-//                    Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${response.message}")
+                    Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${response.message}")
                 } else {
-//                    Log.d(TAG, "Сообщение успешно отправлено через Telegram")
+                    Log.d(TAG, "Сообщение успешно отправлено через Telegram")
                 }
                 response.close()
             }

@@ -12,24 +12,29 @@ The application requires permissions to access the network and notifications.
 
 - Forward phone notifications to Telegram using a bot.
 - Configure the bot API token and chat ID for notification sending.
-- (Coming soon) Filter notifications from specific applications.
+- Filter notifications from specific applications.
+- Enabling/disabling the service in settings;
+- Localization (Ru; En)
 
 ## Screenshots
 
 The following screenshots illustrate key parts of the application:
 
-|          Login screen          |           Main View            |
+|          Main screen           |           Main View            |
 |:------------------------------:|:------------------------------:|
-| ![screenshot](screenshot1.png) | ![screenshot](screenshot2.png) |
+| ![screenshot](images/screenshot1.png) | ![screenshot](images/screenshot2.png) |
 
 |         Searching bar          |             Export             |
 |:------------------------------:|:------------------------------:|
-| ![screenshot](screenshot3.png) | ![screenshot](screenshot4.png) |
+| ![screenshot](images/screenshot3.png) | ![screenshot](screenshot4.png) |
 
 ## TODO
-- Implement the bot API token and chat configuration.
-- Develop filtering for app-specific notifications.
+- ~~Enabling/disabling the service in settings;~~
+- ~~Implement the bot API token and chat configuration.~~
+- ~~Develop filtering for app-specific notifications.~~
 - Improve the UI/UX and add additional features.
+- Beautiful and user-friendly UI;
+- ~~Localization (Ru; En)~~
 
 ## Very long-term TODO
 - Integrate with cloud storage for backup settings.
@@ -41,6 +46,8 @@ The following screenshots illustrate key parts of the application:
 - Kotlin Coroutines for asynchronous operations.
 
 ## Versions
+- v1.1: Enabling/disabling the service in settings;
+- v0.5: Basic functionality;
 - v0.1: Initial version (beta)
 
 ## Useful resources
@@ -64,7 +71,9 @@ The following screenshots illustrate key parts of the application:
 
 - Пересылка уведомлений с телефона в Telegram через бота.
 - Настройка API токена бота и ID чата для отправки уведомлений.
-- (Скоро будет) Фильтрация уведомлений по конкретным приложениям.
+- Фильтрация уведомлений по конкретным приложениям.
+- Включение/выключение службы в настройках;
+- Локализация на русский и английский языки;
 
 ## Скриншоты
 
@@ -72,16 +81,18 @@ The following screenshots illustrate key parts of the application:
 
 |          Экран входа           |           Основное окно         |
 |:------------------------------:|:------------------------------:|
-| ![screenshot](screenshot1.png) | ![screenshot](screenshot2.png) |
+| ![screenshot](images/screenshot1.png) | ![screenshot](images/screenshot2.png) |
 
 |         Панель поиска          |             Экспорт            |
 |:------------------------------:|:------------------------------:|
-| ![screenshot](screenshot3.png) | ![screenshot](screenshot4.png) |
+| ![screenshot](images/screenshot3.png) | ![screenshot](screenshot4.png) |
 
 ## TODO
-- Реализовать настройку API токена бота и номера чата.
-- Разработать фильтрацию уведомлений по приложениям.
+- ~~Реализовать настройку API токена бота и номера чата.~~
+- ~~Разработать фильтрацию уведомлений по приложениям.~~
 - Улучшить пользовательский интерфейс и добавить новые функции.
+- ~~Включение/выключение службы в настройках;~~
+- Красивое  и удобное UI;
 
 ## Долгосрочные TODO
 - Интегрировать облачное хранилище для резервного копирования настроек.
@@ -93,8 +104,9 @@ The following screenshots illustrate key parts of the application:
 - Kotlin Coroutines для асинхронных операций.
 
 ## Версии
-- v0.1: Первая версия (бета)
+- v1.1: Включение/выключение службы в настройках;
 - v0.5: Базовая функциональность
+- v0.1: Первая версия (бета)
 
 ## Полезные ресурсы
 - [Документация по Kotlin](https://kotlinlang.org/docs/reference/)

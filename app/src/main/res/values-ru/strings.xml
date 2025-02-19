@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">SenderNT</string>
+    <string name="no_data">Нет данных</string>
+    <string name="preferences_for_telegram">Пожалуйста, укажите настройки для Telegram</string>
+    <string name="allow_notifications">Разрешить доступ к уведомлениям</string>
+    <string name="preferences">Настройки сервиса:</string>
+    <string name="go_to_preferences">Перейти к настройкам</string>
+    <string name="big_main_text">Приложение пересылает все уведомления с вашего телефона в Telegram через бот. Обратите внимание: API токен бота Telegram и номер чата должны быть указаны при настройке приложения. Кроме того, вы можете фильтровать и пересылать уведомления только от выбранных приложений. Приложение требует разрешений для доступа к сети и уведомлениям.</string>
+    <string name="service_off">Сервис выключен</string>
+    <string name="service_on">Сервис включен</string>
+    <string name="full_name">Пересылка уведомлений в Telegram</string>
+    <string name="main_name">SenderNT</string>
+    <string name="back_btn">Назад</string>
+    <string name="apps">Приложения</string>
+    <string name="battery_optimization_btn">Отключить оптимизацию батареи</string>
+    <string name="save">Сохранить</string>
+    <string name="id_chat_textview">Введите ID чата получателя</string>
+    <string name="id_telegram_bot_textview">Введите ID бота Telegram</string>
+    <string name="permission_granted">Разрешение уже предоставлено</string>
+    <string name="enter_all_fields">Пожалуйста, правильно заполните оба поля</string>
+    <string name="data_saved">Данные сохранены</string>
+</resources>
