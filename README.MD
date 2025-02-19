@@ -35,6 +35,12 @@ The following screenshots illustrate key parts of the application:
 - Improve the UI/UX and add additional features.
 - Beautiful and user-friendly UI;
 - ~~Localization (Ru; En)~~
+- Beautiful and user-friendly UI;
+- Sending a test notification;
+- Fix periodic malfunctioning of toggles in the applications activity;
+- Fix buttons for navigating to Telegram bots (to get the ID);
+- Fix the display of the dark theme;
+- Add "live" search in the application list as characters are entered.
 
 ## Very long-term TODO
 - Integrate with cloud storage for backup settings.
@@ -64,8 +70,8 @@ The following screenshots illustrate key parts of the application:
 ### от Wizand0
 
 Это приложение пересылает все уведомления с вашего телефона в Telegram через бота.  
-**Примечание:** API токен бота и номер чата необходимо указывать в настройках приложения (скоро будет).  
-Также в скором времени появится возможность пересылать уведомления только от выбранных приложений.
+**Примечание:** API токен бота и номер чата необходимо указывать в настройках приложения.  
+Также, есть возможность пересылать уведомления только от выбранных приложений.
 
 Приложению требуются разрешения на доступ к сети и уведомлениям.
 
@@ -95,6 +101,12 @@ The following screenshots illustrate key parts of the application:
 - Улучшить пользовательский интерфейс и добавить новые функции.
 - ~~Включение/выключение службы в настройках;~~
 - Красивое  и удобное UI;
+- Отправка тестового уведомления;
+- Исправить периодическое несрабатывание переключателей в активности приложений
+- Исправить кнопки для перехода в телеграм боты (для получения ID)
+- Исправить отображение темной темы
+- Добавить "живой" поиск в списке приложений по мере ввода символов
+- Добавить меню или кнопки для связи с автором (обратная связь) и ссылку на github
 
 ## Долгосрочные TODO
 - Интегрировать облачное хранилище для резервного копирования настроек.
