@@ -1,6 +1,7 @@
 package ru.wizand.sendernt.data.utils
 
 import android.content.Context
+import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import ru.wizand.sendernt.domain.AppInfo
 
@@ -9,12 +10,11 @@ import ru.wizand.sendernt.domain.AppInfo
 class AppUtils {
 
     fun getInstalledApps(context: Context): List<AppInfo> {
-
         val packageManager = context.packageManager
-
-        val installedApplications = packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
-
+        val installedApplications =
+            packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
         val allowedPackages = AllowedAppsPreferences.getAllowedPackages(context)
+
         // Получаем все приложения, для которых можно запустить MainActivity (то есть имеющие launcher intent)
 //        val intent = Intent(Intent.ACTION_MAIN).apply { addCategory(Intent.CATEGORY_LAUNCHER) }
 //
@@ -33,8 +33,25 @@ class AppUtils {
 //            }
 //        }.sortedBy { it.appName }
 
+        // Фильтруем список: исключаем системные приложения, если они не обновлены, и приложения без лаунчера
+        val filteredApps = installedApplications.filter { appInfo ->
+            // Если приложение вообще можно запустить (есть launcher-интент)
+            val launchIntent = packageManager.getLaunchIntentForPackage(appInfo.packageName)
+            val hasLauncher = launchIntent != null
+
+            // Определяем, является ли приложение чисто системным
+            val isSystemApp = (appInfo.flags and ApplicationInfo.FLAG_SYSTEM) != 0 &&
+                    (appInfo.flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
+
+            hasLauncher && !isSystemApp
+        }
+
         // Пример получения всех установленных приложений
-        return installedApplications.mapNotNull { appInfo ->
+
+        // Или вообще все-все (для этого нужно раскомментировать строку а наже закомментировать)
+//        return installedApplications.mapNotNull { appInfo ->
+        // Или отфильтрованные "не системные"
+        return filteredApps.mapNotNull { appInfo ->
             try {
                 AppInfo(
                     packageName = appInfo.packageName,
@@ -46,10 +63,5 @@ class AppUtils {
                 null
             }
         }.sortedBy { it.appName }
-
-
-
-
     }
-
 }
