@@ -57,7 +57,7 @@
         android:ems="10"
         android:inputType="text"
         android:text="@string/no_data"
-        app:layout_constraintStart_toStartOf="@+id/TextViewBot"
+        app:layout_constraintStart_toStartOf="@+id/btnBack"
         app:layout_constraintTop_toBottomOf="@+id/TextViewBot" />
 
     <TextView
@@ -90,6 +90,38 @@
         android:text="@string/save"
         app:layout_constraintStart_toStartOf="@+id/editTextChatID"
         app:layout_constraintTop_toBottomOf="@+id/editTextChatID" />
+
+    <!-- Кнопка для открытия BotFather -->
+    <ImageButton
+        android:id="@+id/buttonOpenBotFather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/open_app"
+        android:background="@color/white"
+        android:padding="8dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextBotID"
+        app:layout_constraintStart_toEndOf="@+id/editTextBotID"
+        app:layout_constraintTop_toTopOf="@+id/editTextBotID"
+        />
+
+    <!-- Кнопка для открытия get_id_bot -->
+    <ImageButton
+        android:id="@+id/buttonOpenGetIdBot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/open_app"
+        android:background="@color/white"
+        android:padding="8dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextChatID"
+        app:layout_constraintStart_toEndOf="@+id/editTextChatID"
+        app:layout_constraintTop_toTopOf="@+id/editTextChatID"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

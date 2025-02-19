@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.Settings
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import ru.wizand.sendernt.R
 import ru.wizand.sendernt.data.service.NotificationLoggerService
 import ru.wizand.sendernt.databinding.ActivityMainBinding
@@ -49,8 +51,8 @@ class MainActivity : AppCompatActivity() {
         // Достаем данные из SharedPreferences
         val sharedPref =
             getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
-        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, getString(R.string.no_data))
-        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, getString(R.string.no_data))
+        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "No_data")
+        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "No_data")
 
         // Кнопка инициализации службы
         val toggleService = findViewById<ToggleButton>(R.id.toggle_service)
@@ -122,10 +124,10 @@ class MainActivity : AppCompatActivity() {
         val sharedPref =
             getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
         val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID,
-            getString(R.string.no_data))
-        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, getString(R.string.no_data))
+            "No_data")
+        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "No_data")
 
-        Toast.makeText(this, "botId: $botId; chatId: $chatId", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "botId: $botId; chatId: $chatId", Toast.LENGTH_SHORT).show()
 
         val newState = if (enabled)
             PackageManager.COMPONENT_ENABLED_STATE_ENABLED
@@ -134,9 +136,11 @@ class MainActivity : AppCompatActivity() {
 
 
         // Проверка на null настроек чата telegram или значение по умолчанию
-        if (botId.isNullOrEmpty() || chatId.isNullOrEmpty() || botId == getString(R.string.no_data) || chatId == getString(R.string.no_data)) {
+        if (botId.isNullOrEmpty() || chatId.isNullOrEmpty() || botId == "No_data" || chatId == "No_data") {
 
 //            Toast.makeText(this, "botId: $botId; chatId: $chatId", Toast.LENGTH_SHORT).show()
+
+            showInstructionDialog()
 
             Toast.makeText(this, getString(R.string.preferences_for_telegram), Toast.LENGTH_SHORT)
                 .show()
@@ -157,5 +161,22 @@ class MainActivity : AppCompatActivity() {
 //            newState,
 //            PackageManager.DONT_KILL_APP
 //        )
+    }
+
+    private fun showInstructionDialog() {
+        // Инфлейтим наш кастомный layout для диалога
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.instruction_long_dialog, null)
+
+        // Создаем диалог с использованием MaterialAlertDialogBuilder (для Material стиля)
+        val dialog = MaterialAlertDialogBuilder(this)
+            .setView(dialogView)
+            .setCancelable(false) // делаем диалог обязательным к прочтению
+            .create()
+
+        // Обработка клика по кнопке «Понятно»
+        dialogView.findViewById<com.google.android.material.button.MaterialButton>(R.id.btnDialogOk)
+            .setOnClickListener { dialog.dismiss() }
+
+        dialog.show()
     }
 }

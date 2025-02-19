@@ -20,13 +20,13 @@ The application requires permissions to access the network and notifications.
 
 The following screenshots illustrate key parts of the application:
 
-|          Main screen           |           Main View            |
-|:------------------------------:|:------------------------------:|
+|              Main screen              |             Settings View             |
+|:-------------------------------------:|:-------------------------------------:|
 | ![screenshot](images/screenshot1.png) | ![screenshot](images/screenshot2.png) |
 
-|         Searching bar          |             Export             |
-|:------------------------------:|:------------------------------:|
-| ![screenshot](images/screenshot3.png) | ![screenshot](screenshot4.png) |
+|                 Apps                  |         Notifications access          |
+|:-------------------------------------:|:-------------------------------------:|
+| ![screenshot](images/screenshot3.png) | ![screenshot](images/screenshot4.png) |
 
 ## TODO
 - ~~Enabling/disabling the service in settings;~~
@@ -46,6 +46,8 @@ The following screenshots illustrate key parts of the application:
 - Kotlin Coroutines for asynchronous operations.
 
 ## Versions
+- v1.2: Help windows, some fixes
+- v1.1.5: Some fixes. Starting implement material design
 - v1.1: Enabling/disabling the service in settings;
 - v0.5: Basic functionality;
 - v0.1: Initial version (beta)
@@ -79,13 +81,13 @@ The following screenshots illustrate key parts of the application:
 
 Ниже представлены скриншоты, демонстрирующие ключевые экраны приложения:
 
-|          Экран входа           |           Основное окно         |
-|:------------------------------:|:------------------------------:|
+|             Главный экран             |            Экран настроек             |
+|:-------------------------------------:|:-------------------------------------:|
 | ![screenshot](images/screenshot1.png) | ![screenshot](images/screenshot2.png) |
 
-|         Панель поиска          |             Экспорт            |
-|:------------------------------:|:------------------------------:|
-| ![screenshot](images/screenshot3.png) | ![screenshot](screenshot4.png) |
+|           Список приложений           |         Доступ к уведомлениям         |
+|:-------------------------------------:|:-------------------------------------:|
+| ![screenshot](images/screenshot3.png) | ![screenshot](images/screenshot4.png) |
 
 ## TODO
 - ~~Реализовать настройку API токена бота и номера чата.~~
@@ -98,15 +100,6 @@ The following screenshots illustrate key parts of the application:
 - Интегрировать облачное хранилище для резервного копирования настроек.
 - Добавить расширенную аналитику уведомлений.
 
-## Используемые технологии
-- Kotlin
-- SharedPreferences
-- Kotlin Coroutines для асинхронных операций.
-
-## Версии
-- v1.1: Включение/выключение службы в настройках;
-- v0.5: Базовая функциональность
-- v0.1: Первая версия (бета)
 
 ## Полезные ресурсы
 - [Документация по Kotlin](https://kotlinlang.org/docs/reference/)

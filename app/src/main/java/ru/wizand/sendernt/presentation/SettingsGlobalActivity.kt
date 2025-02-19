@@ -16,6 +16,9 @@ import android.os.PowerManager
 import android.os.Build
 import android.provider.Settings
 import android.net.Uri
+import android.view.LayoutInflater
+import android.widget.ImageButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class SettingsGlobalActivity : AppCompatActivity() {
 
@@ -41,6 +44,8 @@ class SettingsGlobalActivity : AppCompatActivity() {
         }
 
 
+
+
         val btnBack = findViewById<Button>(R.id.btnBack)
         btnBack.setOnClickListener {
             // Завершаем активность, возвращаясь к предыдущей (MainActivity)
@@ -63,6 +68,41 @@ class SettingsGlobalActivity : AppCompatActivity() {
         val editTextChatID = findViewById<EditText>(R.id.editTextChatID)
         val buttonSave = findViewById<Button>(R.id.buttonSave)
 
+        val buttonOpenBotFather = findViewById<ImageButton>(R.id.buttonOpenBotFather)
+        val buttonOpenGetIdBot = findViewById<ImageButton>(R.id.buttonOpenGetIdBot)
+
+        buttonOpenBotFather.setOnClickListener {
+            openTelegramBot("BotFather")
+        }
+
+        buttonOpenGetIdBot.setOnClickListener {
+            openTelegramBot("get_id_bot")
+        }
+
+        // Читаем сохранённые значения из SharedPreferences с дефолтным значением "No_data"
+        val sharedPref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val savedBotId = sharedPref.getString(KEY_BOT_ID, "No_data")
+        val savedChatId = sharedPref.getString(KEY_CHAT_ID, "No_data")
+
+        // Если одно из значений отсутствует или равно "No_data", то устанавливаем "No_data"
+        if (savedBotId == null || savedBotId == "No_data") {
+            editTextBotID.setText(getString(R.string.no_data))
+        } else {
+            editTextBotID.setText(savedBotId)
+        }
+
+        if (savedChatId == null || savedChatId == "No_data") {
+            editTextChatID.setText(getString(R.string.no_data))
+        } else {
+            editTextChatID.setText(savedChatId)
+        }
+
+        if (savedChatId == null || savedChatId == "No_data" || savedBotId == null || savedBotId == "No_data") {
+            showInstructionDialog()
+        }
+
+
+
         buttonSave.setOnClickListener {
             // Получаем текст из EditText и обрезаем пробелы
             val botId = editTextBotID.text?.toString()?.trim()
@@ -82,7 +122,6 @@ class SettingsGlobalActivity : AppCompatActivity() {
                 Toast.makeText(this, getString(R.string.data_saved), Toast.LENGTH_SHORT).show()
             }
         }
-
     }
 
     private fun requestIgnoreBatteryOptimizations(context: Context) {
@@ -106,5 +145,30 @@ class SettingsGlobalActivity : AppCompatActivity() {
                 Toast.makeText(this, getString(R.string.permission_granted), Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+
+    private fun showInstructionDialog() {
+        // Инфлейтим наш кастомный layout для диалога
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.instruction_dialog, null)
+
+        // Создаем диалог с использованием MaterialAlertDialogBuilder (для Material стиля)
+        val dialog = MaterialAlertDialogBuilder(this)
+            .setView(dialogView)
+            .setCancelable(false) // делаем диалог обязательным к прочтению
+            .create()
+
+        // Обработка клика по кнопке «Понятно»
+        dialogView.findViewById<com.google.android.material.button.MaterialButton>(R.id.btnDialogOk)
+            .setOnClickListener { dialog.dismiss() }
+
+        dialog.show()
+    }
+
+    private fun openTelegramBot(botUsername: String) {
+        val uri = Uri.parse("https://t.me/$botUsername")
+        Toast.makeText(this, uri.toString(), Toast.LENGTH_SHORT).show()
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        startActivity(intent)
     }
 }

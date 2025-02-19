@@ -20,12 +20,12 @@ class NotificationLoggerService : NotificationListenerService() {
     companion object {
         private const val TAG = "NotificationLogger"
 
-        // Замените YOUR_BOT_TOKEN и YOUR_CHAT_ID на реальные данные
-//        private const val TELEGRAM_BOT_TOKEN = "8141905611:AAG5T_2oqEhE4tQi4SmgsTSlLzq9tHiTM1U"
-//        private const val TELEGRAM_CHAT_ID = "299472815"
+        // Замените YOUR_BOT_TOKEN и YOUR_CHAT_ID на реальные данные (для тестирования)
+//        private const val TELEGRAM_BOT_TOKEN = ""
+//        private const val TELEGRAM_CHAT_ID = ""
 
         // Задержка 20 секунд в миллисекундах
-        private const val DELAY_DURATION_MS = 10_000L
+        private const val DELAY_DURATION_MS = 15_000L
     }
 
 
@@ -56,6 +56,10 @@ class NotificationLoggerService : NotificationListenerService() {
 
 
 
+            // Тестирование работоспособности. Удалить после азвершения тестов
+//            val messageTest = sbn.toString()
+//            Log.e(TAG, "сформировано:  $messageTest")
+
             // Логирование информации об уведомлении
 //            Log.d(TAG, "Уведомление получено от пакета: ${it.packageName}")
 //            Log.d(TAG, "ID уведомления: ${it.id}")
@@ -67,10 +71,13 @@ class NotificationLoggerService : NotificationListenerService() {
 //                sendNotificationToServer(it)
 //            }
 
+            Log.e(TAG, "Пакет:  $packageName")
+            Log.e(TAG, "Есть ли он в разрешенных:  ${allowedPackages.contains(packageName)}")
+
             // Проверка, что уведомление приходит от разрешенного пакета
             if (allowedPackages.contains(packageName)) {
 
-//                Log.d(TAG, "Уведомление разрешено и отправлено: ${it.packageName}")
+                Log.d(TAG, "Уведомление разрешено и отправлено: ${it.packageName}")
 //                sendNotificationToServer(it)
 
                 // Проверка, что уведомления не частят (константа DELAY_DURATION_MS)
@@ -91,6 +98,7 @@ class NotificationLoggerService : NotificationListenerService() {
                 } else {
                     // Если менее 20 секунд – рассчитываем оставшуюся задержку и планируем задачу
                     val remainingDelay = DELAY_DURATION_MS - (currentTime - lastSentTime)
+                    Log.d(TAG, "Не частим: ${it.packageName} - $remainingDelay")
 //                    Log.d(
 //                        TAG,
 //                        "Запланирована отправка уведомления от пакета $packageName через $remainingDelay мс"
@@ -99,8 +107,10 @@ class NotificationLoggerService : NotificationListenerService() {
                     // Если ранее уже была запланирована задача для этого пакета - удаляем её.
                     pendingTasks[packageName]?.let { pendingTask ->
                         handler.removeCallbacks(pendingTask)
-//                        Log.d(TAG, "Отмена ранее запланированной задачи для пакета $packageName")
+                        Log.d(TAG, "Отмена ранее запланированной задачи для пакета $packageName")
                     }
+
+
 
                     // Чтобы избежать повторных запусков для одного и того же уведомления,
                     // можно отменять ранее запланированные задачи для этого пакета.
@@ -128,7 +138,7 @@ class NotificationLoggerService : NotificationListenerService() {
 
             } else {
                 // Можно, например, просто игнорировать уведомление
-//                Log.d("MyNLS", "Уведомление от $packageName проигнорировано")
+                Log.d("MyNLS", "Уведомление от $packageName проигнорировано")
             }
         }
     }
@@ -138,7 +148,7 @@ class NotificationLoggerService : NotificationListenerService() {
     override fun onNotificationRemoved(sbn: StatusBarNotification?) {
         super.onNotificationRemoved(sbn)
         sbn?.let {
-//            Log.d(TAG, "Уведомление удалено из пакета: ${it.packageName}")
+            Log.d(TAG, "Уведомление удалено из пакета: ${it.packageName}")
         }
     }
 
@@ -164,7 +174,10 @@ class NotificationLoggerService : NotificationListenerService() {
 
         // Здесь можно реализовать отправку данных на сервер с помощью Retrofit, Volley или любой другой библиотеки.
         // Для простоты выводим лог.
-//        val message = sbn.toString()
+
+        // Тестирование работоспособности. Удалить после азвершения тестов
+        val messageTest = sbn.toString()
+        Log.e(TAG, "сформировано:  $messageTest")
 
         val packageName = sbn.packageName
         val notification = sbn.notification
@@ -173,7 +186,7 @@ class NotificationLoggerService : NotificationListenerService() {
         val extras = notification.extras
 
 
-//        Log.d(TAG, "Отправка уведомления от $packageName на сервер...")
+
 
         // Получаем текст уведомления
         val text = extras.getCharSequence(Notification.EXTRA_TEXT)?.toString() ?: ""

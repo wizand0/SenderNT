@@ -46,6 +46,7 @@
         android:id="@+id/textViewText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:justificationMode="inter_word"
         android:layout_marginTop="104dp"
         android:padding="8dp"
         android:text="@string/big_main_text"
