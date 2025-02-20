@@ -1,4 +1,4 @@
-# SenderNT
+# SenderNT v.1.3.2
 ## Sender Notifications to Telegram
 ### by Wizand0
 
