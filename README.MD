@@ -7,7 +7,7 @@
 
 [![version](images/logo-color-light.png)](https://www.rustore.ru/catalog/app/ru.wizand.sendernt)
 
-[![version](images/qrCode.png)](https://pay.cloudtips.ru/p/ae98679b)
+[Donate](https://pay.cloudtips.ru/p/ae98679b)
 
 The application forwards all notifications from your phone to Telegram via a bot.  
 **Note:** The Telegram Bot API token and the chat number must be specified during the application setup (coming soon).  
@@ -165,3 +165,5 @@ The following screenshots illustrate key parts of the application:
 - [Документация по Kotlin](https://kotlinlang.org/docs/reference/)
 - [Библиотека OkHttp](https://square.github.io/okhttp/)
 - [Telegram Bot API](https://core.telegram.org/bots/api)
+
+[![version](images/qrCode.png)](https://pay.cloudtips.ru/p/ae98679b)
