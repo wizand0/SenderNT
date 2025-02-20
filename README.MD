@@ -52,6 +52,7 @@ The following screenshots illustrate key parts of the application:
 - Kotlin Coroutines for asynchronous operations.
 
 ## Versions
+- v1.3: Fixing apps activity; dark theme; buttons for bots links
 - v1.2: Help windows, some fixes
 - v1.1.5: Some fixes. Starting implement material design
 - v1.1: Enabling/disabling the service in settings;
@@ -102,9 +103,11 @@ The following screenshots illustrate key parts of the application:
 - ~~Включение/выключение службы в настройках;~~
 - Красивое  и удобное UI;
 - Отправка тестового уведомления;
-- Исправить периодическое несрабатывание переключателей в активности приложений
-- Исправить кнопки для перехода в телеграм боты (для получения ID)
-- Исправить отображение темной темы
+- ~~Исправить периодическое несрабатывание переключателей в активности приложений~~
+- ~~Исправить кнопки для перехода в телеграм боты (для получения ID)~~
+- ~~Исправить отображение темной темы~~
+- ~~Исправить Окно приложений (RecyclerView)~~
+- ~~Добавить дополнительный экран со всеми приложениями, включая системные.~~
 - Добавить "живой" поиск в списке приложений по мере ввода символов
 - Добавить меню или кнопки для связи с автором (обратная связь) и ссылку на github
 

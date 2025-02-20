@@ -43,15 +43,6 @@ class SettingsGlobalActivity : AppCompatActivity() {
             insets
         }
 
-
-
-
-        val btnBack = findViewById<Button>(R.id.btnBack)
-        btnBack.setOnClickListener {
-            // Завершаем активность, возвращаясь к предыдущей (MainActivity)
-            finish()
-        }
-
         val btnSettings = findViewById<Button>(R.id.btnApps)
         btnSettings.setOnClickListener {
             // Создаем Intent для перехода в SettingsActivity

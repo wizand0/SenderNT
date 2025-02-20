@@ -8,25 +8,15 @@
     tools:context=".presentation.SettingsGlobalActivity">
 
     <Button
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="36dp"
-        android:text="@string/back_btn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/btnApps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
         android:text="@string/apps"
-        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBatteryOptimization"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnBack"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnBatteryOptimization"
+        app:layout_constraintTop_toTopOf="@+id/btnBatteryOptimization" />
 
     <Button
         android:id="@+id/btnBatteryOptimization"
@@ -34,18 +24,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="@string/battery_optimization_btn"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnApps"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/TextViewBot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         android:text="@string/id_telegram_bot_textview"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/btnBatteryOptimization"
         app:layout_constraintTop_toBottomOf="@+id/btnBatteryOptimization" />
 
@@ -57,16 +48,16 @@
         android:ems="10"
         android:inputType="text"
         android:text="@string/no_data"
-        app:layout_constraintStart_toStartOf="@+id/btnBack"
+        app:layout_constraintStart_toStartOf="@+id/TextViewBot"
         app:layout_constraintTop_toBottomOf="@+id/TextViewBot" />
 
     <TextView
         android:id="@+id/textViewChatID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
         android:layout_marginTop="40dp"
         android:text="@string/id_chat_textview"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/editTextBotID"
         app:layout_constraintTop_toBottomOf="@+id/editTextBotID" />
 
@@ -81,47 +72,46 @@
         app:layout_constraintStart_toStartOf="@+id/textViewChatID"
         app:layout_constraintTop_toBottomOf="@+id/textViewChatID" />
 
+    <!-- Кнопка для открытия BotFather -->
+
     <Button
         android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="44dp"
         android:text="@string/save"
         app:layout_constraintStart_toStartOf="@+id/editTextChatID"
         app:layout_constraintTop_toBottomOf="@+id/editTextChatID" />
 
-    <!-- Кнопка для открытия BotFather -->
     <ImageButton
         android:id="@+id/buttonOpenBotFather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/open_app"
-        android:background="@color/white"
+        android:layout_marginStart="12dp"
+        android:background="@null"
         android:padding="8dp"
         android:scaleX="1.5"
         android:scaleY="1.5"
-        android:layout_marginStart="12dp"
+        android:src="@drawable/open_app"
         app:layout_constraintBottom_toBottomOf="@+id/editTextBotID"
         app:layout_constraintStart_toEndOf="@+id/editTextBotID"
-        app:layout_constraintTop_toTopOf="@+id/editTextBotID"
-        />
+        app:layout_constraintTop_toTopOf="@+id/editTextBotID" />
 
     <!-- Кнопка для открытия get_id_bot -->
     <ImageButton
         android:id="@+id/buttonOpenGetIdBot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/open_app"
-        android:background="@color/white"
+        android:layout_marginStart="12dp"
+        android:background="@null"
         android:padding="8dp"
         android:scaleX="1.5"
         android:scaleY="1.5"
-        android:layout_marginStart="12dp"
+        android:src="@drawable/open_app"
         app:layout_constraintBottom_toBottomOf="@+id/editTextChatID"
         app:layout_constraintStart_toEndOf="@+id/editTextChatID"
-        app:layout_constraintTop_toTopOf="@+id/editTextChatID"
-        />
+        app:layout_constraintTop_toTopOf="@+id/editTextChatID" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

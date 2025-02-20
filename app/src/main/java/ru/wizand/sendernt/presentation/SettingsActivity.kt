@@ -1,7 +1,9 @@
 package ru.wizand.sendernt.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +14,8 @@ import ru.wizand.sendernt.data.utils.AllowedAppsPreferences
 import ru.wizand.sendernt.data.utils.AppUtils
 
 class SettingsActivity : AppCompatActivity() {
+
+    private val TAG = "NotificationLogger"
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var appsAdapter: AppsAdapter
@@ -24,12 +28,6 @@ class SettingsActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_settings) // оформите свою разметку
 
-        val btnBack = findViewById<Button>(R.id.btnBack)
-        btnBack.setOnClickListener {
-            // Завершаем активность, возвращаясь к предыдущей (MainActivity)
-            finish()
-        }
-
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -37,6 +35,22 @@ class SettingsActivity : AppCompatActivity() {
         appsList = appUtils.getInstalledApps(this)
         appsAdapter = AppsAdapter(appsList) { app, isChecked ->
             // При изменении ToggleButton обновляем сохранённый список в SharedPreferences.
+
+            // Данный раздел закомментирован для тестирования
+//            val text_1 = getString(R.string.text1)
+//            val text_2 = "${app.appName}"
+//            val text_3 = getString(R.string.text3)
+//            val full_text = "$text_1 $text_2 $text_3"
+//            Toast.makeText(
+//                this, full_text, Toast.LENGTH_SHORT).show()
+//            Log.e(TAG, "Измененное приложение:  $app")
+            Toast.makeText(
+                this,
+                "${getString(R.string.text1)} ${app.appName} ${getString(R.string.text3)}",
+                Toast.LENGTH_SHORT
+            ).show()
+
+
             updateAllowedPackages(app.packageName, isChecked)
         }
         recyclerView.adapter = appsAdapter

@@ -37,7 +37,6 @@
             android:layout_height="wrap_content"
             android:textAppearance="?attr/textAppearanceBody1"
             android:justificationMode="inter_word"
-            android:textColor="@android:color/black"
             android:text="@string/long_instruction" />
     </ScrollView>
 
