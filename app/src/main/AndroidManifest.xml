@@ -18,6 +18,9 @@
         android:theme="@style/Theme.SenderNT"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.AboutActivity"
+            android:exported="false" />
+        <activity
             android:name=".SystemAppsActivity"
             android:exported="false" />
         <activity

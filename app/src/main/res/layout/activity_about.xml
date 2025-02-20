@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="14dp"
+    android:layout_marginTop="24dp"
+    android:paddingBottom="20dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Информация об авторе -->
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/wizand0"
+            android:textSize="16sp" />
+
+        <!-- Ссылка на GitHub автора -->
+        <TextView
+            android:id="@+id/tvGithubAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:autoLink="web"
+            android:text="@string/github_https_github_com_wizand0"
+            android:textColorLink="@color/linkColor"
+            android:textSize="16sp" />
+
+        <!-- Ссылка на GitHub проекта -->
+        <TextView
+            android:id="@+id/tvGithubProject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:autoLink="web"
+            android:text="@string/github_https_github_com_wizand0_sendernt"
+            android:textColorLink="@color/linkColor"
+            android:textSize="16sp" />
+
+        <!-- Ссылки на почту для обратной связи -->
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:autoLink="email"
+            android:text="@string/email_makandrei_gmail_com"
+            android:textColorLink="@color/linkColor"
+            android:textSize="16sp" />
+
+        <!-- Юридическая информация -->
+        <TextView
+            android:id="@+id/tvLegalInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/donate"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/imDonate"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/donate"
+            android:src="@drawable/hand_coin_outline"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:layout_marginBottom="20dp"/>
+
+
+    </LinearLayout>
+</ScrollView>
