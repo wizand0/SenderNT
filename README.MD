@@ -2,6 +2,13 @@
 ## Sender Notifications to Telegram
 ### by Wizand0
 
+![language](https://img.shields.io/badge/Language-Kotlin-green?logo=kotlin)
+![Last](https://img.shields.io/github/last-commit/wizand0/SenderNT)
+
+[![version](https://www.rustore.ru/help/icons/logo-color-light.png)](https://www.rustore.ru/catalog/app/ru.wizand.sendernt)
+
+[Rustore] (https://www.rustore.ru/catalog/app/ru.wizand.sendernt)
+
 The application forwards all notifications from your phone to Telegram via a bot.  
 **Note:** The Telegram Bot API token and the chat number must be specified during the application setup (coming soon).  
 Additionally, you will soon be able to filter and forward notifications only from selected apps.
