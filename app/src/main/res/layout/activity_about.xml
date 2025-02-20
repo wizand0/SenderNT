@@ -3,7 +3,9 @@
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:layout_margin="14dp"
+    android:layout_marginTop="24dp"
+    android:paddingBottom="20dp">
 
 
     <LinearLayout
@@ -60,5 +62,23 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Donate:"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/imDonate"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hand_coin_outline"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:layout_marginBottom="20dp"/>
+
+
     </LinearLayout>
 </ScrollView>

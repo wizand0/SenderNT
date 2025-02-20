@@ -7,6 +7,7 @@
 
 [![version](images/logo-color-light.png)](https://www.rustore.ru/catalog/app/ru.wizand.sendernt)
 
+[![Donate](images/qrCode.png)](https://pay.cloudtips.ru/p/ae98679b)
 
 The application forwards all notifications from your phone to Telegram via a bot.  
 **Note:** The Telegram Bot API token and the chat number must be specified during the application setup (coming soon).  

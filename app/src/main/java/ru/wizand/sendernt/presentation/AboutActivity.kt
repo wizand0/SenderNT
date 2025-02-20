@@ -10,6 +10,8 @@ import ru.wizand.sendernt.R
 import android.content.Intent
 import android.net.Uri
 import android.text.method.LinkMovementMethod
+import android.widget.ImageView
+import android.widget.Toast
 
 class AboutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,12 +34,35 @@ class AboutActivity : AppCompatActivity() {
             LinkMovementMethod.getInstance()
         findViewById<TextView>(R.id.tvEmail).movementMethod = LinkMovementMethod.getInstance()
 
+
         // Формируем юридическую информацию с дополнительным текстом
         val legalInfoText = getString(R.string.legals).trimIndent()
 
         val tvLegalInfo = findViewById<TextView>(R.id.tvLegalInfo)
-        tvLegalInfo.text = legalInfoText
 
+        tvLegalInfo.text = legalInfoText
+        // Найти ImageView по ID
+        val imDonate: ImageView = findViewById(R.id.imDonate)
+
+        // Установить обработчик кликов
+        imDonate.setOnClickListener {
+            // Ссылка, которую нужно открыть
+            val url = "https://pay.cloudtips.ru/p/ae98679b"
+
+            // Создать Intent для открытия ссылки
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse(url)
+            }
+
+// Проверяем, есть ли приложения для обработки Intent
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            } else {
+                // Обработайте случай, если нет подходящих приложений
+                Toast.makeText(this, "Нет приложений для открытия ссылки", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
         // Если требуется сделать ссылку на email дополнительным обработчиком, можно установить onClickListener:
         // val tvEmail = findViewById<TextView>(R.id.tvEmail)
         // tvEmail.setOnClickListener {
