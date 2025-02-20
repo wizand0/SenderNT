@@ -5,7 +5,7 @@
 ![language](https://img.shields.io/badge/Language-Kotlin-green?logo=kotlin)
 ![Last](https://img.shields.io/github/last-commit/wizand0/SenderNT)
 
-[![version](https://www.rustore.ru/help/icons/logo-color-light.png)](https://www.rustore.ru/catalog/app/ru.wizand.sendernt)
+[![version](images/logo-color-light.png)](https://www.rustore.ru/catalog/app/ru.wizand.sendernt)
 
 [Rustore] (https://www.rustore.ru/catalog/app/ru.wizand.sendernt)
 
