@@ -1,17 +1,15 @@
 package ru.wizand.sendernt.presentation
 
-import android.os.Bundle
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import ru.wizand.sendernt.R
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import ru.wizand.sendernt.R
 
 class AboutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

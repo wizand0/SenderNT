@@ -56,8 +56,8 @@ class MainActivity : AppCompatActivity() {
         // Достаем данные из SharedPreferences
         val sharedPref =
             getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
-        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "No_data")
-        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "No_data")
+//        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "No_data")
+//        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "No_data")
 
         // Кнопка инициализации службы
         val toggleService = findViewById<ToggleButton>(R.id.toggle_service)

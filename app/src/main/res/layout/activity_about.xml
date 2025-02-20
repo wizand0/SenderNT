@@ -66,7 +66,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Donate:"
+            android:text="@string/donate"
             android:textSize="14sp" />
 
         <ImageView
@@ -74,6 +74,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/donate"
             android:src="@drawable/hand_coin_outline"
             android:scaleX="2"
             android:scaleY="2"

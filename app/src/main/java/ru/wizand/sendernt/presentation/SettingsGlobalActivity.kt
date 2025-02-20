@@ -118,7 +118,7 @@ class SettingsGlobalActivity : AppCompatActivity() {
                     .show()
             } else {
                 // Сохраняем данные в SharedPreferences
-                val sharedPref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                @Suppress("NAME_SHADOWING") val sharedPref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
                 with(sharedPref.edit()) {
                     putString(KEY_BOT_ID, botId)
                     putString(KEY_CHAT_ID, chatId)
@@ -131,21 +131,19 @@ class SettingsGlobalActivity : AppCompatActivity() {
 
     private fun requestIgnoreBatteryOptimizations(context: Context) {
         // Проверяем, что версия Android >= Marshmallow (API 23)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val packageName = context.packageName
-            val powerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager
+        val packageName = context.packageName
+        val powerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager
 
-            // Если приложение не исключено из оптимизаций, запускаем запрос
-            if (!powerManager.isIgnoringBatteryOptimizations(packageName)) {
-                val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
-                    data = Uri.parse("package:$packageName")
-                }
-                // Запускаем активити для запроса у пользователя
-                context.startActivity(intent)
-            } else {
-                Toast.makeText(this, getString(R.string.permission_granted), Toast.LENGTH_SHORT)
-                    .show()
+        // Если приложение не исключено из оптимизаций, запускаем запрос
+        if (!powerManager.isIgnoringBatteryOptimizations(packageName)) {
+            val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+                data = Uri.parse("package:$packageName")
             }
+            // Запускаем активити для запроса у пользователя
+            context.startActivity(intent)
+        } else {
+            Toast.makeText(this, getString(R.string.permission_granted), Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
