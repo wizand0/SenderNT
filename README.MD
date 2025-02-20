@@ -59,9 +59,9 @@ The following screenshots illustrate key parts of the application:
 - ~~Fix buttons for navigating to Telegram bots (to retrieve IDs);~~
 - ~~Fix the display of the dark theme;~~
 - ~~Fix the Applications Window (RecyclerView);~~
-- Fix the settings screen;
-- Add a main menu to all screens;
-- Add an additional screen with all applications, including system ones;
+- ~~Fix the settings screen;~~
+- ~~Add a main menu to all screens;~~
+- ~~Add an additional screen with all applications, including system ones;~~
 - Add "live" search in the application list as characters are typed;
 - ~~Add a menu or buttons for contacting the author (feedback) and a link to GitHub;~~
 - Customize the format of information sent to the chat (reorder fields and select required fields):
@@ -140,11 +140,11 @@ The following screenshots illustrate key parts of the application:
 - ~~Исправить кнопки для перехода в телеграм боты (для получения ID);~~
 - ~~Исправить отображение темной темы;~~
 - ~~Исправить Окно приложений (RecyclerView);~~
-- Исправить экран настроек;
-- Добавить главное меню во всех экранах;
-- Добавить дополнительный экран со всеми приложениями, включая системные;
+- ~~Исправить экран настроек;~~
+- ~~Добавить главное меню во всех экранах;~~
+- ~~Добавить дополнительный экран со всеми приложениями, включая системные;~~
 - Добавить "живой" поиск в списке приложений по мере ввода символов;
-- Добавить меню или кнопки для связи с автором (обратная связь) и ссылку на github;
+- ~~Добавить меню или кнопки для связи с автором (обратная связь) и ссылку на github;~~
 - Кастомизировать вывод информации в чат (порядок пунктов и выбор необходимых пунктов):
   - Устройство;
   - Пакет;
