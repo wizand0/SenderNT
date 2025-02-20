@@ -43,10 +43,11 @@ The following screenshots illustrate key parts of the application:
 - ~~Localization (Ru; En)~~
 - Beautiful and user-friendly UI;
 - Sending a test notification;
-- Fix periodic malfunctioning of toggles in the applications activity;
-- Fix buttons for navigating to Telegram bots (to get the ID);
-- Fix the display of the dark theme;
+- ~~Fix periodic malfunctioning of toggles in the applications activity;~~
+- ~~Fix buttons for navigating to Telegram bots (to get the ID);~~
+- ~~Fix the display of the dark theme;~~
 - Add "live" search in the application list as characters are entered.
+- Add author's contacts
 
 ## Very long-term TODO
 - Integrate with cloud storage for backup settings.
@@ -113,7 +114,7 @@ The following screenshots illustrate key parts of the application:
 - ~~Исправить кнопки для перехода в телеграм боты (для получения ID)~~
 - ~~Исправить отображение темной темы~~
 - ~~Исправить Окно приложений (RecyclerView)~~
-- ~~Добавить дополнительный экран со всеми приложениями, включая системные.~~
+- Добавить дополнительный экран со всеми приложениями, включая системные.
 - Добавить "живой" поиск в списке приложений по мере ввода символов
 - Добавить меню или кнопки для связи с автором (обратная связь) и ссылку на github
 
