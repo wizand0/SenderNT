@@ -1,7 +1,10 @@
 package ru.wizand.sendernt.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -9,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.wizand.sendernt.R
+import ru.wizand.sendernt.SystemAppsActivity
 import ru.wizand.sendernt.domain.AppInfo
 import ru.wizand.sendernt.data.utils.AllowedAppsPreferences
 import ru.wizand.sendernt.data.utils.AppUtils
@@ -16,6 +20,7 @@ import ru.wizand.sendernt.data.utils.AppUtils
 class SettingsActivity : AppCompatActivity() {
 
     private val TAG = "NotificationLogger"
+
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var appsAdapter: AppsAdapter
@@ -27,6 +32,10 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_settings) // оформите свою разметку
+
+        // Найдите Toolbar и задайте его в качестве ActionBar
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -55,6 +64,31 @@ class SettingsActivity : AppCompatActivity() {
         }
         recyclerView.adapter = appsAdapter
 
+    }
+
+    // Метод для отображения меню на тулбаре/аппбаре
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_settings, menu)
+        return true
+    }
+
+    // Обработка нажатий элементов меню
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_system_apps -> {
+                // Переход к SystemAppsActivity
+                val intent = Intent(this, SystemAppsActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.menu_about -> {
+                // Переход к SystemAppsActivity
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun updateAllowedPackages(packageName: String, isAllowed: Boolean) {

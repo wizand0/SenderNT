@@ -48,6 +48,31 @@ The following screenshots illustrate key parts of the application:
 - ~~Fix the display of the dark theme;~~
 - Add "live" search in the application list as characters are entered.
 - Add author's contacts
+  Implement bot API token and chat ID configuration;
+
+- ~~Develop notification filtering by applications;~~
+- Improve the user interface and add new features;
+- ~~Enable/disable the service in the settings;~~
+- Create a beautiful and user-friendly UI;
+- Add the ability to send test notifications;
+- ~~Fix occasional failures of toggles in application activity;~~
+- ~~Fix buttons for navigating to Telegram bots (to retrieve IDs);~~
+- ~~Fix the display of the dark theme;~~
+- ~~Fix the Applications Window (RecyclerView);~~
+- Fix the settings screen;
+- Add a main menu to all screens;
+- Add an additional screen with all applications, including system ones;
+- Add "live" search in the application list as characters are typed;
+- ~~Add a menu or buttons for contacting the author (feedback) and a link to GitHub;~~
+- Customize the format of information sent to the chat (reorder fields and select required fields):
+  - Device;
+  - Package;
+  - Application name;
+  - Date;
+  - Time;
+  - Title;
+  - Text;
+  - Other fields.
 
 ## Very long-term TODO
 - Integrate with cloud storage for backup settings.
@@ -59,6 +84,7 @@ The following screenshots illustrate key parts of the application:
 - Kotlin Coroutines for asynchronous operations.
 
 ## Versions
+- v1.3.2: Bugs fixing
 - v1.3: Fixing apps activity; dark theme; buttons for bots links
 - v1.2: Help windows, some fixes
 - v1.1.5: Some fixes. Starting implement material design
@@ -104,19 +130,30 @@ The following screenshots illustrate key parts of the application:
 | ![screenshot](images/screenshot3.png) | ![screenshot](images/screenshot4.png) |
 
 ## TODO
-- ~~Реализовать настройку API токена бота и номера чата.~~
-- ~~Разработать фильтрацию уведомлений по приложениям.~~
-- Улучшить пользовательский интерфейс и добавить новые функции.
+- ~~Реализовать настройку API токена бота и номера чата;~~
+- ~~Разработать фильтрацию уведомлений по приложениям;~~
+- Улучшить пользовательский интерфейс и добавить новые функции;
 - ~~Включение/выключение службы в настройках;~~
 - Красивое  и удобное UI;
 - Отправка тестового уведомления;
-- ~~Исправить периодическое несрабатывание переключателей в активности приложений~~
-- ~~Исправить кнопки для перехода в телеграм боты (для получения ID)~~
-- ~~Исправить отображение темной темы~~
-- ~~Исправить Окно приложений (RecyclerView)~~
-- Добавить дополнительный экран со всеми приложениями, включая системные.
-- Добавить "живой" поиск в списке приложений по мере ввода символов
-- Добавить меню или кнопки для связи с автором (обратная связь) и ссылку на github
+- ~~Исправить периодическое несрабатывание переключателей в активности приложений;~~
+- ~~Исправить кнопки для перехода в телеграм боты (для получения ID);~~
+- ~~Исправить отображение темной темы;~~
+- ~~Исправить Окно приложений (RecyclerView);~~
+- Исправить экран настроек;
+- Добавить главное меню во всех экранах;
+- Добавить дополнительный экран со всеми приложениями, включая системные;
+- Добавить "живой" поиск в списке приложений по мере ввода символов;
+- Добавить меню или кнопки для связи с автором (обратная связь) и ссылку на github;
+- Кастомизировать вывод информации в чат (порядок пунктов и выбор необходимых пунктов):
+  - Устройство;
+  - Пакет;
+  - Название приложения;
+  - Дата;
+  - Время;
+  - Заголовок;
+  - Текст;
+  - Другие пункты
 
 ## Долгосрочные TODO
 - Интегрировать облачное хранилище для резервного копирования настроек.

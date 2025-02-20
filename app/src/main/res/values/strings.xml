@@ -25,4 +25,21 @@
     <string name="long_instruction">Steps to set up the application:\n\n1. Press the central button to grant permission to access all notifications.\n2. After that, click the #Go to settings# button.\n3. Enter the chat ID and the API key for the Telegram bot, then save the data by pressing the #Save# button.\n4. In the same window, go to the #Applications# button and select which applications you want to forward notifications from.\n5. Returning to the main screen, press the #Enable service# button.\n\nTo obtain your Telegram chat ID, go to the bot @get_id_bot:\n- Open Telegram and search for @get_id_bot.\n- Start a chat with the bot and follow the instructions to get your chat ID.\n\nTo obtain the API key for the Telegram bot, go to the bot @BotFather:\n- Open Telegram and search for @BotFather.\n- Start a chat with the bot and follow the instructions to create a new bot. After creation, you will receive an API key.\n\nAfter receiving the necessary data, enter it in the corresponding fields.</string>
     <string name="text1">Switcher for</string>
     <string name="text3">changed</string>
+    <string name="system_apps">All Apps</string>
+    <string name="about">About</string>
+    <string name="legals">"\n
+            The application is designed to save and forward smartphone notifications to a Telegram chat. \n
+            Its use is allowed only on the user's own devices and is strictly prohibited for spying on other people.\n
+            \n
+            Legal disclaimer:\n
+            The developer is not responsible for any improper use of the application. \n
+            The user uses the application at their own risk and agrees not to use it for purposes that violate the law, \n
+            infringe on the rights and freedoms of others, or engage in illegal activities.\n
+            \n
+            Using this application implies acceptance of the stated terms.\n
+        "</string>
+    <string name="github_https_github_com_wizand0">Author GitHub: https://github.com/wizand0/</string>
+    <string name="github_https_github_com_wizand0_sendernt">Project GitHub: https://github.com/wizand0/SenderNT</string>
+    <string name="wizand0">Author: Wizand0</string>
+    <string name="email_makandrei_gmail_com">Email: makandrei@gmail.com</string>
 </resources>
