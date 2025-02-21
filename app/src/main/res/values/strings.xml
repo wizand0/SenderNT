@@ -5,7 +5,7 @@
     <string name="allow_notifications">Allow access to notifications</string>
     <string name="preferences">Service settings:</string>
     <string name="go_to_preferences">Go to settings</string>
-    <string name="big_main_text">The application forwards all notifications from your phone to Telegram via a bot. Note: The Telegram Bot API token and the chat number must be specified during the application setup. Additionally, you will soon be able to filter and forward notifications only from selected apps. The application requires permissions to access the network and notifications.</string>
+    <string name="big_main_text">The application forwards all notifications from your phone to Telegram via a bot. Note: The Telegram Bot API token and the chat ID must be specified during the application setup. Additionally, you will soon be able to filter and forward notifications only from selected apps. The application requires permissions to access the network and notifications.</string>
     <string name="service_off">Service is off</string>
     <string name="service_on">Service is on</string>
     <string name="full_name">Sender Notification to Telegram</string>
@@ -14,30 +14,32 @@
     <string name="apps">Applications</string>
     <string name="battery_optimization_btn">Disable battery optimization</string>
     <string name="save">Save</string>
-    <string name="id_chat_textview">Enter the your chat ID</string>
-    <string name="id_telegram_bot_textview">Enter the Telegram bot ID</string>
+    <string name="id_chat_textview">Enter your chat ID</string>
+    <string name="id_telegram_bot_textview">Enter the Telegram bot API key</string>
     <string name="permission_granted">Permission already granted</string>
     <string name="enter_all_fields">Please fill in both fields correctly</string>
     <string name="data_saved">Data saved</string>
     <string name="short_instruction">To obtain your Telegram chat ID, go to the bot @get_id_bot.\n\nTo obtain the API key for the Telegram bot, go to the bot @BotFather.\n\nAfter receiving the necessary data, enter it in the corresponding fields.</string>
     <string name="ok">Understood</string>
-    <string name="instruction">Instruction</string>
-    <string name="long_instruction">Steps to set up the application:\n\n1. Press the central button to grant permission to access all notifications.\n2. After that, click the #Go to settings# button.\n3. Enter the chat ID and the API key for the Telegram bot, then save the data by pressing the #Save# button.\n4. In the same window, go to the #Applications# button and select which applications you want to forward notifications from.\n5. Returning to the main screen, press the #Enable service# button.\n\nTo obtain your Telegram chat ID, go to the bot @get_id_bot:\n- Open Telegram and search for @get_id_bot.\n- Start a chat with the bot and follow the instructions to get your chat ID.\n\nTo obtain the API key for the Telegram bot, go to the bot @BotFather:\n- Open Telegram and search for @BotFather.\n- Start a chat with the bot and follow the instructions to create a new bot. After creation, you will receive an API key.\n\nAfter receiving the necessary data, enter it in the corresponding fields.</string>
+    <string name="instruction">Instructions</string>
+    <string name="long_instruction">Steps to set up the application:\n\n1. Press the central button to grant permission to access all notifications.\n2. After that, click the #Go to settings# button.\n3. Enter the chat ID and the API key for the Telegram bot, then save the data by pressing the #Save# button.\n4. In the same window, go to the #Applications# section and select which applications you want to forward notifications from.\n5. Returning to the main screen, press the #Enable service# button.\n\nTo obtain your Telegram chat ID, go to the bot @get_id_bot:\n- Open Telegram and search for @get_id_bot.\n- Start a chat with the bot and follow the instructions to get your chat ID.\n\nTo obtain the API key for the Telegram bot, go to the bot @BotFather:\n- Open Telegram and search for @BotFather.\n- Start a chat with the bot and follow the instructions to create a new bot. After creation, you will receive an API key.\n\nAfter receiving the necessary data, enter it in the corresponding fields.</string>
     <string name="text1">Switcher for</string>
-    <string name="text3">changed</string>
+    <string name="text3">Changed</string>
     <string name="system_apps">All Apps</string>
     <string name="about">About</string>
-    <string name="legals">"\n
-            The application is designed to save and forward smartphone notifications to a Telegram chat. \n
-            Its use is allowed only on the user's own devices and is strictly prohibited for spying on other people.\n
-            \n
-            Legal disclaimer:\n
-            The developer is not responsible for any improper use of the application. \n
-            The user uses the application at their own risk and agrees not to use it for purposes that violate the law, \n
-            infringe on the rights and freedoms of others, or engage in illegal activities.\n
-            \n
-            Using this application implies acceptance of the stated terms.\n
-        "</string>
+    <string name="legals">
+        "\n
+        The application is designed to save and forward smartphone notifications to a Telegram chat. \n
+        Its use is allowed only on the user's own devices and is strictly prohibited for spying on other people.\n
+        \n
+        Legal disclaimer:\n
+        The developer is not responsible for any improper use of the application. \n
+        The user uses the application at their own risk and agrees not to use it for purposes that violate the law, \n
+        infringe on the rights and freedoms of others, or engage in illegal activities.\n
+        \n
+        Using this application implies acceptance of the stated terms.\n
+        "
+    </string>
     <string name="github_https_github_com_wizand0">Author GitHub: https://github.com/wizand0/</string>
     <string name="github_https_github_com_wizand0_sendernt">Project GitHub: https://github.com/wizand0/SenderNT</string>
     <string name="wizand0">Author: Wizand0</string>

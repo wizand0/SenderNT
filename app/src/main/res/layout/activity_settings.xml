@@ -16,7 +16,7 @@
             android:layout_height="?attr/actionBarSize"
             app:title="Настройки"
             android:paddingTop="8dp"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+            app:popupTheme="@style/MyPopupMenu"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 

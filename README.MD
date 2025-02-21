@@ -29,11 +29,11 @@ The following screenshots illustrate key parts of the application:
 
 |              Main screen              |             Settings View             |
 |:-------------------------------------:|:-------------------------------------:|
-| ![screenshot](images/screenshot1.png) | ![screenshot](images/screenshot2.png) |
+| ![screenshot](images/screenshot1.png) | ![screenshot](images/screenshot3.png) |
 
-|                 Apps                  |         Notifications access          |
+|                 Apps                  |              Dark Theme               |
 |:-------------------------------------:|:-------------------------------------:|
-| ![screenshot](images/screenshot3.png) | ![screenshot](images/screenshot4.png) |
+| ![screenshot](images/screenshot4.png) | ![screenshot](images/screenshot2.png) |
 
 ## TODO
 - ~~Enabling/disabling the service in settings;~~
@@ -48,8 +48,8 @@ The following screenshots illustrate key parts of the application:
 - ~~Fix buttons for navigating to Telegram bots (to get the ID);~~
 - ~~Fix the display of the dark theme;~~
 - Add "live" search in the application list as characters are entered.
-- Add author's contacts
-  Implement bot API token and chat ID configuration;
+- ~~Add author's contacts~~
+- ~~Implement bot API token and chat ID configuration;~~
 
 - ~~Develop notification filtering by applications;~~
 - Improve the user interface and add new features;
@@ -85,6 +85,7 @@ The following screenshots illustrate key parts of the application:
 - Kotlin Coroutines for asynchronous operations.
 
 ## Versions
+- v1.3.3: Dark Theme fixing; fixing mistakes in texts
 - v1.3.2: Bugs fixing
 - v1.3: Fixing apps activity; dark theme; buttons for bots links
 - v1.2: Help windows, some fixes
@@ -124,11 +125,11 @@ The following screenshots illustrate key parts of the application:
 
 |             Главный экран             |            Экран настроек             |
 |:-------------------------------------:|:-------------------------------------:|
-| ![screenshot](images/screenshot1.png) | ![screenshot](images/screenshot2.png) |
+| ![screenshot](images/screenshot1.png) | ![screenshot](images/screenshot3.png) |
 
-|           Список приложений           |         Доступ к уведомлениям         |
+|           Список приложений           |              Темная тема              |
 |:-------------------------------------:|:-------------------------------------:|
-| ![screenshot](images/screenshot3.png) | ![screenshot](images/screenshot4.png) |
+| ![screenshot](images/screenshot4.png) | ![screenshot](images/screenshot2.png) |
 
 ## TODO
 - ~~Реализовать настройку API токена бота и номера чата;~~
