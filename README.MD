@@ -36,35 +36,13 @@ The following screenshots illustrate key parts of the application:
 | ![screenshot](images/screenshot4.png) | ![screenshot](images/screenshot2.png) |
 
 ## TODO
-- ~~Enabling/disabling the service in settings;~~
-- ~~Implement the bot API token and chat configuration.~~
-- ~~Develop filtering for app-specific notifications.~~
 - Improve the UI/UX and add additional features.
 - Beautiful and user-friendly UI;
-- ~~Localization (Ru; En)~~
-- Beautiful and user-friendly UI;
 - Sending a test notification;
-- ~~Fix periodic malfunctioning of toggles in the applications activity;~~
-- ~~Fix buttons for navigating to Telegram bots (to get the ID);~~
-- ~~Fix the display of the dark theme;~~
 - Add "live" search in the application list as characters are entered.
-- ~~Add author's contacts~~
-- ~~Implement bot API token and chat ID configuration;~~
-
-- ~~Develop notification filtering by applications;~~
 - Improve the user interface and add new features;
-- ~~Enable/disable the service in the settings;~~
-- Create a beautiful and user-friendly UI;
 - Add the ability to send test notifications;
-- ~~Fix occasional failures of toggles in application activity;~~
-- ~~Fix buttons for navigating to Telegram bots (to retrieve IDs);~~
-- ~~Fix the display of the dark theme;~~
-- ~~Fix the Applications Window (RecyclerView);~~
-- ~~Fix the settings screen;~~
-- ~~Add a main menu to all screens;~~
-- ~~Add an additional screen with all applications, including system ones;~~
 - Add "live" search in the application list as characters are typed;
-- ~~Add a menu or buttons for contacting the author (feedback) and a link to GitHub;~~
 - Customize the format of information sent to the chat (reorder fields and select required fields):
   - Device;
   - Package;
@@ -132,21 +110,10 @@ The following screenshots illustrate key parts of the application:
 | ![screenshot](images/screenshot4.png) | ![screenshot](images/screenshot2.png) |
 
 ## TODO
-- ~~Реализовать настройку API токена бота и номера чата;~~
-- ~~Разработать фильтрацию уведомлений по приложениям;~~
 - Улучшить пользовательский интерфейс и добавить новые функции;
-- ~~Включение/выключение службы в настройках;~~
 - Красивое  и удобное UI;
 - Отправка тестового уведомления;
-- ~~Исправить периодическое несрабатывание переключателей в активности приложений;~~
-- ~~Исправить кнопки для перехода в телеграм боты (для получения ID);~~
-- ~~Исправить отображение темной темы;~~
-- ~~Исправить Окно приложений (RecyclerView);~~
-- ~~Исправить экран настроек;~~
-- ~~Добавить главное меню во всех экранах;~~
-- ~~Добавить дополнительный экран со всеми приложениями, включая системные;~~
 - Добавить "живой" поиск в списке приложений по мере ввода символов;
-- ~~Добавить меню или кнопки для связи с автором (обратная связь) и ссылку на github;~~
 - Кастомизировать вывод информации в чат (порядок пунктов и выбор необходимых пунктов):
   - Устройство;
   - Пакет;
