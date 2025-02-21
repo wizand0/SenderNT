@@ -3,11 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="linkColor">#1976D2</color>
-    <!-- Фиолетовые цвета -->
-    <color name="purple_200">#BB86FC</color>
-    <color name="purple_500">#6200EE</color>
-    <color name="purple_700">#3700B3</color>
+    <!-- Более мягкие фиолетовые цвета -->
+    <color name="purple_200">#D1C4E9</color> <!-- Светлый пастельный фиолетовый -->
+    <color name="purple_500">#9575CD</color> <!-- Средний фиолетовый -->
+    <color name="purple_700">#673AB7</color> <!-- Темный, но не слишком насыщенный -->
 
     <!-- Бирюзовый цвет -->
-    <color name="teal_200">#03DAC5</color>
+    <color name="teal_200">#80CBC4</color> <!-- Более мягкий бирюзовый -->
 </resources>

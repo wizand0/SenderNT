@@ -2,11 +2,12 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.SenderNT" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorPrimary">@color/purple_200</item> <!-- Более мягкий светлый фиолетовый -->
+        <item name="colorPrimaryVariant">@color/purple_700</item> <!-- Темный фиолетовый -->
+        <item name="colorOnPrimary">@color/white</item> <!-- Белый текст на фиолетовом фоне -->
+        <item name="colorSecondary">@color/teal_200</item> <!-- Мягкий бирюзовый -->
+        <item name="colorOnSecondary">@color/black</item> <!-- Черный текст на бирюзовом фоне -->
+        <item name="android:statusBarColor">@color/purple_700</item> <!-- Темный фиолетовый для статус-бара -->
     </style>
     <style name="MyToolbarStyle" parent="Widget.MaterialComponents.Toolbar">
         <item name="titleTextColor">?attr/colorOnPrimary</item>
@@ -17,21 +18,3 @@
     </style>
     <style name="Theme.SenderNT" parent="Base.Theme.SenderNT" />
 </resources>
-
-<!--<resources xmlns:tools="http://schemas.android.com/tools">-->
-<!--&lt;!&ndash;    <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">&ndash;&gt;-->
-<!--    <style name="Base.Theme.SenderNT" parent="Theme.Material3.DayNight.NoActionBar">-->
-<!--        &lt;!&ndash; Цвета для тёмной темы &ndash;&gt;-->
-<!--        <item name="colorPrimary">@color/purple_200</item>-->
-<!--        <item name="colorPrimaryVariant">@color/purple_700</item>-->
-<!--        <item name="colorOnPrimary">@color/black</item>-->
-<!--        <item name="colorSecondary">@color/teal_200</item>-->
-<!--        <item name="colorOnSecondary">@color/white</item>-->
-<!--    </style>-->
-<!--    <style name="MyToolbarStyle" parent="Widget.MaterialComponents.Toolbar">-->
-<!--        <item name="titleTextColor">?attr/colorOnPrimary</item>-->
-<!--        <item name="subtitleTextColor">?attr/colorOnPrimary</item>-->
-<!--    </style>-->
-<!--</resources>-->
-
-
