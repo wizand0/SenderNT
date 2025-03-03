@@ -44,14 +44,14 @@ The following screenshots illustrate key parts of the application:
 - Add the ability to send test notifications;
 - Add "live" search in the application list as characters are typed;
 - Customize the format of information sent to the chat (reorder fields and select required fields):
-  - Device;
-  - Package;
-  - Application name;
-  - Date;
-  - Time;
-  - Title;
-  - Text;
-  - Other fields.
+    - Device;
+    - Package;
+    - Application name;
+    - Date;
+    - Time;
+    - Title;
+    - Text;
+    - Other fields.
 
 ## Very long-term TODO
 - Integrate with cloud storage for backup settings.
@@ -115,14 +115,14 @@ The following screenshots illustrate key parts of the application:
 - Отправка тестового уведомления;
 - Добавить "живой" поиск в списке приложений по мере ввода символов;
 - Кастомизировать вывод информации в чат (порядок пунктов и выбор необходимых пунктов):
-  - Устройство;
-  - Пакет;
-  - Название приложения;
-  - Дата;
-  - Время;
-  - Заголовок;
-  - Текст;
-  - Другие пункты
+    - Устройство;
+    - Пакет;
+    - Название приложения;
+    - Дата;
+    - Время;
+    - Заголовок;
+    - Текст;
+    - Другие пункты
 
 ## Долгосрочные TODO
 - Интегрировать облачное хранилище для резервного копирования настроек.
