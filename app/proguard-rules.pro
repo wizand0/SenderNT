@@ -19,3 +19,11 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+
+# Сохранить классы, помеченные аннотацией @Keep
+-keep @androidx.annotation.Keep class * { *; }
+
+# Пример исключения некоторых библиотек от обфускации
+-keep class com.squareup.okhttp.** { *; }
+-keep class retrofit2.** { *; }
