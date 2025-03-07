@@ -15,8 +15,9 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:paddingTop="16dp"
+            android:layout_marginTop="15dp"
             app:popupTheme="@style/MyPopupMenu"
-            app:title="Настройки" />
+            app:title="@string/prefsActivityName" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -46,4 +46,7 @@
     <string name="email_makandrei_gmail_com">Email: makandrei@gmail.com</string>
     <string name="donate">Donate:</string>
     <string name="search">Search</string>
+    <string name="all_apps">All Apps</string>
+    <string name="main">Main</string>
+    <string name="prefsActivityName">Preferences</string>
 </resources>
