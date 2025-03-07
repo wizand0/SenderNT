@@ -4,11 +4,17 @@
     <item
         android:id="@+id/action_system_apps"
         android:icon="@drawable/menu"
-    android:title="@string/system_apps"
+    android:title="@string/all_apps"
     app:showAsAction="never" />
     <item
         android:id="@+id/menu_about"
         android:title="@string/about" />
+    <item
+        android:id="@+id/action_search"
+        android:title="@string/search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
+
 <!--        android:icon="@drawable/ic_info"  -->
 <!--    app:showAsAction="never" />-->
 

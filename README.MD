@@ -1,4 +1,4 @@
-# SenderNT v.1.3.2
+# SenderNT v.1.3.6
 ## Sender Notifications to Telegram
 ### by Wizand0
 
@@ -22,6 +22,7 @@ The application requires permissions to access the network and notifications.
 - Filter notifications from specific applications.
 - Enabling/disabling the service in settings;
 - Localization (Ru; En)
+- "Live" search in the application list
 
 ## Screenshots
 
@@ -39,19 +40,19 @@ The following screenshots illustrate key parts of the application:
 - Improve the UI/UX and add additional features.
 - Beautiful and user-friendly UI;
 - Sending a test notification;
-- Add "live" search in the application list as characters are entered.
+- ~~Add "live" search in the application list as characters are entered.~~
 - Improve the user interface and add new features;
 - Add the ability to send test notifications;
 - Add "live" search in the application list as characters are typed;
 - Customize the format of information sent to the chat (reorder fields and select required fields):
-  - Device;
-  - Package;
-  - Application name;
-  - Date;
-  - Time;
-  - Title;
-  - Text;
-  - Other fields.
+    - Device;
+    - Package;
+    - Application name;
+    - Date;
+    - Time;
+    - Title;
+    - Text;
+    - Other fields.
 
 ## Very long-term TODO
 - Integrate with cloud storage for backup settings.
@@ -63,6 +64,8 @@ The following screenshots illustrate key parts of the application:
 - Kotlin Coroutines for asynchronous operations.
 
 ## Versions
+- v1.3.6: View fixes, ProGuard, LiveSearch for system apps 
+- v1.3.5: Live search apps
 - v1.3.3: Dark Theme fixing; fixing mistakes in texts
 - v1.3.2: Bugs fixing
 - v1.3: Fixing apps activity; dark theme; buttons for bots links
@@ -115,14 +118,14 @@ The following screenshots illustrate key parts of the application:
 - Отправка тестового уведомления;
 - Добавить "живой" поиск в списке приложений по мере ввода символов;
 - Кастомизировать вывод информации в чат (порядок пунктов и выбор необходимых пунктов):
-  - Устройство;
-  - Пакет;
-  - Название приложения;
-  - Дата;
-  - Время;
-  - Заголовок;
-  - Текст;
-  - Другие пункты
+    - Устройство;
+    - Пакет;
+    - Название приложения;
+    - Дата;
+    - Время;
+    - Заголовок;
+    - Текст;
+    - Другие пункты
 
 ## Долгосрочные TODO
 - Интегрировать облачное хранилище для резервного копирования настроек.

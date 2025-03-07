@@ -33,4 +33,8 @@
     <string name="wizand0">Автор: Wizand0</string>
     <string name="email_makandrei_gmail_com">Email для связи: makandrei@gmail.com</string>
     <string name="donate">Поощрить автора:</string>
+    <string name="search">Поиск</string>
+    <string name="all_apps">Все приложения</string>
+    <string name="main">Главная</string>
+    <string name="prefsActivityName">Настройки</string>
 </resources>

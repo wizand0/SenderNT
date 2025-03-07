@@ -14,7 +14,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Настройки"
+            app:title="@string/apps"
+            android:layout_marginTop="15dp"
             android:paddingTop="8dp"
             app:popupTheme="@style/MyPopupMenu"/>
 

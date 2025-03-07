@@ -2,17 +2,15 @@ package ru.wizand.sendernt.presentation
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.wizand.sendernt.R
-import ru.wizand.sendernt.SystemAppsActivity
 import ru.wizand.sendernt.domain.AppInfo
 import ru.wizand.sendernt.data.utils.AllowedAppsPreferences
 import ru.wizand.sendernt.data.utils.AppUtils
@@ -69,7 +67,45 @@ class SettingsActivity : AppCompatActivity() {
     // Метод для отображения меню на тулбаре/аппбаре
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_settings, menu)
+
+        val searchItem = menu?.findItem(R.id.action_search)
+        val searchView = searchItem?.actionView as SearchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterApps(newText)
+                return true
+            }
+        })
+
         return true
+    }
+
+
+//    private fun filterApps(query: String?) {
+//        val filteredList = if (query.isNullOrEmpty()) {
+//            appsList // Если строка поиска пустая, показываем все приложения
+//        } else {
+//            appsList.filter { app ->
+//                app.appName.contains(query, ignoreCase = true) // Фильтруем по имени приложения
+//            }
+//        }
+//        appsAdapter.updateApps(filteredList) // Обновляем адаптер
+//    }
+
+    private fun filterApps(query: String?) {
+        val filteredList = if (query.isNullOrEmpty()) {
+            appsList // Если строка поиска пустая, показываем все приложения
+        } else {
+            appsList.filter { app ->
+                app.appName.contains(query, ignoreCase = true) // Фильтруем по имени приложения
+            }
+        }
+        appsAdapter.updateApps(filteredList) // Обновляем адаптер с анимацией
     }
 
     // Обработка нажатий элементов меню

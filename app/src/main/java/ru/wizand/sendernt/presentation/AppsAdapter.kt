@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.ToggleButton
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import ru.wizand.sendernt.R
 import ru.wizand.sendernt.domain.AppInfo
 
 class AppsAdapter(
-    private val apps: List<AppInfo>,
+    private var apps: List<AppInfo>,
     private val onToggleChanged: (AppInfo, Boolean) -> Unit
 ) : RecyclerView.Adapter<AppsAdapter.AppViewHolder>() {
 
@@ -37,6 +38,19 @@ class AppsAdapter(
             app.isAllowed = isChecked
             onToggleChanged(app, isChecked)
         }
+    }
+
+//    fun updateApps(newAppsList: List<AppInfo>) {
+//        apps = newAppsList
+//        notifyDataSetChanged() // Уведомляем адаптер о том, что данные изменились
+//    }
+
+    fun updateApps(newAppsList: List<AppInfo>) {
+        val diffCallback = AppDiffCallback(apps, newAppsList)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+
+        apps = newAppsList
+        diffResult.dispatchUpdatesTo(this) // Уведомляем адаптер о изменениях с анимацией
     }
 
     override fun getItemCount(): Int = apps.size
