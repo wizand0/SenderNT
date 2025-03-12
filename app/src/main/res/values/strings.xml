@@ -49,4 +49,5 @@
     <string name="all_apps">All Apps</string>
     <string name="main">Main</string>
     <string name="prefsActivityName">Preferences</string>
+    <string name="service_status">Start service</string>
 </resources>

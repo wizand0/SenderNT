@@ -14,9 +14,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="15dp"
             android:paddingTop="8dp"
             app:popupTheme="@style/MyPopupMenu"
-            android:layout_marginTop="15dp"
             app:title="@string/main" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -52,12 +52,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewMain" />
 
-        <ToggleButton
-            android:id="@+id/toggle_service"
+<!--        <ToggleButton-->
+<!--            android:id="@+id/toggle_service"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textOff="@string/service_off"-->
+<!--            android:textOn="@string/service_on"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/textViewText"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textViewMain"-->
+<!--            app:layout_constraintVertical_bias="1.0" />-->
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_service"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textOff="@string/service_off"
-            android:textOn="@string/service_on"
+            android:checked="false"
+            android:text="@string/service_status"
             app:layout_constraintBottom_toTopOf="@+id/textViewText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -10,6 +10,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.microsoft.clarity.Clarity
+import com.microsoft.clarity.ClarityConfig
 import ru.wizand.sendernt.R
 import ru.wizand.sendernt.domain.AppInfo
 import ru.wizand.sendernt.data.utils.AllowedAppsPreferences
@@ -30,6 +32,10 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_settings) // оформите свою разметку
+
+        // implementation Microsoft Clarity
+        val config = ClarityConfig("qn253qo57u")
+        Clarity.initialize(applicationContext, config)
 
         // Найдите Toolbar и задайте его в качестве ActionBar
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
