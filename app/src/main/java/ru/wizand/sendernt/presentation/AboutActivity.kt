@@ -9,6 +9,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.microsoft.clarity.Clarity
+import com.microsoft.clarity.ClarityConfig
 import ru.wizand.sendernt.R
 
 class AboutActivity : AppCompatActivity() {
@@ -16,6 +18,10 @@ class AboutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_about)
+
+        // implementation Microsoft Clarity
+        val config = ClarityConfig("qn253qo57u")
+        Clarity.initialize(applicationContext, config)
 
         // Устанавливаем номер версии приложения.
 //        val tvVersion = findViewById<TextView>(R.id.tvVersion)

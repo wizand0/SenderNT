@@ -37,4 +37,5 @@
     <string name="all_apps">Все приложения</string>
     <string name="main">Главная</string>
     <string name="prefsActivityName">Настройки</string>
+    <string name="service_status">Запустить службу</string>
 </resources>

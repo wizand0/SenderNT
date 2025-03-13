@@ -17,6 +17,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.switchmaterial.SwitchMaterial
+import com.microsoft.clarity.Clarity
+import com.microsoft.clarity.ClarityConfig
+import com.microsoft.clarity.models.LogLevel
 import ru.wizand.sendernt.R
 import ru.wizand.sendernt.data.service.NotificationLoggerService
 import ru.wizand.sendernt.databinding.ActivityMainBinding
@@ -29,6 +33,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // implementation Microsoft Clarity
+        val config = ClarityConfig("qn253qo57u")
+        Clarity.initialize(applicationContext, config)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -60,7 +68,8 @@ class MainActivity : AppCompatActivity() {
 //        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "No_data")
 
         // Кнопка инициализации службы
-        val toggleService = findViewById<ToggleButton>(R.id.toggle_service)
+//        val toggleService = findViewById<ToggleButton>(R.id.toggle_service)
+        val switchService: SwitchMaterial = findViewById(R.id.switch_service)
 
 
 
@@ -85,13 +94,24 @@ class MainActivity : AppCompatActivity() {
         val isServiceEnabled = sharedPref.getBoolean(KEY_SERVICE_ENABLED, false)
 
         // Устанавливаем положение переключателя
-        toggleService.isChecked = isServiceEnabled
+//        toggleService.isChecked = isServiceEnabled
+        switchService.isChecked = isServiceEnabled
 
         // Применяем состояние службы: включаем или выключаем компонент
         setNotificationServiceEnabled(isServiceEnabled)
 
         // Слушатель переключения toggleButton
-        toggleService.setOnCheckedChangeListener { _, isChecked ->
+//        toggleService.setOnCheckedChangeListener { _, isChecked ->
+            // Изменяем состояние службы
+//            setNotificationServiceEnabled(isChecked)
+            // Сохраняем новое состояние в SharedPreferences
+//            with(sharedPref.edit()) {
+//                putBoolean(KEY_SERVICE_ENABLED, isChecked)
+//                apply() // можно использовать commit(), если нужна синхронная запись
+//            }
+//        }
+
+        switchService.setOnCheckedChangeListener { _, isChecked ->
             // Изменяем состояние службы
             setNotificationServiceEnabled(isChecked)
             // Сохраняем новое состояние в SharedPreferences
@@ -100,6 +120,8 @@ class MainActivity : AppCompatActivity() {
                 apply() // можно использовать commit(), если нужна синхронная запись
             }
         }
+
+
 
 
     }
