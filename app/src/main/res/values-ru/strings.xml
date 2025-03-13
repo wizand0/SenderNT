@@ -38,4 +38,6 @@
     <string name="main">Главная</string>
     <string name="prefsActivityName">Настройки</string>
     <string name="service_status">Запустить службу</string>
+    <string name="enter_bot_id_error">Введите id бота</string>
+    <string name="enter_chat_id_error">Введите id чата</string>
 </resources>
