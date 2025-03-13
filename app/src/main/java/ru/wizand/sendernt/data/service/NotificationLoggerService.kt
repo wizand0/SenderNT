@@ -162,7 +162,7 @@ class NotificationLoggerService : NotificationListenerService() {
      */
 
 
-    // Пример функции отправки уведомления на сервер
+    // функция отправки уведомления на сервер
     private fun sendNotificationToServer(sbn: StatusBarNotification) {
 
         // Достаем данные из SharedPreferences
@@ -221,6 +221,51 @@ class NotificationLoggerService : NotificationListenerService() {
             override fun onFailure(call: Call, e: IOException) {
                 Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
 
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                if (!response.isSuccessful) {
+                    Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${response.message}")
+                } else {
+                    Log.d(TAG, "Сообщение успешно отправлено через Telegram")
+                }
+                response.close()
+            }
+        })
+    }
+
+
+    // Отправка тестового сообщения
+    public fun sendTestTextToServer() {
+
+        // Достаем данные из SharedPreferences
+        val sharedPref = getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
+        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "No_data")
+        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "No_data")
+        val time = Date()
+        val text = "Test message"
+        val title = "Test title"
+
+        val message = " -> $time - $title - $text"
+
+        // Формируем URL запроса к Telegram Bot API
+        val url = "https://api.telegram.org/bot$botId/sendMessage"
+
+        // Формируем тело запроса с параметрами chat_id и text
+        val requestBody = FormBody.Builder()
+//            .add("chat_id", TELEGRAM_CHAT_ID)
+            .add("chat_id", chatId!!)
+            .add("text", message)
+            .build()
+
+        // Создаем POST-запрос
+        val request = Request.Builder()
+            .url(url)
+            .post(requestBody)
+            .build()
+        httpClient.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
             }
 
             override fun onResponse(call: Call, response: Response) {

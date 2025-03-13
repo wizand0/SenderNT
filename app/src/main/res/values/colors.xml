@@ -10,5 +10,6 @@
 
     <!-- Бирюзовый цвет -->
     <color name="teal_200">#80CBC4</color> <!-- Более мягкий бирюзовый -->
+    <color name="gray">#CCCCCC</color> <!-- Более мягкий бирюзовый -->
 
 </resources>

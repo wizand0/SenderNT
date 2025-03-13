@@ -40,4 +40,6 @@
     <string name="service_status">Запустить службу</string>
     <string name="enter_bot_id_error">Введите id бота</string>
     <string name="enter_chat_id_error">Введите id чата</string>
+    <string name="test">Test</string>
+    <string name="data_send">Data send</string>
 </resources>

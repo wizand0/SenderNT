@@ -46,27 +46,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/TextViewBot"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="40dp"-->
-<!--            android:text="@string/id_telegram_bot_textview"-->
-<!--            android:textSize="18sp"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/btnApps"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/btnApps" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/TextViewBot"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="40dp"-->
+        <!--            android:text="@string/id_telegram_bot_textview"-->
+        <!--            android:textSize="18sp"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/btnApps"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/btnApps" />-->
 
-<!--        <EditText-->
-<!--            android:id="@+id/editTextBotID"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:autofillHints="password"-->
-<!--            android:ems="10"-->
-<!--            android:inputType="text"-->
-<!--            android:hint="@string/no_data"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/TextViewBot"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/TextViewBot" />-->
+        <!--        <EditText-->
+        <!--            android:id="@+id/editTextBotID"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="16dp"-->
+        <!--            android:autofillHints="password"-->
+        <!--            android:ems="10"-->
+        <!--            android:inputType="text"-->
+        <!--            android:hint="@string/no_data"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/TextViewBot"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/TextViewBot" />-->
 
         <!-- TextInputLayout и TextInputEditText для ID бота -->
         <com.google.android.material.textfield.TextInputLayout
@@ -75,8 +75,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:hint="@string/id_telegram_bot_textview"
-            app:layout_constraintStart_toStartOf="@+id/btnApps"
             app:layout_constraintEnd_toEndOf="@+id/btnBatteryOptimization"
+            app:layout_constraintStart_toStartOf="@+id/btnApps"
             app:layout_constraintTop_toBottomOf="@+id/btnApps">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -86,30 +86,30 @@
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <TextView-->
-<!--            android:id="@+id/textViewChatID"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="36dp"-->
-<!--            android:text="@string/id_chat_textview"-->
-<!--            android:textSize="18sp"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/editTextBotID"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/editTextBotID" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/textViewChatID"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="36dp"-->
+        <!--            android:text="@string/id_chat_textview"-->
+        <!--            android:textSize="18sp"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/editTextBotID"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/editTextBotID" />-->
 
-<!--        &lt;!&ndash; Кнопка для открытия BotFather &ndash;&gt;-->
+        <!--        &lt;!&ndash; Кнопка для открытия BotFather &ndash;&gt;-->
 
-<!--        &lt;!&ndash; Кнопка для открытия get_id_bot &ndash;&gt;-->
-<!--        <EditText-->
-<!--            android:id="@+id/editTextChatID"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:autofillHints="password"-->
-<!--            android:ems="10"-->
-<!--            android:inputType="text"-->
-<!--            android:hint="@string/no_data"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/textViewChatID"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/textViewChatID" />-->
+        <!--        &lt;!&ndash; Кнопка для открытия get_id_bot &ndash;&gt;-->
+        <!--        <EditText-->
+        <!--            android:id="@+id/editTextChatID"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="16dp"-->
+        <!--            android:autofillHints="password"-->
+        <!--            android:ems="10"-->
+        <!--            android:inputType="text"-->
+        <!--            android:hint="@string/no_data"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/textViewChatID"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/textViewChatID" />-->
 
         <!-- TextInputLayout и TextInputEditText для ID чата -->
         <com.google.android.material.textfield.TextInputLayout
@@ -118,8 +118,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:hint="@string/id_chat_textview"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayoutBot"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayoutBot"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayoutBot"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayoutBot">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -129,55 +129,72 @@
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <Button-->
-<!--            android:id="@+id/buttonSave"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="48dp"-->
-<!--            android:text="@string/save"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/editTextChatID"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/editTextChatID" />-->
+        <!--        <Button-->
+        <!--            android:id="@+id/buttonSave"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="48dp"-->
+        <!--            android:text="@string/save"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/editTextChatID"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/editTextChatID" />-->
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/buttonOpenBotFather"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="24dp"-->
-<!--            android:background="@null"-->
-<!--            android:contentDescription="@string/id_telegram_bot_textview"-->
-<!--            android:padding="8dp"-->
-<!--            android:scaleX="1.5"-->
-<!--            android:scaleY="1.5"-->
-<!--            android:src="@drawable/open_app"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/editTextBotID"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/editTextBotID"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/editTextBotID" />-->
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/buttonOpenBotFather"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="24dp"-->
+        <!--            android:background="@null"-->
+        <!--            android:contentDescription="@string/id_telegram_bot_textview"-->
+        <!--            android:padding="8dp"-->
+        <!--            android:scaleX="1.5"-->
+        <!--            android:scaleY="1.5"-->
+        <!--            android:src="@drawable/open_app"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/editTextBotID"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/editTextBotID"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/editTextBotID" />-->
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/buttonOpenGetIdBot"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@null"-->
-<!--            android:contentDescription="@string/id_chat_textview"-->
-<!--            android:padding="8dp"-->
-<!--            android:scaleX="1.5"-->
-<!--            android:scaleY="1.5"-->
-<!--            android:src="@drawable/open_app"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/editTextChatID"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/buttonOpenBotFather"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/editTextChatID" />-->
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/buttonOpenGetIdBot"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:background="@null"-->
+        <!--            android:contentDescription="@string/id_chat_textview"-->
+        <!--            android:padding="8dp"-->
+        <!--            android:scaleX="1.5"-->
+        <!--            android:scaleY="1.5"-->
+        <!--            android:src="@drawable/open_app"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/editTextChatID"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/buttonOpenBotFather"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/editTextChatID" />-->
 
         <!-- Кнопка "Сохранить" -->
+
+        <Button
+            android:id="@+id/buttonTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:clickable="false"
+            android:text="@string/test"
+            app:layout_constraintEnd_toStartOf="@+id/buttonSave"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutChat" />
+
+        <!-- Кнопка для открытия BotFather (привязана к контейнеру поля ввода ID бота) -->
+
         <Button
             android:id="@+id/buttonSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
             android:text="@string/save"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayoutChat"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutChat" />
+            app:layout_constraintBottom_toBottomOf="@+id/buttonTest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonTest"
+            app:layout_constraintTop_toTopOf="@+id/buttonTest"
+            app:layout_constraintVertical_bias="0.0" />
 
-        <!-- Кнопка для открытия BotFather (привязана к контейнеру поля ввода ID бота) -->
         <ImageButton
             android:id="@+id/buttonOpenBotFather"
             android:layout_width="wrap_content"
@@ -189,9 +206,9 @@
             android:scaleX="1.5"
             android:scaleY="1.5"
             android:src="@drawable/open_app"
-            app:layout_constraintTop_toTopOf="@+id/textInputLayoutBot"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutBot"
-            app:layout_constraintStart_toEndOf="@+id/textInputLayoutBot" />
+            app:layout_constraintStart_toEndOf="@+id/textInputLayoutBot"
+            app:layout_constraintTop_toTopOf="@+id/textInputLayoutBot" />
 
         <!-- Кнопка для получения ID бота (привязана к контейнеру поля ввода ID чата) -->
         <ImageButton
@@ -204,9 +221,9 @@
             android:scaleX="1.5"
             android:scaleY="1.5"
             android:src="@drawable/open_app"
-            app:layout_constraintTop_toTopOf="@+id/textInputLayoutChat"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutChat"
-            app:layout_constraintStart_toStartOf="@+id/buttonOpenBotFather" />
+            app:layout_constraintStart_toStartOf="@+id/buttonOpenBotFather"
+            app:layout_constraintTop_toTopOf="@+id/textInputLayoutChat" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
