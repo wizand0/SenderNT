@@ -23,6 +23,7 @@ The application requires permissions to access the network and notifications.
 - Enabling/disabling the service in settings;
 - Localization (Ru; En)
 - "Live" search in the application list
+- Ability to send test notifications;
 
 ## Screenshots
 
@@ -42,8 +43,8 @@ The following screenshots illustrate key parts of the application:
 - Sending a test notification;
 - ~~Add "live" search in the application list as characters are entered.~~
 - Improve the user interface and add new features;
-- Add the ability to send test notifications;
-- Add "live" search in the application list as characters are typed;
+- ~~Add the ability to send test notifications;~~
+- ~~Add "live" search in the application list as characters are typed;~~
 - Customize the format of information sent to the chat (reorder fields and select required fields):
     - Device;
     - Package;
@@ -64,7 +65,7 @@ The following screenshots illustrate key parts of the application:
 - Kotlin Coroutines for asynchronous operations.
 
 ## Versions
-- v1.3.8: EditText material design (Settings activity)
+- v1.3.8: EditText material design (Settings activity), test notifications
 - v1.3.7: Implement Microsoft Clarity
 - v1.3.6: View fixes, ProGuard, LiveSearch for system apps 
 - v1.3.5: Live search apps

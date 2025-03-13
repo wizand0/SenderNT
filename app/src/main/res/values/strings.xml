@@ -52,4 +52,6 @@
     <string name="service_status">Start service</string>
     <string name="enter_bot_id_error">Enter bot id</string>
     <string name="enter_chat_id_error">Enter chat id</string>
+    <string name="test">Test</string>
+    <string name="data_send">Data send</string>
 </resources>

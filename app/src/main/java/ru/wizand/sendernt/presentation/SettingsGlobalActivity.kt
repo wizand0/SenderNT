@@ -9,6 +9,7 @@ import android.os.PowerManager
 import android.provider.Settings
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -17,16 +18,33 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.addTextChangedListener
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.microsoft.clarity.Clarity
 import com.microsoft.clarity.ClarityConfig
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.FormBody
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 import ru.wizand.sendernt.R
 import ru.wizand.sendernt.presentation.ViewUtils.showShortInstructionDialog
+import java.io.IOException
+import java.util.Date
 
 class SettingsGlobalActivity : AppCompatActivity() {
+
+    private lateinit var editTextBotID: TextInputEditText
+    private lateinit var editTextChatID : TextInputEditText
+    private lateinit var buttonTest: Button
+
+
+    private val httpClient = OkHttpClient()
 
     // Ключи для SharedPreferences
     companion object {
@@ -81,9 +99,12 @@ class SettingsGlobalActivity : AppCompatActivity() {
         // Получаем ссылки на контейнеры TextInputLayout и сам редактируемый текст
         val textInputLayoutBot = findViewById<TextInputLayout>(R.id.textInputLayoutBot)
         val textInputLayoutChat = findViewById<TextInputLayout>(R.id.textInputLayoutChat)
-        val editTextBotID = findViewById<TextInputEditText>(R.id.editTextBotID)
-        val editTextChatID = findViewById<TextInputEditText>(R.id.editTextChatID)
-
+//        val editTextBotID = findViewById<EditText>(R.id.editTextBotID)
+//        val editTextChatID = findViewById<EditText>(R.id.editTextChatID)
+        editTextBotID = findViewById(R.id.editTextBotID)
+        editTextChatID = findViewById(R.id.editTextChatID)
+        buttonTest = findViewById(R.id.buttonTest)
+//        val buttonTest = findViewById<Button>(R.id.buttonTest)
         val buttonSave = findViewById<Button>(R.id.buttonSave)
         val buttonOpenBotFather = findViewById<ImageButton>(R.id.buttonOpenBotFather)
         val buttonOpenGetIdBot = findViewById<ImageButton>(R.id.buttonOpenGetIdBot)
@@ -204,6 +225,12 @@ class SettingsGlobalActivity : AppCompatActivity() {
             }
         })
 
+        // Первичная проверка:
+        checkFields()
+
+//        editTextBotID.addTextChangedListener { checkFields() }
+//        editTextChatID.addTextChangedListener { checkFields() }
+
         buttonSave.setOnClickListener {
             // Получаем текст и обрезаем пробелы
             val botId = editTextBotID.text?.toString()?.trim()
@@ -215,6 +242,7 @@ class SettingsGlobalActivity : AppCompatActivity() {
             if (botId.isNullOrEmpty() || botId == "No_data" || botId == getString(R.string.no_data)) {
                 // Устанавливаем ошибку в TextInputLayout - появится анимация и/или подсказка об ошибке
                 textInputLayoutBot.error = getString(R.string.enter_bot_id_error)
+
                 isValid = false
             } else {
                 // Убираем ошибку, если введённое значение корректно
@@ -242,9 +270,27 @@ class SettingsGlobalActivity : AppCompatActivity() {
             }
         }
 
+        // Добавить обработку нажатия для buttonTest
+        buttonTest.setOnClickListener {
+            // Например, можно открыть новое Activity или выполнить тестовую операцию
+            Toast.makeText(this, getString(R.string.data_send), Toast.LENGTH_SHORT).show()
+            sendTestTextToServer()
 
+        }
+    }
 
+    // Функция проверки полей
+    fun checkFields() {
+        val botId = editTextBotID.text.toString().trim()
+        val chatId = editTextChatID.text.toString().trim()
 
+        if (botId.isEmpty() || chatId.isEmpty()) {
+            buttonTest.isEnabled = false
+            buttonTest.setBackgroundColor(ContextCompat.getColor(this, R.color.gray))
+        } else {
+            buttonTest.isEnabled = true
+            buttonTest.setBackgroundColor(ContextCompat.getColor(this, R.color.purple_500))
+        }
     }
 
     private fun requestIgnoreBatteryOptimizations(context: Context) {
@@ -278,6 +324,8 @@ class SettingsGlobalActivity : AppCompatActivity() {
         return true
     }
 
+
+
     // Обработка нажатий элементов меню
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
@@ -291,4 +339,49 @@ class SettingsGlobalActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    // Отправка тестового сообщения
+    private fun sendTestTextToServer() {
+        val botId = editTextBotID.text.toString().trim()
+        val chatId = editTextChatID.text.toString().trim()
+
+        val time = Date()
+        val text = "Test message"
+        val title = "Test title"
+
+        val message = " -> $time - $title - $text"
+
+        // Формируем URL запроса к Telegram Bot API
+        val url = "https://api.telegram.org/bot$botId/sendMessage"
+
+        // Формируем тело запроса с параметрами chat_id и text
+        val requestBody = FormBody.Builder()
+//            .add("chat_id", TELEGRAM_CHAT_ID)
+            .add("chat_id", chatId!!)
+            .add("text", message)
+            .build()
+
+        // Создаем POST-запрос
+        val request = Request.Builder()
+            .url(url)
+            .post(requestBody)
+            .build()
+        httpClient.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e("TAG", "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                if (!response.isSuccessful) {
+                    Log.e("TAG", "Ошибка при отправке сообщения в Telegram: ${response.message}")
+                } else {
+                    Log.d("TAG", "Сообщение успешно отправлено через Telegram")
+                    buttonTest.setBackgroundColor(getColor(R.color.gray))
+                    buttonTest.isClickable = false
+                }
+                response.close()
+            }
+        })
+    }
+
 }
