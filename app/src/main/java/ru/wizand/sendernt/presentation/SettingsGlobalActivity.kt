@@ -7,6 +7,8 @@ import android.os.Build
 import android.os.Bundle
 import android.os.PowerManager
 import android.provider.Settings
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -17,6 +19,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.microsoft.clarity.Clarity
 import com.microsoft.clarity.ClarityConfig
 import ru.wizand.sendernt.R
@@ -68,13 +72,19 @@ class SettingsGlobalActivity : AppCompatActivity() {
             requestIgnoreBatteryOptimizations(this)
         }
 
-        val editTextBotID = findViewById<EditText>(R.id.editTextBotID)
-        val editTextChatID = findViewById<EditText>(R.id.editTextChatID)
+//        val editTextBotID = findViewById<EditText>(R.id.editTextBotID)
+//        val editTextChatID = findViewById<EditText>(R.id.editTextChatID)
+//        val buttonSave = findViewById<Button>(R.id.buttonSave)
+//        val buttonOpenBotFather = findViewById<ImageButton>(R.id.buttonOpenBotFather)
+//        val buttonOpenGetIdBot = findViewById<ImageButton>(R.id.buttonOpenGetIdBot)
 
-
+        // Получаем ссылки на контейнеры TextInputLayout и сам редактируемый текст
+        val textInputLayoutBot = findViewById<TextInputLayout>(R.id.textInputLayoutBot)
+        val textInputLayoutChat = findViewById<TextInputLayout>(R.id.textInputLayoutChat)
+        val editTextBotID = findViewById<TextInputEditText>(R.id.editTextBotID)
+        val editTextChatID = findViewById<TextInputEditText>(R.id.editTextChatID)
 
         val buttonSave = findViewById<Button>(R.id.buttonSave)
-
         val buttonOpenBotFather = findViewById<ImageButton>(R.id.buttonOpenBotFather)
         val buttonOpenGetIdBot = findViewById<ImageButton>(R.id.buttonOpenGetIdBot)
 
@@ -91,48 +101,150 @@ class SettingsGlobalActivity : AppCompatActivity() {
         val savedBotId = sharedPref.getString(KEY_BOT_ID, "No_data")
         val savedChatId = sharedPref.getString(KEY_CHAT_ID, "No_data")
 
-        // Если одно из значений отсутствует или равно "No_data", то устанавливаем "No_data"
-        if (savedBotId == null || savedBotId == "No_data") {
-            editTextBotID.setText(getString(R.string.no_data))
-        } else {
+//        // Если одно из значений отсутствует или равно "No_data", то устанавливаем "No_data"
+//        if (savedBotId == null || savedBotId == "No_data") {
+//            editTextBotID.setText(getString(R.string.no_data))
+//        } else {
+//            editTextBotID.setText(savedBotId)
+//        }
+//
+//        if (savedChatId == null || savedChatId == "No_data") {
+//            editTextChatID.setText(getString(R.string.no_data))
+//        } else {
+//            editTextChatID.setText(savedChatId)
+//        }
+//
+//        if (savedChatId == null || savedChatId == "No_data" || savedBotId == null || savedBotId == "No_data") {
+//            showShortInstructionDialog(this)
+//        }
+
+        //После смены EditText данная проверка избыточна
+        // Устанавливаем сохранённые значения в поля ввода
+//        if (savedBotId == null || savedBotId == "No_data") {
+//            editTextBotID.setHint(getString(R.string.no_data))
+//        } else {
+//            editTextBotID.setText(savedBotId)
+//        }
+//        if (savedChatId == null || savedChatId == "No_data") {
+//            editTextChatID.setText(getString(R.string.no_data))
+//        } else {
+//            editTextChatID.setText(savedChatId)
+//        }
+
+        if (savedBotId != "No_data") {
             editTextBotID.setText(savedBotId)
         }
 
-        if (savedChatId == null || savedChatId == "No_data") {
-            editTextChatID.setText(getString(R.string.no_data))
-        } else {
+        if (savedChatId != "No_data") {
             editTextChatID.setText(savedChatId)
         }
 
-        if (savedChatId == null || savedChatId == "No_data" || savedBotId == null || savedBotId == "No_data") {
+        // Если данные не заданы, можно отобразить диалог с инструкцией
+        if ((savedChatId == null || savedChatId == "No_data")
+            && (savedBotId == null || savedBotId == "No_data")
+        ) {
             showShortInstructionDialog(this)
         }
 
 
 
+//        buttonSave.setOnClickListener {
+//            // Получаем текст из EditText и обрезаем пробелы
+//            val botId = editTextBotID.text?.toString()?.trim()
+//            val chatId = editTextChatID.text?.toString()?.trim()
+//
+//            // Проверяем, что поля не пустые или null
+//            if (botId.isNullOrEmpty() || chatId.isNullOrEmpty() || botId == "No_data" || chatId == "No_data" || botId == getString(
+//                    R.string.no_data
+//                ) || chatId == getString(R.string.no_data)
+//            ) {
+//                Toast.makeText(this, getString(R.string.enter_all_fields), Toast.LENGTH_SHORT)
+//                    .show()
+//            } else {
+//                // Сохраняем данные в SharedPreferences
+//                @Suppress("NAME_SHADOWING") val sharedPref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+//                with(sharedPref.edit()) {
+//                    putString(KEY_BOT_ID, botId)
+//                    putString(KEY_CHAT_ID, chatId)
+//                    apply() // или commit(), если нужно синхронно сохранить записи
+//                }
+//                Toast.makeText(this, getString(R.string.data_saved), Toast.LENGTH_SHORT).show()
+//            }
+//        }
+
+        // Убираем ошибку если ранее появилась при неправильном вводе у editTextBotID
+        editTextBotID.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Ничего не делаем
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Сбрасываем ошибку при каждом изменении текста
+                textInputLayoutBot.error = null
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                // Ничего не делаем
+            }
+        })
+
+        // Убираем ошибку если ранее появилась при неправильном вводе у editTextChatID
+        editTextChatID.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Ничего не делаем
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Сбрасываем ошибку при каждом изменении текста
+                textInputLayoutChat.error = null
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                // Ничего не делаем
+            }
+        })
+
         buttonSave.setOnClickListener {
-            // Получаем текст из EditText и обрезаем пробелы
+            // Получаем текст и обрезаем пробелы
             val botId = editTextBotID.text?.toString()?.trim()
             val chatId = editTextChatID.text?.toString()?.trim()
 
-            // Проверяем, что поля не пустые или null
-            if (botId.isNullOrEmpty() || chatId.isNullOrEmpty() || botId == "No_data" || chatId == "No_data" || botId == getString(
-                    R.string.no_data
-                ) || chatId == getString(R.string.no_data)
-            ) {
-                Toast.makeText(this, getString(R.string.enter_all_fields), Toast.LENGTH_SHORT)
-                    .show()
+            var isValid = true
+
+            // Проверяем, что поле для BotID заполнено корректно
+            if (botId.isNullOrEmpty() || botId == "No_data" || botId == getString(R.string.no_data)) {
+                // Устанавливаем ошибку в TextInputLayout - появится анимация и/или подсказка об ошибке
+                textInputLayoutBot.error = getString(R.string.enter_bot_id_error)
+                isValid = false
             } else {
-                // Сохраняем данные в SharedPreferences
-                @Suppress("NAME_SHADOWING") val sharedPref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                // Убираем ошибку, если введённое значение корректно
+                textInputLayoutBot.error = null
+            }
+
+            // Проверяем поле для ChatID
+            if (chatId.isNullOrEmpty() || chatId == "No_data" || chatId == getString(R.string.no_data)) {
+                textInputLayoutChat.error = getString(R.string.enter_chat_id_error)
+                isValid = false
+            } else {
+                textInputLayoutChat.error = null
+            }
+
+            // Если все поля заполнены корректно, сохраняем данные
+            if (isValid) {
                 with(sharedPref.edit()) {
                     putString(KEY_BOT_ID, botId)
                     putString(KEY_CHAT_ID, chatId)
-                    apply() // или commit(), если нужно синхронно сохранить записи
+                    apply() // Или commit(), если нужна синхронная запись
                 }
                 Toast.makeText(this, getString(R.string.data_saved), Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, getString(R.string.enter_all_fields), Toast.LENGTH_SHORT).show()
             }
         }
+
+
+
+
     }
 
     private fun requestIgnoreBatteryOptimizations(context: Context) {
