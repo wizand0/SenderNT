@@ -3,7 +3,6 @@ package ru.wizand.sendernt.presentation
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.PowerManager
 import android.provider.Settings
@@ -12,20 +11,22 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.ViewTreeObserver
 import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.microsoft.clarity.Clarity
 import com.microsoft.clarity.ClarityConfig
+import com.yandex.mobile.ads.banner.BannerAdEventListener
+import com.yandex.mobile.ads.banner.BannerAdSize
+import com.yandex.mobile.ads.banner.BannerAdView
+import com.yandex.mobile.ads.common.AdRequest
+import com.yandex.mobile.ads.common.AdRequestError
+import com.yandex.mobile.ads.common.ImpressionData
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.FormBody
@@ -33,16 +34,20 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 import ru.wizand.sendernt.R
+import ru.wizand.sendernt.databinding.ActivitySettingsGlobalBinding
+import ru.wizand.sendernt.presentation.MainActivity.Companion.YOUR_BLOCK_ID
 import ru.wizand.sendernt.presentation.ViewUtils.showShortInstructionDialog
 import java.io.IOException
 import java.util.Date
+import kotlin.math.roundToInt
 
 class SettingsGlobalActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivitySettingsGlobalBinding
 
     private lateinit var editTextBotID: TextInputEditText
     private lateinit var editTextChatID: TextInputEditText
     private lateinit var buttonTest: Button
-
 
     private val httpClient = OkHttpClient()
 
@@ -62,30 +67,26 @@ class SettingsGlobalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_settings_global)
+        // setContentView(R.layout.activity_settings_global)
+        binding = ActivitySettingsGlobalBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // implementation Microsoft Clarity
         val config = ClarityConfig("qn253qo57u")
         Clarity.initialize(applicationContext, config)
 
         // Найдите Toolbar и задайте его в качестве ActionBar
-        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        val toolbar = binding.toolbar
         setSupportActionBar(toolbar)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        val btnSettings = findViewById<Button>(R.id.btnApps)
+        val btnSettings = binding.btnApps
         btnSettings.setOnClickListener {
             // Создаем Intent для перехода в SettingsActivity
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
 
-        val btnBatteryOptimization = findViewById<Button>(R.id.btnBatteryOptimization)
+        val btnBatteryOptimization = binding.btnBatteryOptimization
         btnBatteryOptimization.setOnClickListener {
             requestIgnoreBatteryOptimizations(this)
         }
@@ -97,17 +98,15 @@ class SettingsGlobalActivity : AppCompatActivity() {
 //        val buttonOpenGetIdBot = findViewById<ImageButton>(R.id.buttonOpenGetIdBot)
 
         // Получаем ссылки на контейнеры TextInputLayout и сам редактируемый текст
-        val textInputLayoutBot = findViewById<TextInputLayout>(R.id.textInputLayoutBot)
-        val textInputLayoutChat = findViewById<TextInputLayout>(R.id.textInputLayoutChat)
-//        val editTextBotID = findViewById<EditText>(R.id.editTextBotID)
-//        val editTextChatID = findViewById<EditText>(R.id.editTextChatID)
-        editTextBotID = findViewById(R.id.editTextBotID)
-        editTextChatID = findViewById(R.id.editTextChatID)
-        buttonTest = findViewById(R.id.buttonTest)
-//        val buttonTest = findViewById<Button>(R.id.buttonTest)
-        val buttonSave = findViewById<Button>(R.id.buttonSave)
-        val buttonOpenBotFather = findViewById<ImageButton>(R.id.buttonOpenBotFather)
-        val buttonOpenGetIdBot = findViewById<ImageButton>(R.id.buttonOpenGetIdBot)
+        val textInputLayoutBot = binding.textInputLayoutBot
+        val textInputLayoutChat = binding.textInputLayoutChat
+
+        editTextBotID = binding.editTextBotID
+        editTextChatID = binding.editTextChatID
+        buttonTest = binding.buttonTest
+        val buttonSave = binding.buttonSave
+        val buttonOpenBotFather = binding.buttonOpenBotFather
+        val buttonOpenGetIdBot = binding.buttonOpenGetIdBot
 
         buttonOpenBotFather.setOnClickListener {
             openTelegramBot("BotFather")
@@ -166,7 +165,6 @@ class SettingsGlobalActivity : AppCompatActivity() {
         ) {
             showShortInstructionDialog(this)
         }
-
 
 //        buttonSave.setOnClickListener {
 //            // Получаем текст из EditText и обрезаем пробелы
@@ -281,16 +279,17 @@ class SettingsGlobalActivity : AppCompatActivity() {
         }
     }
 
+
     // Функция проверки полей
     fun checkFields() {
         val botId = editTextBotID.text.toString().trim()
         val chatId = editTextChatID.text.toString().trim()
 
         if (botId.isEmpty() || chatId.isEmpty()) {
-            buttonTest.isClickable = false
+            buttonTest.isEnabled = false
             buttonTest.setBackgroundColor(ContextCompat.getColor(this, R.color.gray))
         } else {
-            buttonTest.isClickable = true
+            buttonTest.isEnabled = true
             buttonTest.setBackgroundColor(ContextCompat.getColor(this, R.color.purple_500))
         }
     }
