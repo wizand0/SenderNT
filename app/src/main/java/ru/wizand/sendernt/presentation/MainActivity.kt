@@ -78,7 +78,6 @@ class MainActivity : AppCompatActivity() {
         })
 
 
-
         // Найдите Toolbar и задайте его в качестве ActionBar
 //        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         val toolbar = binding.toolbar
@@ -137,9 +136,9 @@ class MainActivity : AppCompatActivity() {
 
         // Слушатель переключения toggleButton
 //        toggleService.setOnCheckedChangeListener { _, isChecked ->
-            // Изменяем состояние службы
+        // Изменяем состояние службы
 //            setNotificationServiceEnabled(isChecked)
-            // Сохраняем новое состояние в SharedPreferences
+        // Сохраняем новое состояние в SharedPreferences
 //            with(sharedPref.edit()) {
 //                putBoolean(KEY_SERVICE_ENABLED, isChecked)
 //                apply() // можно использовать commit(), если нужна синхронная запись
@@ -243,7 +242,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadBannerAd(adSize: BannerAdSize): BannerAdView {
-        return binding.bannerAdView .apply {
+        return binding.bannerAdView.apply {
             setAdSize(adSize)
             setAdUnitId(YOUR_BLOCK_ID)
             setBannerAdEventListener(object : BannerAdEventListener {

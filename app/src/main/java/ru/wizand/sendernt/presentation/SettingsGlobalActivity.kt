@@ -8,10 +8,8 @@ import android.os.PowerManager
 import android.provider.Settings
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.ViewTreeObserver
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -21,25 +19,11 @@ import androidx.core.widget.addTextChangedListener
 import com.google.android.material.textfield.TextInputEditText
 import com.microsoft.clarity.Clarity
 import com.microsoft.clarity.ClarityConfig
-import com.yandex.mobile.ads.banner.BannerAdEventListener
-import com.yandex.mobile.ads.banner.BannerAdSize
-import com.yandex.mobile.ads.banner.BannerAdView
-import com.yandex.mobile.ads.common.AdRequest
-import com.yandex.mobile.ads.common.AdRequestError
-import com.yandex.mobile.ads.common.ImpressionData
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.FormBody
 import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
 import ru.wizand.sendernt.R
+import ru.wizand.sendernt.data.utils.TelegramUtils
 import ru.wizand.sendernt.databinding.ActivitySettingsGlobalBinding
-import ru.wizand.sendernt.presentation.MainActivity.Companion.YOUR_BLOCK_ID
 import ru.wizand.sendernt.presentation.ViewUtils.showShortInstructionDialog
-import java.io.IOException
-import java.util.Date
-import kotlin.math.roundToInt
 
 class SettingsGlobalActivity : AppCompatActivity() {
 
@@ -67,7 +51,6 @@ class SettingsGlobalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        // setContentView(R.layout.activity_settings_global)
         binding = ActivitySettingsGlobalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -90,12 +73,6 @@ class SettingsGlobalActivity : AppCompatActivity() {
         btnBatteryOptimization.setOnClickListener {
             requestIgnoreBatteryOptimizations(this)
         }
-
-//        val editTextBotID = findViewById<EditText>(R.id.editTextBotID)
-//        val editTextChatID = findViewById<EditText>(R.id.editTextChatID)
-//        val buttonSave = findViewById<Button>(R.id.buttonSave)
-//        val buttonOpenBotFather = findViewById<ImageButton>(R.id.buttonOpenBotFather)
-//        val buttonOpenGetIdBot = findViewById<ImageButton>(R.id.buttonOpenGetIdBot)
 
         // Получаем ссылки на контейнеры TextInputLayout и сам редактируемый текст
         val textInputLayoutBot = binding.textInputLayoutBot
@@ -121,35 +98,6 @@ class SettingsGlobalActivity : AppCompatActivity() {
         val savedBotId = sharedPref.getString(KEY_BOT_ID, "No_data")
         val savedChatId = sharedPref.getString(KEY_CHAT_ID, "No_data")
 
-//        // Если одно из значений отсутствует или равно "No_data", то устанавливаем "No_data"
-//        if (savedBotId == null || savedBotId == "No_data") {
-//            editTextBotID.setText(getString(R.string.no_data))
-//        } else {
-//            editTextBotID.setText(savedBotId)
-//        }
-//
-//        if (savedChatId == null || savedChatId == "No_data") {
-//            editTextChatID.setText(getString(R.string.no_data))
-//        } else {
-//            editTextChatID.setText(savedChatId)
-//        }
-//
-//        if (savedChatId == null || savedChatId == "No_data" || savedBotId == null || savedBotId == "No_data") {
-//            showShortInstructionDialog(this)
-//        }
-
-        //После смены EditText данная проверка избыточна
-        // Устанавливаем сохранённые значения в поля ввода
-//        if (savedBotId == null || savedBotId == "No_data") {
-//            editTextBotID.setHint(getString(R.string.no_data))
-//        } else {
-//            editTextBotID.setText(savedBotId)
-//        }
-//        if (savedChatId == null || savedChatId == "No_data") {
-//            editTextChatID.setText(getString(R.string.no_data))
-//        } else {
-//            editTextChatID.setText(savedChatId)
-//        }
 
         if (savedBotId != "No_data") {
             editTextBotID.setText(savedBotId)
@@ -166,29 +114,6 @@ class SettingsGlobalActivity : AppCompatActivity() {
             showShortInstructionDialog(this)
         }
 
-//        buttonSave.setOnClickListener {
-//            // Получаем текст из EditText и обрезаем пробелы
-//            val botId = editTextBotID.text?.toString()?.trim()
-//            val chatId = editTextChatID.text?.toString()?.trim()
-//
-//            // Проверяем, что поля не пустые или null
-//            if (botId.isNullOrEmpty() || chatId.isNullOrEmpty() || botId == "No_data" || chatId == "No_data" || botId == getString(
-//                    R.string.no_data
-//                ) || chatId == getString(R.string.no_data)
-//            ) {
-//                Toast.makeText(this, getString(R.string.enter_all_fields), Toast.LENGTH_SHORT)
-//                    .show()
-//            } else {
-//                // Сохраняем данные в SharedPreferences
-//                @Suppress("NAME_SHADOWING") val sharedPref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-//                with(sharedPref.edit()) {
-//                    putString(KEY_BOT_ID, botId)
-//                    putString(KEY_CHAT_ID, chatId)
-//                    apply() // или commit(), если нужно синхронно сохранить записи
-//                }
-//                Toast.makeText(this, getString(R.string.data_saved), Toast.LENGTH_SHORT).show()
-//            }
-//        }
 
         // Убираем ошибку если ранее появилась при неправильном вводе у editTextBotID
         editTextBotID.addTextChangedListener(object : TextWatcher {
@@ -273,9 +198,12 @@ class SettingsGlobalActivity : AppCompatActivity() {
         // Добавить обработку нажатия для buttonTest
         buttonTest.setOnClickListener {
             // Например, можно открыть новое Activity или выполнить тестовую операцию
-            Toast.makeText(this, getString(R.string.data_send), Toast.LENGTH_SHORT).show()
-            sendTestTextToServer()
-
+            if(buttonTest.isEnabled) {
+                val botId = editTextBotID.text.toString().trim()
+                val chatId = editTextChatID.text.toString().trim()
+                Toast.makeText(this, getString(R.string.data_send), Toast.LENGTH_SHORT).show()
+                TelegramUtils.sendTestTextToServer(this, botId, chatId, buttonTest)
+            }
         }
     }
 
@@ -337,50 +265,6 @@ class SettingsGlobalActivity : AppCompatActivity() {
 
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    // Отправка тестового сообщения
-    private fun sendTestTextToServer() {
-        val botId = editTextBotID.text.toString().trim()
-        val chatId = editTextChatID.text.toString().trim()
-
-        val time = Date()
-        val text = "Test message"
-        val title = "Test title"
-
-        val message = " -> $time - $title - $text"
-
-        // Формируем URL запроса к Telegram Bot API
-        val url = "https://api.telegram.org/bot$botId/sendMessage"
-
-        // Формируем тело запроса с параметрами chat_id и text
-        val requestBody = FormBody.Builder()
-//            .add("chat_id", TELEGRAM_CHAT_ID)
-            .add("chat_id", chatId!!)
-            .add("text", message)
-            .build()
-
-        // Создаем POST-запрос
-        val request = Request.Builder()
-            .url(url)
-            .post(requestBody)
-            .build()
-        httpClient.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                Log.e("TAG", "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                if (!response.isSuccessful) {
-                    Log.e("TAG", "Ошибка при отправке сообщения в Telegram: ${response.message}")
-                } else {
-                    Log.d("TAG", "Сообщение успешно отправлено через Telegram")
-                    buttonTest.setBackgroundColor(getColor(R.color.gray))
-                    buttonTest.isClickable = false
-                }
-                response.close()
-            }
-        })
     }
 
 }

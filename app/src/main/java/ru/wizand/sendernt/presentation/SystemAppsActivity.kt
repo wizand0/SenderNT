@@ -24,7 +24,7 @@ class SystemAppsActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var appsAdapter: AppsAdapter
     private var appsList: List<AppInfo> = emptyList()
-    val appUtils = AppUtils()
+    val appUtils = AppUtils
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
