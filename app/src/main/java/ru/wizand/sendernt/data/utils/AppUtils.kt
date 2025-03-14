@@ -4,33 +4,18 @@ import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import ru.wizand.sendernt.domain.AppInfo
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 // Здесь функция getInstalledApps()
-class AppUtils {
+object AppUtils {
 
     fun getInstalledApps(context: Context): List<AppInfo> {
         val packageManager = context.packageManager
         val installedApplications =
             packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
         val allowedPackages = AllowedAppsPreferences.getAllowedPackages(context)
-
-        // Получаем все приложения, для которых можно запустить MainActivity (то есть имеющие launcher intent)
-//        val intent = Intent(Intent.ACTION_MAIN).apply { addCategory(Intent.CATEGORY_LAUNCHER) }
-//
-//        val resolveInfos = packageManager.queryIntentActivities(intent, 0)
-//        return resolveInfos.mapNotNull { resolveInfo ->
-//            val activityInfo = resolveInfo.activityInfo
-//            try {
-//                AppInfo(
-//                    packageName = activityInfo.packageName,
-//                    appName = activityInfo.loadLabel(packageManager).toString(),
-//                    icon = activityInfo.loadIcon(packageManager),
-//                    isAllowed = allowedPackages.contains(activityInfo.packageName)
-//                )
-//            } catch (e: Exception) {
-//                null
-//            }
-//        }.sortedBy { it.appName }
 
         // Фильтруем список: исключаем системные приложения, если они не обновлены, и приложения без лаунчера
         val filteredApps = installedApplications.filter { appInfo ->
@@ -95,5 +80,11 @@ class AppUtils {
                 null
             }
         }.sortedBy { it.appName }
+    }
+
+    public fun convertTimestampToReadableFormat(timestamp: Long): String {
+        val sdf = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
+        val date = Date(timestamp)
+        return sdf.format(date)
     }
 }

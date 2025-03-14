@@ -1,34 +1,22 @@
 package ru.wizand.sendernt.data.service
 
-import android.app.Notification
-import android.content.Context
-import android.os.Looper
 import android.os.Handler
+import android.os.Looper
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
 import okhttp3.*
 import ru.wizand.sendernt.data.utils.AllowedAppsPreferences
-import ru.wizand.sendernt.presentation.SettingsGlobalActivity
-import java.io.IOException
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
+import ru.wizand.sendernt.data.utils.TelegramUtils
 
 class NotificationLoggerService : NotificationListenerService() {
 
     companion object {
-        private const val TAG = "NotificationLogger"
+        const val TAG = "NotificationLogger"
 
-        // Замените YOUR_BOT_TOKEN и YOUR_CHAT_ID на реальные данные (для тестирования)
-//        private const val TELEGRAM_BOT_TOKEN = ""
-//        private const val TELEGRAM_CHAT_ID = ""
-
-        // Задержка 20 секунд в миллисекундах
+        // Задержка 15 секунд в миллисекундах
         private const val DELAY_DURATION_MS = 15_000L
     }
-
-
 
     // Карта, которая хранит для каждого пакета время последней отправки уведомления
     private val lastNotificationTimePerPackage = mutableMapOf<String, Long>()
@@ -55,22 +43,6 @@ class NotificationLoggerService : NotificationListenerService() {
             val lastSentTime = lastNotificationTimePerPackage[packageName] ?: 0L
 
 
-
-            // Тестирование работоспособности. Удалить после азвершения тестов
-//            val messageTest = sbn.toString()
-//            Log.e(TAG, "сформировано:  $messageTest")
-
-            // Логирование информации об уведомлении
-//            Log.d(TAG, "Уведомление получено от пакета: ${it.packageName}")
-//            Log.d(TAG, "ID уведомления: ${it.id}")
-//            Log.d(TAG, "Время: ${it.postTime}")
-
-            // Здесь можно выполнить отправку уведомления на сервер
-
-//            if (sbn.packageName != "com.google.android.gms") {
-//                sendNotificationToServer(it)
-//            }
-
             Log.e(TAG, "Пакет:  $packageName")
             Log.e(TAG, "Есть ли он в разрешенных:  ${allowedPackages.contains(packageName)}")
 
@@ -93,7 +65,7 @@ class NotificationLoggerService : NotificationListenerService() {
                     }
                     lastNotificationTimePerPackage[packageName] = currentTime
 
-                    sendNotificationToServer(it)
+                    TelegramUtils.sendNotificationToServer(this, sbn)
 
                 } else {
                     // Если менее 20 секунд – рассчитываем оставшуюся задержку и планируем задачу
@@ -126,7 +98,7 @@ class NotificationLoggerService : NotificationListenerService() {
                         lastNotificationTimePerPackage[packageName] = System.currentTimeMillis()
                         // Удаляем задачу из pendingTasks после её выполнения.
                         pendingTasks.remove(packageName)
-                        sendNotificationToServer(it)
+                        TelegramUtils.sendNotificationToServer(this, sbn)
                     }
 
                     // Сохраняем новый Runnable в карте и планируем его выполнение.
@@ -163,127 +135,85 @@ class NotificationLoggerService : NotificationListenerService() {
 
 
     // функция отправки уведомления на сервер
-    private fun sendNotificationToServer(sbn: StatusBarNotification) {
+//    private fun sendNotificationToServer(sbn: StatusBarNotification) {
+//
+//        // Достаем данные из SharedPreferences
+//        val sharedPref = getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
+//        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "No_data")
+//        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "No_data")
+//
+//
+//
+//        // Здесь можно реализовать отправку данных на сервер с помощью Retrofit, Volley или любой другой библиотеки.
+//        // Для простоты выводим лог.
+//
+//        // Тестирование работоспособности. Удалить после азвершения тестов
+//        val messageTest = sbn.toString()
+//        Log.e(TAG, "сформировано:  $messageTest")
+//
+//        val packageName = sbn.packageName
+//        val notification = sbn.notification
+////        val time = sbn.postTime
+//        val time = AppUtils.convertTimestampToReadableFormat(sbn.getPostTime())
+//        val extras = notification.extras
+//
+//
+//
+//
+//        // Получаем текст уведомления
+//        val text = extras.getCharSequence(Notification.EXTRA_TEXT)?.toString() ?: ""
+//        // Также можно получить заголовок уведомления
+//        val title = extras.getCharSequence(Notification.EXTRA_TITLE)?.toString() ?: ""
+//
+//        val message = " -> $packageName:$time - $title - $text"
+//
+//
+//        // Реализация
+////        Log.d(TAG, "Подготавливаем отправку уведомления в Telegram: $message")
+//
+//        // Формируем URL запроса к Telegram Bot API
+////        val url = "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage"
+//        val url = "https://api.telegram.org/bot$botId/sendMessage"
+//
+//        // Формируем тело запроса с параметрами chat_id и text
+//        val requestBody = FormBody.Builder()
+////            .add("chat_id", TELEGRAM_CHAT_ID)
+//            .add("chat_id", chatId!!)
+//            .add("text", message)
+//            .build()
+//
+//        // Создаем POST-запрос
+//        val request = Request.Builder()
+//            .url(url)
+//            .post(requestBody)
+//            .build()
+//
+//        // Выполняем запрос асинхронно
+//        httpClient.newCall(request).enqueue(object : Callback {
+//            override fun onFailure(call: Call, e: IOException) {
+//                Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
+//
+//            }
+//
+//            override fun onResponse(call: Call, response: Response) {
+//                if (!response.isSuccessful) {
+//                    Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${response.message}")
+//                } else {
+//                    Log.d(TAG, "Сообщение успешно отправлено через Telegram")
+//                }
+//                response.close()
+//            }
+//        })
+//    }
 
-        // Достаем данные из SharedPreferences
-        val sharedPref = getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
-        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "No_data")
-        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "No_data")
 
 
 
-        // Здесь можно реализовать отправку данных на сервер с помощью Retrofit, Volley или любой другой библиотеки.
-        // Для простоты выводим лог.
-
-        // Тестирование работоспособности. Удалить после азвершения тестов
-        val messageTest = sbn.toString()
-        Log.e(TAG, "сформировано:  $messageTest")
-
-        val packageName = sbn.packageName
-        val notification = sbn.notification
-//        val time = sbn.postTime
-        val time = convertTimestampToReadableFormat(sbn.getPostTime())
-        val extras = notification.extras
-
-
-
-
-        // Получаем текст уведомления
-        val text = extras.getCharSequence(Notification.EXTRA_TEXT)?.toString() ?: ""
-        // Также можно получить заголовок уведомления
-        val title = extras.getCharSequence(Notification.EXTRA_TITLE)?.toString() ?: ""
-
-        val message = " -> $packageName:$time - $title - $text"
-
-
-        // Реализация
-//        Log.d(TAG, "Подготавливаем отправку уведомления в Telegram: $message")
-
-        // Формируем URL запроса к Telegram Bot API
-//        val url = "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage"
-        val url = "https://api.telegram.org/bot$botId/sendMessage"
-
-        // Формируем тело запроса с параметрами chat_id и text
-        val requestBody = FormBody.Builder()
-//            .add("chat_id", TELEGRAM_CHAT_ID)
-            .add("chat_id", chatId!!)
-            .add("text", message)
-            .build()
-
-        // Создаем POST-запрос
-        val request = Request.Builder()
-            .url(url)
-            .post(requestBody)
-            .build()
-
-        // Выполняем запрос асинхронно
-        httpClient.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
-
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                if (!response.isSuccessful) {
-                    Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${response.message}")
-                } else {
-                    Log.d(TAG, "Сообщение успешно отправлено через Telegram")
-                }
-                response.close()
-            }
-        })
-    }
-
-
-    // Отправка тестового сообщения
-    public fun sendTestTextToServer() {
-
-        // Достаем данные из SharedPreferences
-        val sharedPref = getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
-        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "No_data")
-        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "No_data")
-        val time = Date()
-        val text = "Test message"
-        val title = "Test title"
-
-        val message = " -> $time - $title - $text"
-
-        // Формируем URL запроса к Telegram Bot API
-        val url = "https://api.telegram.org/bot$botId/sendMessage"
-
-        // Формируем тело запроса с параметрами chat_id и text
-        val requestBody = FormBody.Builder()
-//            .add("chat_id", TELEGRAM_CHAT_ID)
-            .add("chat_id", chatId!!)
-            .add("text", message)
-            .build()
-
-        // Создаем POST-запрос
-        val request = Request.Builder()
-            .url(url)
-            .post(requestBody)
-            .build()
-        httpClient.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                if (!response.isSuccessful) {
-                    Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${response.message}")
-                } else {
-                    Log.d(TAG, "Сообщение успешно отправлено через Telegram")
-                }
-                response.close()
-            }
-        })
-    }
-
-    fun convertTimestampToReadableFormat(timestamp: Long): String {
-        val sdf = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
-        val date = Date(timestamp)
-        return sdf.format(date)
-    }
+//    fun convertTimestampToReadableFormat(timestamp: Long): String {
+//        val sdf = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
+//        val date = Date(timestamp)
+//        return sdf.format(date)
+//    }
 
 }
 
