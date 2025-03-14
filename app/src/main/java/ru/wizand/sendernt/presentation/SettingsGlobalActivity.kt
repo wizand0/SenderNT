@@ -40,7 +40,7 @@ import java.util.Date
 class SettingsGlobalActivity : AppCompatActivity() {
 
     private lateinit var editTextBotID: TextInputEditText
-    private lateinit var editTextChatID : TextInputEditText
+    private lateinit var editTextChatID: TextInputEditText
     private lateinit var buttonTest: Button
 
 
@@ -168,7 +168,6 @@ class SettingsGlobalActivity : AppCompatActivity() {
         }
 
 
-
 //        buttonSave.setOnClickListener {
 //            // Получаем текст из EditText и обрезаем пробелы
 //            val botId = editTextBotID.text?.toString()?.trim()
@@ -228,8 +227,9 @@ class SettingsGlobalActivity : AppCompatActivity() {
         // Первичная проверка:
         checkFields()
 
-//        editTextBotID.addTextChangedListener { checkFields() }
-//        editTextChatID.addTextChangedListener { checkFields() }
+        // ??? For testing
+        editTextBotID.addTextChangedListener { checkFields() }
+        editTextChatID.addTextChangedListener { checkFields() }
 
         buttonSave.setOnClickListener {
             // Получаем текст и обрезаем пробелы
@@ -265,8 +265,10 @@ class SettingsGlobalActivity : AppCompatActivity() {
                     apply() // Или commit(), если нужна синхронная запись
                 }
                 Toast.makeText(this, getString(R.string.data_saved), Toast.LENGTH_SHORT).show()
+                checkFields()
             } else {
-                Toast.makeText(this, getString(R.string.enter_all_fields), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.enter_all_fields), Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
@@ -285,10 +287,10 @@ class SettingsGlobalActivity : AppCompatActivity() {
         val chatId = editTextChatID.text.toString().trim()
 
         if (botId.isEmpty() || chatId.isEmpty()) {
-            buttonTest.isEnabled = false
+            buttonTest.isClickable = false
             buttonTest.setBackgroundColor(ContextCompat.getColor(this, R.color.gray))
         } else {
-            buttonTest.isEnabled = true
+            buttonTest.isClickable = true
             buttonTest.setBackgroundColor(ContextCompat.getColor(this, R.color.purple_500))
         }
     }
@@ -323,8 +325,6 @@ class SettingsGlobalActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
-
-
 
     // Обработка нажатий элементов меню
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -47,6 +47,8 @@ class AboutActivity : AppCompatActivity() {
         tvLegalInfo.text = legalInfoText
         // Найти ImageView по ID
         val imDonate: ImageView = findViewById(R.id.imDonate)
+        val imDonatePayPal: ImageView = findViewById(R.id.imDonatePayPal)
+
 
         // Установить обработчик кликов
         imDonate.setOnClickListener {
@@ -67,6 +69,27 @@ class AboutActivity : AppCompatActivity() {
                     .show()
             }
         }
+
+        // Установить обработчик кликов
+        imDonatePayPal.setOnClickListener {
+            // Ссылка, которую нужно открыть
+            val url = "https://paypal.me/wizand0"
+
+            // Создать Intent для открытия ссылки
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse(url)
+            }
+
+// Проверяем, есть ли приложения для обработки Intent
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            } else {
+                // Обработайте случай, если нет подходящих приложений
+                Toast.makeText(this, "Нет приложений для открытия ссылки", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+//
         // Если требуется сделать ссылку на email дополнительным обработчиком, можно установить onClickListener:
         // val tvEmail = findViewById<TextView>(R.id.tvEmail)
         // tvEmail.setOnClickListener {
