@@ -1,4 +1,4 @@
-# SenderNT v.1.3.9
+# SenderNT v.1.4.0
 ## Sender Notifications to Telegram
 ### by Wizand0
 
@@ -65,7 +65,7 @@ The following screenshots illustrate key parts of the application:
 - Kotlin Coroutines for asynchronous operations.
 
 ## Versions
-- v1.3.9: Monetization
+- v1.4.0: Monetization
 - v1.3.8: EditText material design (Settings activity), test notifications
 - v1.3.7: Implement Microsoft Clarity
 - v1.3.6: View fixes, ProGuard, LiveSearch for system apps 
