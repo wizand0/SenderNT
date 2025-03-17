@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -64,15 +65,30 @@ class MainActivity : AppCompatActivity() {
         Clarity.initialize(applicationContext, config)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+        Log.d(TAG, "onCreate called")
         setContentView(binding.root)
+
 
 
         // Since we're loading the banner based on the adContainerView size,
         // we need to wait until this view is laid out before we can get the width
+//        binding.bannerAdView.viewTreeObserver.addOnGlobalLayoutListener(object :
+//            ViewTreeObserver.OnGlobalLayoutListener {
+//            override fun onGlobalLayout() {
+//                binding.bannerAdView.viewTreeObserver.removeOnGlobalLayoutListener(this);
+//                bannerAd = loadBannerAd(adSize)
+//            }
+//        })
+
         binding.bannerAdView.viewTreeObserver.addOnGlobalLayoutListener(object :
             ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
-                binding.bannerAdView.viewTreeObserver.removeOnGlobalLayoutListener(this);
+                // Сначала убеждаемся, что активность ещё жива.
+                if (isFinishing || isDestroyed) {
+                    binding.bannerAdView.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                    return
+                }
+                binding.bannerAdView.viewTreeObserver.removeOnGlobalLayoutListener(this)
                 bannerAd = loadBannerAd(adSize)
             }
         })
@@ -134,16 +150,6 @@ class MainActivity : AppCompatActivity() {
         // Применяем состояние службы: включаем или выключаем компонент
         setNotificationServiceEnabled(isServiceEnabled)
 
-        // Слушатель переключения toggleButton
-//        toggleService.setOnCheckedChangeListener { _, isChecked ->
-        // Изменяем состояние службы
-//            setNotificationServiceEnabled(isChecked)
-        // Сохраняем новое состояние в SharedPreferences
-//            with(sharedPref.edit()) {
-//                putBoolean(KEY_SERVICE_ENABLED, isChecked)
-//                apply() // можно использовать commit(), если нужна синхронная запись
-//            }
-//        }
 
         switchService.setOnCheckedChangeListener { _, isChecked ->
             // Изменяем состояние службы
@@ -154,14 +160,18 @@ class MainActivity : AppCompatActivity() {
                 apply() // можно использовать commit(), если нужна синхронная запись
             }
         }
-
     }
 
     override fun onDestroy() {
         super.onDestroy()
         // Освобождаем ресурсы, связанные с рекламным блоком
-        bannerAdView.destroy()
+        if(::bannerAdView.isInitialized) {
+            bannerAdView.destroy()
+        }
     }
+
+
+
 
     /**
      * Проверяет, включен ли доступ к уведомлениям для данного приложения.
@@ -288,6 +298,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         val YOUR_BLOCK_ID: String = "R-M-14532326-1"
+        private const val TAG = "MainActivity"
     }
 
 
