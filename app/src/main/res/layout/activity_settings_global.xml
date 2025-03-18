@@ -26,7 +26,8 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:paddingBottom="60dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -141,9 +142,17 @@
             app:layout_constraintTop_toTopOf="@+id/buttonTest"
             app:layout_constraintVertical_bias="0.0" />
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+    <com.yandex.mobile.ads.banner.BannerAdView
+        android:id="@+id/banner_ad_view"
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom"
+        android:foregroundGravity="center_horizontal"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTest" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
