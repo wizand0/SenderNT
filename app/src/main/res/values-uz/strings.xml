@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SenderNT</string>
+    <string name="no_data">Ma\'lumot yo\'q</string>
+    <string name="preferences_for_telegram">Iltimos, Telegram uchun sozlamalarni kiriting</string>
+    <string name="allow_notifications">Bildirishnomalarga ruxsat bering</string>
+    <string name="preferences">Xizmat sozlamalari:</string>
+    <string name="go_to_preferences">Sozlamalarga o‘ting</string>
+    <string name="big_main_text">Ushbu ilova telefoningizdagi barcha bildirishnomalarni bot orqali Telegram ga yuboradi. Eslatma: Ilovani sozlash jarayonida Telegram Bot API tokeni va chat ID ko‘rsatilishi zarur. Bundan tashqari, tez orada siz faqat tanlangan ilovalardan bildirishnomalarni filtrlash va yuborish imkoniyatiga ega bo‘lasiz. Ilovadan tarmoq va bildirishnomalarga kirish uchun ruxsatlar talab qilinadi.</string>
+    <string name="service_off">Xizmat o\'chirilgan</string>
+    <string name="service_on">Xizmat yoqilgan</string>
+    <string name="full_name">Sender: Telegramga bildirishnomalari</string>
+    <string name="main_name">SenderNT</string>
+    <string name="back_btn">Ortga</string>
+    <string name="apps">Ilovalar</string>
+    <string name="battery_optimization_btn">Batareya optimallashtirishni o‘chirib qo‘ying</string>
+    <string name="save">Saqlash</string>
+    <string name="id_chat_textview">Chat ID raqamingizni kiriting</string>
+    <string name="id_telegram_bot_textview">Telegram bot API kalitini kiriting</string>
+    <string name="permission_granted">Ruxsat allaqachon berilgan</string>
+    <string name="enter_all_fields">Iltimos, ikkala maydonni to‘g‘ri to‘ldiring</string>
+    <string name="data_saved">Ma\'lumot saqlandi</string>
+    <string name="short_instruction">Telegram chat ID-ni olish uchun @get_id_bot botiga o\'ting.\n\nTelegram botining API kalitini olish uchun @BotFather botiga o\'ting.\n\nKerakli ma\'lumotlarni olganingizdan so\'ng, ularni tegishli maydonlarga kiriting.</string>
+    <string name="ok">Tushunarli</string>
+    <string name="instruction">Yo‘riqnomalar</string>
+    <string name="long_instruction">Ilovani sozlash bosqichlari:\n\n1. Markaziy tugmani bosing va barcha bildirishnomalarga kirish ruxsatini bering.\n2. Shundan so\'ng, #Sozlamalarga o\'tish# tugmasini bosing.\n3. Chat ID va Telegram botining API kalitini kiriting, keyin #Saqlash# tugmasini bosib ma\'lumotlarni saqlang.\n4. Shu oynada, #Ilovalar# bo\'limiga o\'ting va qaysi ilovalardan bildirishnoma yuborishni xohlayotganingizni tanlang.\n5. Asosiy ekranga qayting va #Xizmatni yoqish# tugmasini bosing.\n\nTelegram chat ID-ni olish uchun @get_id_bot botiga o\'ting:\n- Telegramni oching va @get_id_bot ni qidiring.\n- Bot bilan chatni boshlang va chat ID-ni olish uchun ko\'rsatmalarga rioya qiling.\n\nTelegram botining API kalitini olish uchun @BotFather botiga o\'ting:\n- Telegramni oching va @BotFather ni qidiring.\n- Bot bilan chatni boshlang va yangi bot yaratish uchun ko\'rsatmalarga rioya qiling. Yaratilgach, siz API kalitini olasiz.\n\nKerakli ma\'lumotlarni olganingizdan so\'ng, ularni tegishli maydonlarga kiriting.</string>
+    <string name="text1">O\'zgartiruvchi uchun</string>
+    <string name="text3">O\'zgartirildi</string>
+    <string name="system_apps">Barcha ilovalar</string>
+    <string name="about">Dastur haqida</string>
+    <string name="legals">
+        "
+        Ilova smartfon bildirishnomalarini saqlash va ularni Telegram chatiga yuborish uchun mo\'ljallangan.
+        Uni faqat foydalanuvchining o\'z qurilmalarida foydalanish ruxsat etilgan va boshqa odamlarni kuzatish qat\'iyan man etilgan.
+
+        Yuridik javobgarlikdan voz kechish:
+        Dasturchi ilovaning noto\'g\'ri foydalanilishiga javobgar emas.
+        Foydalanuvchi ilovadan o\'z xavfi ostida foydalanadi va uni qonunlarni buzadigan, \n
+        boshqa shaxslarning huquq va erkinliklariga zarar etkazadigan yoki noqonuniy faoliyatlarda ishlatmaslikka rozilik bildiradi.
+
+        Ushbu ilovadan foydalanish ko\'rsatilgan shartlarga rozilikni anglatadi.
+        "
+    </string>
+    <string name="github_https_github_com_wizand0">Muallif GitHub: https://github.com/wizand0/</string>
+    <string name="github_https_github_com_wizand0_sendernt">Loyiha GitHub: https://github.com/wizand0/SenderNT</string>
+    <string name="wizand0">Muallif: Wizand0</string>
+    <string name="email_makandrei_gmail_com">Email: makandrei@gmail.com</string>
+    <string name="donate">Hissa qo‘shish:</string>
+    <string name="search">Qidirish</string>
+    <string name="all_apps">Barcha ilovalar</string>
+    <string name="main">Asosiy</string>
+    <string name="prefsActivityName">Sozlamalar</string>
+    <string name="service_status">Xizmatni boshlash</string>
+    <string name="enter_bot_id_error">Bot ID sini kiriting</string>
+    <string name="enter_chat_id_error">Chat ID sini kiriting</string>
+    <string name="test">Test</string>
+    <string name="data_send">Ma\'lumot yuborildi</string>
+    <string name="feedback_mail_text">Ilova haqidagi fikr</string>
+    <string name="feedback_body_mail">"
+        Fikringizni bu yerga yozing…
+        
+        --------------------------
+        Qurilma ma\'lumotlari:
+        %1$s
+    "</string>
+    <string name="feedback_dialog">Ilovamiz sizga yoqadimi? Iltimos, Google Play’da baho qoldiring yoki funksionallikni yaxshilash uchun takliflaringizni yuboring.</string>
+    <string name="enter_feedback">Fikr bildirish</string>
+    <string name="abort">Bekor qilish</string>
+    <string name="feedback_title">Fikr qoldiring</string>
+    <string name="google_play">Google Play</string>
+</resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SenderNT</string>
+    <string name="no_data">Brak danych</string>
+    <string name="preferences_for_telegram">Proszę określić ustawienia dla Telegrama</string>
+    <string name="allow_notifications">Zezwól na dostęp do powiadomień</string>
+    <string name="preferences">Ustawienia usługi:</string>
+    <string name="go_to_preferences">Przejdź do ustawień</string>
+    <string name="big_main_text">Aplikacja przesyła wszystkie powiadomienia z Twojego telefonu do Telegrama za pomocą bota. Uwaga: Token API bota Telegrama oraz ID czatu muszą zostać określone podczas konfiguracji aplikacji. Dodatkowo, wkrótce będziesz mógł filtrować i przesyłać powiadomienia tylko z wybranych aplikacji. Aplikacja wymaga uprawnień do dostępu do sieci i powiadomień.</string>
+    <string name="service_off">Usługa jest wyłączona</string>
+    <string name="service_on">Usługa jest włączona</string>
+    <string name="full_name">Sender: Powiadomienia w Telegram</string>
+    <string name="main_name">SenderNT</string>
+    <string name="back_btn">Wstecz</string>
+    <string name="apps">Aplikacje</string>
+    <string name="battery_optimization_btn">Wyłącz optymalizację baterii</string>
+    <string name="save">Zapisz</string>
+    <string name="id_chat_textview">Wprowadź swój ID czatu</string>
+    <string name="id_telegram_bot_textview">Wprowadź klucz API bota Telegram</string>
+    <string name="permission_granted">Uprawnienia już przyznane</string>
+    <string name="enter_all_fields">Proszę poprawnie wypełnić oba pola</string>
+    <string name="data_saved">Dane zapisane</string>
+    <string name="short_instruction">Aby uzyskać swój ID czatu w Telegram, przejdź do bota @get_id_bot.\n\nAby uzyskać klucz API dla bota Telegram, przejdź do bota @BotFather.\n\nPo otrzymaniu niezbędnych danych, wprowadź je w odpowiednich polach.</string>
+    <string name="ok">Zrozumiano</string>
+    <string name="instruction">Instrukcje</string>
+    <string name="long_instruction">Kroki konfiguracji aplikacji:\n\n1. Naciśnij centralny przycisk, aby udzielić pozwolenia na dostęp do wszystkich powiadomień.\n2. Następnie kliknij przycisk #Przejdź do ustawień#.\n3. Wprowadź ID czatu oraz klucz API bota Telegram, a następnie zapisz dane, naciskając przycisk #Zapisz#.\n4. W tym samym oknie przejdź do sekcji #Aplikacje# i wybierz, z których aplikacji chcesz przekazywać powiadomienia.\n5. Wróć do ekranu głównego i naciśnij przycisk #Włącz usługę#.\n\nAby uzyskać ID czatu w Telegram, przejdź do bota @get_id_bot:\n- Otwórz Telegram i wyszukaj @get_id_bot.\n- Rozpocznij czat z botem i postępuj zgodnie z instrukcjami, aby uzyskać swój ID czatu.\n\nAby uzyskać klucz API dla bota Telegram, przejdź do bota @BotFather:\n- Otwórz Telegram i wyszukaj @BotFather.\n- Rozpocznij czat z botem i postępuj zgodnie z instrukcjami, aby utworzyć nowego bota. Po utworzeniu otrzymasz klucz API.\n\nPo otrzymaniu niezbędnych danych wprowadź je w odpowiednich polach.</string>
+    <string name="text1">Przełącznik dla</string>
+    <string name="text3">Zmieniono</string>
+    <string name="system_apps">Wszystkie aplikacje</string>
+    <string name="about">O aplikacji</string>
+    <string name="legals">
+        "
+        Aplikacja została zaprojektowana do zapisywania i przesyłania powiadomień ze smartfona do czatu Telegram.
+        Jej użycie jest dozwolone tylko na urządzeniach użytkownika i jest surowo zabronione do szpiegowania innych osób.
+
+        Zastrzeżenie prawne:
+        Twórca nie ponosi odpowiedzialności za niewłaściwe użycie aplikacji.
+        Użytkownik korzysta z aplikacji na własne ryzyko i zobowiązuje się nie używać jej do celów naruszających prawo,
+        pogarszających prawa i wolności innych osób lub związanych z działalnością nielegalną.
+
+        Użycie tej aplikacji oznacza akceptację podanych warunków.
+        "
+    </string>
+    <string name="github_https_github_com_wizand0">GitHub autora: https://github.com/wizand0/</string>
+    <string name="github_https_github_com_wizand0_sendernt">Projekt GitHub: https://github.com/wizand0/SenderNT</string>
+    <string name="wizand0">Autor: Wizand0</string>
+    <string name="email_makandrei_gmail_com">Email: makandrei@gmail.com</string>
+    <string name="donate">Przekaż darowiznę:</string>
+    <string name="search">Szukaj</string>
+    <string name="all_apps">Wszystkie aplikacje</string>
+    <string name="main">Główna</string>
+    <string name="prefsActivityName">Preferencje</string>
+    <string name="service_status">Uruchom usługę</string>
+    <string name="enter_bot_id_error">Wprowadź identyfikator bota</string>
+    <string name="enter_chat_id_error">Wprowadź identyfikator czatu</string>
+    <string name="test">Test</string>
+    <string name="data_send">Dane wysłane</string>
+    <string name="feedback_mail_text">Opinie o aplikacji</string>
+    <string name="feedback_body_mail">"
+        Napisz tutaj swoje uwagi…
+
+        --------------------------
+        Informacje o urządzeniu:
+        %1$s
+    "</string>
+    <string name="feedback_dialog">Podoba Ci się nasza aplikacja? Prosimy o pozostawienie opinii w Google Play lub przesłanie nam swoich sugestii dotyczących ulepszenia funkcjonalności.</string>
+    <string name="enter_feedback">Napisz opinię</string>
+    <string name="abort">Anuluj</string>
+    <string name="feedback_title">Zostaw opinię</string>
+    <string name="google_play">Google Play</string>
+</resources>

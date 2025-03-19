@@ -69,17 +69,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
-        // Since we're loading the banner based on the adContainerView size,
-        // we need to wait until this view is laid out before we can get the width
-//        binding.bannerAdView.viewTreeObserver.addOnGlobalLayoutListener(object :
-//            ViewTreeObserver.OnGlobalLayoutListener {
-//            override fun onGlobalLayout() {
-//                binding.bannerAdView.viewTreeObserver.removeOnGlobalLayoutListener(this);
-//                bannerAd = loadBannerAd(adSize)
-//            }
-//        })
-
         binding.bannerAdView.viewTreeObserver.addOnGlobalLayoutListener(object :
             ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
@@ -139,7 +128,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         // Получаем сохраненное состояние работы службы, по умолчанию false
         val isServiceEnabled = sharedPref.getBoolean(KEY_SERVICE_ENABLED, false)
 
@@ -162,6 +150,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        val rateDialogHelper = RateDialogHelper(this)
+        rateDialogHelper.showRateDialogIfNeeded()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         // Освобождаем ресурсы, связанные с рекламным блоком
@@ -169,9 +163,6 @@ class MainActivity : AppCompatActivity() {
             bannerAdView.destroy()
         }
     }
-
-
-
 
     /**
      * Проверяет, включен ли доступ к уведомлениям для данного приложения.
@@ -295,11 +286,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     companion object {
         val YOUR_BLOCK_ID: String = "R-M-14532326-1"
         private const val TAG = "MainActivity"
+        private const val KEY_FIRST_LAUNCH = "first_launch_time"
     }
-
-
 }
