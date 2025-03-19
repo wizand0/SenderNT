@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.switchmaterial.SwitchMaterial
 import ru.wizand.sendernt.R
 import ru.wizand.sendernt.domain.AppInfo
 
@@ -19,7 +20,8 @@ class AppsAdapter(
     class AppViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val iconImageView: ImageView = view.findViewById(R.id.appIcon)
         val appNameTextView: TextView = view.findViewById(R.id.appName)
-        val toggleButton: ToggleButton = view.findViewById(R.id.toggleButton)
+//        val toggleButton: ToggleButton = view.findViewById(R.id.toggleButton)
+        val toggleButton: SwitchMaterial = view.findViewById(R.id.switchToggle)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppViewHolder {
@@ -31,6 +33,10 @@ class AppsAdapter(
         val app = apps[position]
         holder.iconImageView.setImageDrawable(app.icon)
         holder.appNameTextView.text = app.appName
+
+        // Чтобы предотвратить неправильное поведение при переиспользовании viewHolder,
+        // снимем старый слушатель перед установкой состояния переключателя.
+        holder.toggleButton.setOnCheckedChangeListener(null)
         holder.toggleButton.isChecked = app.isAllowed
 
         holder.toggleButton.setOnCheckedChangeListener { _, isChecked ->

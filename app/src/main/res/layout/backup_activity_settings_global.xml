@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- AppBarLayout для поддержки Material-дизайна -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingTop="16dp"
+            android:layout_marginTop="15dp"
+            app:popupTheme="@style/MyPopupMenu"
+            app:title="@string/prefsActivityName" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingBottom="60dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".presentation.SettingsGlobalActivity">
+
+            <Button
+                android:id="@+id/btnApps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/apps"
+                app:layout_constraintStart_toStartOf="@+id/btnBatteryOptimization"
+                app:layout_constraintTop_toBottomOf="@+id/btnBatteryOptimization" />
+
+            <Button
+                android:id="@+id/btnBatteryOptimization"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="88dp"
+                android:text="@string/battery_optimization_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutBot"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+
+                android:hint="@string/id_telegram_bot_textview"
+                app:layout_constraintStart_toStartOf="@+id/btnApps"
+                app:layout_constraintTop_toBottomOf="@+id/btnApps">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextBotID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/buttonOpenBotFather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="@null"
+                android:contentDescription="@string/id_telegram_bot_textview"
+                android:padding="8dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/open_app"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayoutBot"
+                app:layout_constraintTop_toTopOf="@+id/textInputLayoutBot" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutChat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="@string/id_chat_textview"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayoutBot"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayoutBot"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutBot">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextChatID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/buttonOpenGetIdBot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:contentDescription="@string/id_chat_textview"
+                android:padding="8dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/open_app"
+                app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutChat"
+                app:layout_constraintStart_toStartOf="@+id/buttonOpenBotFather"
+                app:layout_constraintTop_toTopOf="@+id/textInputLayoutChat" />
+
+            <Button
+                android:id="@+id/buttonTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:clickable="false"
+                android:text="@string/test"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSave"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutChat" />
+
+            <Button
+                android:id="@+id/buttonSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonTest"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/buttonTest"
+                app:layout_constraintTop_toTopOf="@+id/buttonTest"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+    <com.yandex.mobile.ads.banner.BannerAdView
+        android:id="@+id/banner_ad_view"
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom"
+        android:foregroundGravity="center_horizontal"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTest" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
