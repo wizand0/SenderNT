@@ -8,6 +8,7 @@ import android.os.PowerManager
 import android.provider.Settings
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import ru.wizand.sendernt.R
 

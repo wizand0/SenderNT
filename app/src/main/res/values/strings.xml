@@ -54,4 +54,12 @@
     <string name="enter_chat_id_error">Enter chat id</string>
     <string name="test">Test</string>
     <string name="data_send">Data send</string>
+    <string name="feedback_mail_text">App Feedback</string>
+    <string name="feedback_body_mail">"\n        Write your feedback here…\n\n        --------------------------\n        Device Information:\n        %1$s\n    "</string>
+    <string name="feedback_dialog">Do you like our app? Please leave a review on Google Play or send us your suggestions to improve functionality.</string>
+    <string name="enter_feedback">Write Feedback</string>
+    <string name="abort">Cancel</string>
+    <string name="feedback_title">Leave Feedback</string>
+    <string name="google_play">Google Play</string>
+
 </resources>

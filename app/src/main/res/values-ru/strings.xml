@@ -42,4 +42,11 @@
     <string name="enter_chat_id_error">Введите id чата</string>
     <string name="test">Test</string>
     <string name="data_send">Data send</string>
+    <string name="feedback_mail_text">Отзыв о приложении</string>
+    <string name="feedback_body_mail">"\n        Напишите ваш отзыв здесь…\n\n        --------------------------\n        Информация об устройстве:\n        %1$s\n    "</string>
+    <string name="feedback_dialog">Нравится наше приложение? Пожалуйста, оставьте отзыв в Google Play или напишите нам свои пожелания для улучшения функционала.</string>
+    <string name="enter_feedback">Написать отзыв</string>
+    <string name="abort">Отмена</string>
+    <string name="feedback_title">Оставьте отзыв</string>
+    <string name="google_play">Google Play</string>
 </resources>

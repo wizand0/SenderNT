@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SenderNT</string>
+    <string name="no_data">Nessun dato</string>
+    <string name="preferences_for_telegram">Si prega di specificare le impostazioni per Telegram</string>
+    <string name="allow_notifications">Consenti l\'accesso alle notifiche</string>
+    <string name="preferences">Impostazioni del servizio:</string>
+    <string name="go_to_preferences">Vai alle impostazioni</string>
+    <string name="big_main_text">L\'applicazione inoltra tutte le notifiche del tuo telefono a Telegram tramite un bot. Nota: il token API del bot Telegram e l\'ID della chat devono essere specificati durante la configurazione dell\'applicazione. Inoltre, presto sarà possibile filtrare e inoltrare le notifiche solo dalle app selezionate. L\'applicazione richiede i permessi per accedere alla rete e alle notifiche.</string>
+    <string name="service_off">Il servizio è disattivato</string>
+    <string name="service_on">Il servizio è attivo</string>
+    <string name="full_name">Invio notifiche a Telegram</string>
+    <string name="main_name">SenderNT</string>
+    <string name="back_btn">Indietro</string>
+    <string name="apps">Applicazioni</string>
+    <string name="battery_optimization_btn">Disabilita l\'ottimizzazione della batteria</string>
+    <string name="save">Salva</string>
+    <string name="id_chat_textview">Inserisci il tuo ID chat</string>
+    <string name="id_telegram_bot_textview">Inserisci la chiave API del bot di Telegram</string>
+    <string name="permission_granted">Permesso già concesso</string>
+    <string name="enter_all_fields">Compila correttamente entrambi i campi</string>
+    <string name="data_saved">Dati salvati</string>
+    <string name="short_instruction">Per ottenere il tuo ID chat di Telegram, vai al bot @get_id_bot.&#10;&#10;Per ottenere la chiave API del bot di Telegram, vai al bot @BotFather.&#10;&#10;Dopo aver ricevuto i dati necessari, inseriscili nei campi corrispondenti.</string>
+    <string name="ok">Capito</string>
+    <string name="instruction">Istruzioni</string>
+    <string name="long_instruction">Passaggi per configurare l\'applicazione:&#10;&#10;1. Premi il pulsante centrale per autorizzare l\'accesso a tutte le notifiche.&#10;2. Successivamente, clicca sul pulsante #Vai alle impostazioni#.&#10;3. Inserisci l\'ID della chat e la chiave API del bot di Telegram, quindi salva i dati premendo il pulsante #Salva#.&#10;4. Nella stessa finestra, vai alla sezione #Applicazioni# e seleziona da quali applicazioni desideri inoltrare le notifiche.&#10;5. Tornando alla schermata principale, premi il pulsante #Attiva servizio#.&#10;&#10;Per ottenere il tuo ID chat di Telegram, vai al bot @get_id_bot:&#10;- Apri Telegram e cerca @get_id_bot.&#10;- Inizia una conversazione con il bot e segui le istruzioni per ottenere il tuo ID chat.&#10;&#10;Per ottenere la chiave API del bot di Telegram, vai al bot @BotFather:&#10;- Apri Telegram e cerca @BotFather.&#10;- Inizia una conversazione con il bot e segui le istruzioni per creare un nuovo bot. Dopo la creazione, riceverai una chiave API.&#10;&#10;Dopo aver ricevuto i dati necessari, inseriscili nei campi corrispondenti.</string>
+    <string name="text1">Interruttore per</string>
+    <string name="text3">Modificato</string>
+    <string name="system_apps">Tutte le applicazioni</string>
+    <string name="about">Informazioni</string>
+    <string name="legals">
+        "
+        L\'applicazione è progettata per salvare e inoltrare le notifiche dello smartphone a una chat di Telegram.
+        Il suo utilizzo è consentito solo sui dispositivi personali dell\'utente ed è severamente vietato per spiare altre persone.
+
+        Disclaimer legale:
+        Lo sviluppatore non è responsabile per eventuali usi impropri dell\'applicazione.
+        L\'utente utilizza l\'applicazione a proprio rischio e accetta di non impiegarla per scopi che violino la legge,
+        che ledano i diritti e le libertà degli altri o che comportino attività illegali.
+
+        L\'utilizzo di questa applicazione implica l\'accettazione dei termini sopra indicati.
+        "
+    </string>
+    <string name="github_https_github_com_wizand0">GitHub dell\'autore: https://github.com/wizand0/</string>
+    <string name="github_https_github_com_wizand0_sendernt">GitHub del progetto: https://github.com/wizand0/SenderNT</string>
+    <string name="wizand0">Autore: Wizand0</string>
+    <string name="email_makandrei_gmail_com">Email: makandrei@gmail.com</string>
+    <string name="donate">Dona:</string>
+    <string name="search">Ricerca</string>
+    <string name="all_apps">Tutte le applicazioni</string>
+    <string name="main">Principale</string>
+    <string name="prefsActivityName">Preferenze</string>
+    <string name="service_status">Avvia servizio</string>
+    <string name="enter_bot_id_error">Inserisci l\'ID del bot</string>
+    <string name="enter_chat_id_error">Inserisci l\'ID della chat</string>
+    <string name="test">Test</string>
+    <string name="data_send">Dati inviati</string>
+    <string name="feedback_mail_text">Feedback sull\'app</string>
+    <string name="feedback_body_mail">"
+        Scrivi qui il tuo feedback…
+        
+        --------------------------
+        Informazioni sul dispositivo:
+        %1$s
+    "</string>
+    <string name="feedback_dialog">Ti piace la nostra app? Lascia una recensione su Google Play oppure inviaci i tuoi suggerimenti per migliorare la funzionalità.</string>
+    <string name="enter_feedback">Scrivi feedback</string>
+    <string name="abort">Annulla</string>
+    <string name="feedback_title">Lascia feedback</string>
+    <string name="google_play">Google Play</string>
+</resources>

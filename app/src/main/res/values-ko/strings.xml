@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SenderNT</string>
+    <string name="no_data">데이터 없음</string>
+    <string name="preferences_for_telegram">텔레그램 설정을 지정하세요</string>
+    <string name="allow_notifications">알림 접근 허용</string>
+    <string name="preferences">서비스 설정:</string>
+    <string name="go_to_preferences">설정으로 이동</string>
+    <string name="big_main_text">이 애플리케이션은 휴대폰의 모든 알림을 봇을 통해 텔레그램으로 전송합니다. 참고: 애플리케이션 설정 중에 텔레그램 봇 API 토큰과 채팅 ID를 지정해야 합니다. 또한 곧 선택한 앱의 알림만 필터링하여 전송할 수 있게 됩니다. 이 애플리케이션은 네트워크 및 알림 접근 권한이 필요합니다.</string>
+    <string name="service_off">서비스가 꺼짐</string>
+    <string name="service_on">서비스가 켜짐</string>
+    <string name="full_name">Sender 텔레그램 알림</string>
+    <string name="main_name">SenderNT</string>
+    <string name="back_btn">뒤로</string>
+    <string name="apps">애플리케이션</string>
+    <string name="battery_optimization_btn">배터리 최적화 해제</string>
+    <string name="save">저장</string>
+    <string name="id_chat_textview">채팅 ID를 입력하세요</string>
+    <string name="id_telegram_bot_textview">텔레그램 봇 API 키를 입력하세요</string>
+    <string name="permission_granted">권한이 이미 부여됨</string>
+    <string name="enter_all_fields">두 필드를 모두 올바르게 입력하세요</string>
+    <string name="data_saved">데이터가 저장됨</string>
+    <string name="short_instruction">텔레그램 채팅 ID를 얻으려면 봇 @get_id_bot 으로 가세요.\n\n텔레그램 봇의 API 키를 얻으려면 봇 @BotFather 로 가세요.\n\n필요한 데이터를 받은 후, 해당 필드에 입력하세요.</string>
+    <string name="ok">이해함</string>
+    <string name="instruction">안내</string>
+    <string name="long_instruction">애플리케이션 설정 단계:\n\n1. 중앙 버튼을 눌러 모든 알림 접근 권한을 부여합니다.\n2. 그 후, #설정으로 이동# 버튼을 클릭합니다.\n3. 텔레그램 봇의 채팅 ID와 API 키를 입력한 후, #저장# 버튼을 눌러 데이터를 저장합니다.\n4. 동일한 창에서, #애플리케이션# 섹션으로 이동하여 알림을 전송할 애플리케이션을 선택합니다.\n5. 메인 화면으로 돌아가서, #서비스 활성화# 버튼을 누릅니다.\n\n텔레그램 채팅 ID를 얻으려면, 봇 @get_id_bot 으로 가세요:\n- 텔레그램을 열고 @get_id_bot 을 검색합니다.\n- 봇과 대화를 시작하고, 채팅 ID를 받기 위한 안내를 따르세요.\n\n텔레그램 봇의 API 키를 얻으려면, 봇 @BotFather 로 가세요:\n- 텔레그램을 열고 @BotFather 를 검색합니다.\n- 봇과 대화를 시작하고, 새로운 봇을 생성하기 위한 안내를 따르세요. 생성 후, API 키가 제공됩니다.\n\n필요한 데이터를 받은 후, 해당 필드에 입력하세요.</string>
+    <string name="text1">스위처 for</string>
+    <string name="text3">변경됨</string>
+    <string name="system_apps">모든 앱</string>
+    <string name="about">정보</string>
+    <string name="legals">
+        "\n
+        이 애플리케이션은 스마트폰 알림을 저장하고 텔레그램 채팅으로 전송하도록 설계되었습니다.\n
+        사용자는 자신의 기기에서만 사용해야 하며, 타인을 감시하는 용도로 사용하는 것은 엄격히 금지됩니다.\n
+        \n
+        법적 고지:\n
+        개발자는 애플리케이션의 부적절한 사용에 대해 책임을 지지 않습니다.\n
+        사용자는 자신의 책임 하에 애플리케이션을 사용하며, 이를 불법적 용도나 타인의 권리와 자유를 침해하는 행위에 사용하지 않을 것에 동의합니다.\n
+        \n
+        이 애플리케이션 사용은 명시된 조건에 대한 동의를 의미합니다.\n
+        "
+    </string>
+    <string name="github_https_github_com_wizand0">개발자 GitHub: https://github.com/wizand0/</string>
+        <string name="github_https_github_com_wizand0_sendernt">프로젝트 GitHub: https://github.com/wizand0/SenderNT</string>
+        <string name="wizand0">작성자: Wizand0</string>
+        <string name="email_makandrei_gmail_com">이메일: makandrei@gmail.com</string>
+        <string name="donate">기부:</string>
+        <string name="search">검색</string>
+        <string name="all_apps">모든 앱</string>
+        <string name="main">메인</string>
+        <string name="prefsActivityName">설정</string>
+        <string name="service_status">서비스 시작</string>
+        <string name="enter_bot_id_error">봇 ID를 입력하세요</string>
+        <string name="enter_chat_id_error">채팅 ID를 입력하세요</string>
+        <string name="test">테스트</string>
+        <string name="data_send">데이터 전송됨</string>
+        <string name="feedback_mail_text">앱 피드백</string>
+        <string name="feedback_body_mail">"
+        여기에 피드백을 작성하세요…
+
+        --------------------------
+        장치 정보:
+        %1$s
+    "</string>
+    <string name="feedback_dialog">저희 앱이 마음에 드시나요? Google Play에서 리뷰를 남기거나 기능 개선을 위한 제안을 보내주세요.</string>
+    <string name="enter_feedback">피드백 작성</string>
+    <string name="abort">취소</string>
+    <string name="feedback_title">리뷰 남기기</string>
+    <string name="google_play">Google Play</string>
+</resources>
+
+

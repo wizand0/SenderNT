@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SenderNT</string>
+    <string name="no_data">无数据</string>
+    <string name="preferences_for_telegram">请指定 Telegram 的设置</string>
+    <string name="allow_notifications">允许访问通知</string>
+    <string name="preferences">服务设置：</string>
+    <string name="go_to_preferences">前往设置</string>
+    <string name="big_main_text">该应用将您手机上的所有通知通过机器人转发到 Telegram。注意：在应用设置时必须指定 Telegram 机器人的 API 令牌和聊天 ID。此外，您很快将能够仅筛选并转发选定应用的通知。该应用需要网络和通知访问权限。</string>
+    <string name="service_off">服务已关闭</string>
+    <string name="service_on">服务已开启</string>
+    <string name="full_name">Sender 通知到 Telegram</string>
+    <string name="main_name">SenderNT</string>
+    <string name="back_btn">返回</string>
+    <string name="apps">应用程序</string>
+    <string name="battery_optimization_btn">禁用电池优化</string>
+    <string name="save">保存</string>
+    <string name="id_chat_textview">请输入您的聊天 ID</string>
+    <string name="id_telegram_bot_textview">请输入 Telegram 机器人 API 密钥</string>
+    <string name="permission_granted">权限已授予</string>
+    <string name="enter_all_fields">请正确填写所有字段</string>
+    <string name="data_saved">数据已保存</string>
+    <string name="short_instruction">要获取您的 Telegram 聊天 ID，请前往 @get_id_bot 机器人。\n\n要获取 Telegram 机器人 API 密钥，请前往 @BotFather 机器人。\n\n获取所需数据后，将其输入相应字段。</string>
+    <string name="ok">明白</string>
+    <string name="instruction">说明</string>
+    <string name="long_instruction">设置应用的步骤：\n\n1. 按下中央按钮以授予访问所有通知的权限。\n2. 然后，点击 #前往设置# 按钮。\n3. 输入 Telegram 机器人的聊天 ID 和 API 密钥，然后按下 #保存# 按钮保存数据。\n4. 在同一窗口中，进入 #应用程序# 部分，选择您希望转发通知的应用程序。\n5. 返回主屏幕后，按下 #启用服务# 按钮。\n\n要获取您的 Telegram 聊天 ID，请前往 @get_id_bot 机器人：\n- 打开 Telegram 并搜索 @get_id_bot。\n- 与机器人开始对话，并按照提示获取您的聊天 ID。\n\n要获取 Telegram 机器人 API 密钥，请前往 @BotFather 机器人：\n- 打开 Telegram 并搜索 @BotFather。\n- 与机器人开始对话，并按照提示创建一个新机器人。创建后，您将收到一个 API 密钥。\n\n获取所需数据后，将其输入相应字段。</string>
+    <string name="text1">开关 for</string>
+    <string name="text3">已更改</string>
+    <string name="system_apps">所有应用</string>
+    <string name="about">关于</string>
+    <string name="legals">
+        "\n
+        该应用旨在保存并转发智能手机通知到 Telegram 聊天。\n
+        仅允许在用户自有设备上使用，严格禁止用作监视他人。\n
+        \n
+        法律声明：\n
+        开发者不对应用的不当使用负责。\n
+        用户自行承担使用风险，并同意不将其用于违法活动、不侵犯他人权利和自由或其他非法目的。\n
+        \n
+        使用此应用即表示接受上述条款。\n
+        "
+    </string>
+    <string name="github_https_github_com_wizand0">作者 GitHub: https://github.com/wizand0/</string>
+        <string name="github_https_github_com_wizand0_sendernt">项目 GitHub: https://github.com/wizand0/SenderNT</string>
+        <string name="wizand0">作者: Wizand0</string>
+        <string name="email_makandrei_gmail_com">邮箱: makandrei@gmail.com</string>
+        <string name="donate">捐赠:</string>
+        <string name="search">搜索</string>
+        <string name="all_apps">所有应用</string>
+        <string name="main">主要</string>
+        <string name="prefsActivityName">设置</string>
+        <string name="service_status">启动服务</string>
+        <string name="enter_bot_id_error">请输入机器人ID</string>
+        <string name="enter_chat_id_error">请输入聊天ID</string>
+        <string name="test">测试</string>
+        <string name="data_send">数据已发送</string>
+        <string name="feedback_mail_text">应用反馈</string>
+        <string name="feedback_body_mail">"
+        在这里写下您的反馈…
+
+        --------------------------
+        设备信息:
+        %1$s
+    "</string>
+        <string name="feedback_dialog">您喜欢我们的应用吗？请在 Google Play 上留下评论，或发送您的建议以改善功能。</string>
+        <string name="enter_feedback">写下反馈</string>
+        <string name="abort">取消</string>
+        <string name="feedback_title">留下反馈</string>
+        <string name="google_play">Google Play</string>
+    </resources>
+
