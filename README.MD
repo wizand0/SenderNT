@@ -1,4 +1,4 @@
-# SenderNT v.1.4.2
+# SenderNT v.1.4.4
 ## Sender Notifications to Telegram
 ### by Wizand0
 
@@ -31,18 +31,18 @@ The following screenshots illustrate key parts of the application:
 
 |              Main screen              |             Settings View             |
 |:-------------------------------------:|:-------------------------------------:|
-| ![screenshot](images/screenshot1.png) | ![screenshot](images/screenshot3.png) |
+| ![screenshot](images/screenshot5.png) | ![screenshot](images/screenshot6.png) |
 
 |                 Apps                  |              Dark Theme               |
 |:-------------------------------------:|:-------------------------------------:|
-| ![screenshot](images/screenshot4.png) | ![screenshot](images/screenshot2.png) |
+| ![screenshot](images/screenshot7.png) | ![screenshot](images/screenshot8.png) |
 
 ## TODO
-- Improve the UI/UX and add additional features.
-- Beautiful and user-friendly UI;
-- Sending a test notification;
+- ~~Improve the UI/UX and add additional features.~~
+- ~~Beautiful and user-friendly UI;~~
+- ~~Sending a test notification;~~
 - ~~Add "live" search in the application list as characters are entered.~~
-- Improve the user interface and add new features;
+- ~~Improve the user interface and add new features;~~
 - ~~Add the ability to send test notifications;~~
 - ~~Add "live" search in the application list as characters are typed;~~
 - Customize the format of information sent to the chat (reorder fields and select required fields):
@@ -65,6 +65,8 @@ The following screenshots illustrate key parts of the application:
 - Kotlin Coroutines for asynchronous operations.
 
 ## Versions
+- v1.4.4: Redesign
+- v1.4.3: Material design for apps activity
 - v1.4.2: Optimizing and some fixes, locales: fr, it, pl, es, zn, de, it, ko, uz
 - v1.4.1: Fixed application crashes on screen rotation
 - v1.4.0: Monetization
