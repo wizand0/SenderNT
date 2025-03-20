@@ -1,106 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollView"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="14dp"
-    android:paddingTop="24dp"
-    android:paddingBottom="20dp">
+    android:padding="16dp">
 
-
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:clipToPadding="false">
 
-        <!-- Информация об авторе -->
-        <TextView
-            android:id="@+id/tvAuthor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp"
-            android:text="@string/wizand0"
-            android:textSize="16sp" />
-
-        <!-- Ссылка на GitHub автора -->
-        <TextView
-            android:id="@+id/tvGithubAuthor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:autoLink="web"
-            android:text="@string/github_https_github_com_wizand0"
-            android:textColorLink="@color/linkColor"
-            android:textSize="16sp" />
-
-        <!-- Ссылка на GitHub проекта -->
-        <TextView
-            android:id="@+id/tvGithubProject"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:autoLink="web"
-            android:text="@string/github_https_github_com_wizand0_sendernt"
-            android:textColorLink="@color/linkColor"
-            android:textSize="16sp" />
-
-        <!-- Ссылки на почту для обратной связи -->
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:autoLink="email"
-            android:text="@string/email_makandrei_gmail_com"
-            android:textColorLink="@color/linkColor"
-            android:textSize="16sp" />
-
-        <!-- Юридическая информация -->
-        <TextView
-            android:id="@+id/tvLegalInfo"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clAbout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="14sp" />
+            android:paddingTop="24dp"
+            android:paddingBottom="20dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="@string/donate"
-            android:textSize="18sp" />
+            <!-- Информация об авторе -->
+            <TextView
+                android:id="@+id/tvAuthor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/wizand0"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Ссылка на GitHub автора -->
+            <TextView
+                android:id="@+id/tvGithubAuthor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:text="@string/github_https_github_com_wizand0"
+                android:textColorLink="?attr/colorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/tvAuthor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <!-- Ссылка на GitHub проекта -->
+            <TextView
+                android:id="@+id/tvGithubProject"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:text="@string/github_https_github_com_wizand0_sendernt"
+                android:textColorLink="?attr/colorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/tvGithubAuthor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <!-- Ссылки на почту для обратной связи -->
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:autoLink="email"
+                android:text="@string/email_makandrei_gmail_com"
+                android:textColorLink="?attr/colorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/tvGithubProject"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <!-- Юридическая информация -->
+            <TextView
+                android:id="@+id/tvLegalInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/tvEmail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <!-- Заголовок раздела "Donate" -->
+            <TextView
+                android:id="@+id/tvDonate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/donate"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/tvLegalInfo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="24dp" />
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal">
+            <!-- Блок с иконками для доната -->
+            <LinearLayout
+                android:id="@+id/llDonate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/tvDonate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp">
 
-        <ImageView
-            android:id="@+id/imDonate"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/donate"
-            android:src="@drawable/hand_coin_outline"
-            android:scaleX="2"
-            android:scaleY="2"
-            android:layout_marginBottom="10dp"
-            android:layout_marginStart="15dp"/>
+                <ImageView
+                    android:id="@+id/imDonate"
+                    android:layout_width="110dp"
+                    android:layout_height="111dp"
+                    android:layout_marginEnd="32dp"
+                    android:contentDescription="@string/donate"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/donate_svgrepo_com"
+                    app:tint="?attr/colorPrimary" />
 
-        <ImageView
-            android:id="@+id/imDonatePayPal"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/donate"
-            android:src="@drawable/paypal_logo"
-            android:scaleX="3"
-            android:scaleY="3"
-            android:layout_marginBottom="5dp"
-            android:layout_marginStart="50dp"/>
-    </LinearLayout>
+                <ImageView
+                    android:id="@+id/imDonatePayPal"
+                    android:layout_width="110dp"
+                    android:layout_height="111dp"
+                    android:contentDescription="@string/donate"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/paypal_svgrepo_com"
+                    app:tint="?attr/colorPrimary" />
+            </LinearLayout>
 
-    </LinearLayout>
-</ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
