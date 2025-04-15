@@ -67,5 +67,9 @@
     <string name="enter_feedback">Fikr bildirish</string>
     <string name="abort">Bekor qilish</string>
     <string name="feedback_title">Fikr qoldiring</string>
-    <string name="google_play">Google Play</string>
+    <string name="choose_market">Choose market</string>
+    <string name="not_found">Ilovani o\'rnatish uchun hech qanday do\'kon topilmadi.</string>
+    <string name="feedback_title_dialog">Ilovamizni baholang</string>
+    <string name="feedback_body_dialog">Agar ilova sizga yoqsa, iltimos, fikringizni qoldiring. Bu ko\'p vaqt olmaydi.</string>
+    <string name="ask_later">Keyinroq so\'rash</string>
 </resources>

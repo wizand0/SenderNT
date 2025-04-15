@@ -19,13 +19,10 @@ import ru.wizand.sendernt.data.utils.AppUtils
 
 class SettingsActivity : AppCompatActivity() {
 
-    private val TAG = "NotificationLogger"
-
-
     private lateinit var recyclerView: RecyclerView
     private lateinit var appsAdapter: AppsAdapter
     private var appsList: List<AppInfo> = emptyList()
-    val appUtils = AppUtils
+    private val appUtils = AppUtils
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

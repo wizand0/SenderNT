@@ -48,5 +48,9 @@
     <string name="enter_feedback">Написать отзыв</string>
     <string name="abort">Отмена</string>
     <string name="feedback_title">Оставьте отзыв</string>
-    <string name="google_play">Google Play</string>
+    <string name="choose_market">Choose market</string>
+    <string name="not_found">Не найден ни один магазин для установки приложения.</string>
+    <string name="feedback_title_dialog">Оцените наше приложение</string>
+    <string name="feedback_body_dialog">Если вам нравится приложение, оставьте, пожалуйста, отзыв. Это не займет много времени.</string>
+    <string name="ask_later">Спросить позднее</string>
 </resources>

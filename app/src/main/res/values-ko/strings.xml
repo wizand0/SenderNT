@@ -66,7 +66,11 @@
     <string name="enter_feedback">피드백 작성</string>
     <string name="abort">취소</string>
     <string name="feedback_title">리뷰 남기기</string>
-    <string name="google_play">Google Play</string>
+    <string name="choose_market">Choose market</string>
+    <string name="not_found">앱 설치를 위한 스토어를 찾을 수 없습니다.</string>
+    <string name="feedback_title_dialog">저희 앱을 평가해 주세요</string>
+    <string name="feedback_body_dialog">앱이 마음에 드신다면, 잠깐 시간을 내어 리뷰를 남겨주세요.</string>
+    <string name="ask_later">나중에 묻기</string>
 </resources>
 
 

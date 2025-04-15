@@ -62,7 +62,7 @@ class SettingsGlobalActivity : AppCompatActivity() {
     // Ключи для SharedPreferences
     companion object {
 
-        val YOUR_BLOCK_ID: String = "R-M-14532326-2"
+        const val YOUR_BLOCK_ID: String = "R-M-14532326-2"
 
         const val PREFS_NAME = "MyPrefs"
 
@@ -270,7 +270,7 @@ class SettingsGlobalActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onAdFailedToLoad(adRequestError: AdRequestError) {
+                override fun onAdFailedToLoad(error: AdRequestError) {
                     // Ad failed to load with AdRequestError.
                     // Attempting to load a new ad from the onAdFailedToLoad() method is strongly discouraged.
                 }
@@ -301,7 +301,7 @@ class SettingsGlobalActivity : AppCompatActivity() {
 
 
     // Функция проверки полей
-    fun checkFields() {
+    private fun checkFields() {
         val botId = editTextBotID.text.toString().trim()
         val chatId = editTextChatID.text.toString().trim()
 
