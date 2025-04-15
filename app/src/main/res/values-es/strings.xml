@@ -67,5 +67,9 @@
     <string name="enter_feedback">Escribir comentario</string>
     <string name="abort">Cancelar</string>
     <string name="feedback_title">Deja un comentario</string>
-    <string name="google_play">Google Play</string>
+    <string name="choose_market">Choose market</string>
+    <string name="not_found">No se encontró ninguna tienda para instalar la aplicación.</string>
+    <string name="feedback_title_dialog">Califica nuestra aplicación</string>
+    <string name="feedback_body_dialog">Si te gusta la aplicación, por favor déjanos tu opinión. No te llevará mucho tiempo.</string>
+    <string name="ask_later">Preguntar más tarde</string>
 </resources>

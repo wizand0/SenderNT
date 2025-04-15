@@ -60,6 +60,11 @@
     <string name="enter_feedback">Write Feedback</string>
     <string name="abort">Cancel</string>
     <string name="feedback_title">Leave Feedback</string>
-    <string name="google_play">Google Play</string>
+    <string name="market" translatable="false">Market</string>
+    <string name="choose_market">Choose market</string>
+    <string name="not_found">Market not found</string>
+    <string name="feedback_title_dialog">Оцените наше приложение</string>
+    <string name="feedback_body_dialog">Если вам нравится приложение, оставьте, пожалуйста, отзыв. Это не займет много времени.</string>
+    <string name="ask_later">Спросить позднее</string>
 
 </resources>

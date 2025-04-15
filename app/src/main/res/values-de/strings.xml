@@ -67,5 +67,9 @@
     <string name="enter_feedback">Feedback schreiben</string>
     <string name="abort">Abbrechen</string>
     <string name="feedback_title">Feedback hinterlassen</string>
-    <string name="google_play">Google Play</string>
+    <string name="choose_market">Choose market</string>
+    <string name="not_found">Es wurde kein Store zur Installation der Anwendung gefunden.</string>
+    <string name="feedback_title_dialog">Bewerten Sie unsere App</string>
+    <string name="feedback_body_dialog">Wenn Ihnen die App gefällt, hinterlassen Sie bitte eine Bewertung. Es dauert nur wenig Zeit.</string>
+    <string name="ask_later">Später fragen</string>
 </resources>

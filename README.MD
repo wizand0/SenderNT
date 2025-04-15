@@ -5,6 +5,7 @@
 ![language](https://img.shields.io/badge/Language-Kotlin-green?logo=kotlin)
 ![Last](https://img.shields.io/github/last-commit/wizand0/SenderNT)
 
+[![version](images/google-play-badge.png)](https://play.google.com/store/apps/details?id=ru.wizand.sendernt)
 [![version](images/logo-color-light.png)](https://www.rustore.ru/catalog/app/ru.wizand.sendernt)
 
 [Donate](https://pay.cloudtips.ru/p/ae98679b)
@@ -65,6 +66,7 @@ The following screenshots illustrate key parts of the application:
 - Kotlin Coroutines for asynchronous operations.
 
 ## Versions
+- v1.4.5: Link for Google Play and RuStore. ANd some other fixes
 - v1.4.4: Redesign
 - v1.4.3: Material design for apps activity
 - v1.4.2: Optimizing and some fixes, locales: fr, it, pl, es, zn, de, it, ko, uz

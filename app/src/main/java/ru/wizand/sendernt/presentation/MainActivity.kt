@@ -257,7 +257,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onAdFailedToLoad(adRequestError: AdRequestError) {
+                override fun onAdFailedToLoad(error: AdRequestError) {
                     // Ad failed to load with AdRequestError.
                     // Attempting to load a new ad from the onAdFailedToLoad() method is strongly discouraged.
                 }
@@ -287,8 +287,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        val YOUR_BLOCK_ID: String = "R-M-14532326-1"
+        const val YOUR_BLOCK_ID: String = "R-M-14532326-1"
         private const val TAG = "MainActivity"
-        private const val KEY_FIRST_LAUNCH = "first_launch_time"
     }
 }

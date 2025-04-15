@@ -66,6 +66,10 @@
         <string name="enter_feedback">写下反馈</string>
         <string name="abort">取消</string>
         <string name="feedback_title">留下反馈</string>
-        <string name="google_play">Google Play</string>
-    </resources>
+    <string name="choose_market">Choose market</string>
+    <string name="not_found">未找到用于安装应用程序的商店。</string>
+    <string name="feedback_title_dialog">请评价我们的应用程序</string>
+    <string name="feedback_body_dialog">如果您喜欢此应用，请留下您的评价。这不会花费您太多时间。</string>
+    <string name="ask_later">稍后询问</string>
+</resources>
 
