@@ -1,20 +1,25 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.SenderNT" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">@color/purple_200</item> <!-- Более мягкий светлый фиолетовый -->
-        <item name="colorPrimaryVariant">@color/purple_700</item> <!-- Темный фиолетовый -->
-        <item name="colorOnPrimary">@color/white</item> <!-- Белый текст на фиолетовом фоне -->
-        <item name="colorSecondary">@color/teal_200</item> <!-- Мягкий бирюзовый -->
-        <item name="colorOnSecondary">@color/black</item> <!-- Черный текст на бирюзовом фоне -->
-        <item name="android:statusBarColor">@color/purple_700</item> <!-- Темный фиолетовый для статус-бара -->
+    <!-- Base application dark theme -->
+    <style name="Base.Theme.SenderNT" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Цвета для тёмной темы -->
+        <item name="colorPrimary">@color/colorPrimary</item> <!-- Бирюзовый -->
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item> <!-- Тёмно-синий -->
+        <item name="colorOnPrimary">@color/colorOnPrimary</item> <!-- Белый текст -->
+        <item name="colorSecondary">@color/colorSecondary</item> <!-- Серо-голубой -->
+        <item name="colorOnSecondary">@color/colorOnSecondary</item> <!-- Чёрный -->
+        <item name="colorSurface">@color/colorSurface</item> <!-- Серый фон -->
+        <item name="colorError">@color/colorError</item> <!-- Красный -->
+        <item name="android:statusBarColor">@color/colorPrimaryVariant</item> <!-- Тёмный синий -->
     </style>
+
     <style name="MyToolbarStyle" parent="Widget.MaterialComponents.Toolbar">
         <item name="titleTextColor">?attr/colorOnPrimary</item>
         <item name="subtitleTextColor">?attr/colorOnPrimary</item>
     </style>
+
     <style name="MyPopupMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
+
     <style name="Theme.SenderNT" parent="Base.Theme.SenderNT" />
 </resources>

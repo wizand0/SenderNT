@@ -1,6 +1,7 @@
-# SenderNT v.1.4.4
+# SenderNT v.1.4.6
 ## Sender Notifications to Telegram
 ### by Wizand0
+
 
 ![language](https://img.shields.io/badge/Language-Kotlin-green?logo=kotlin)
 ![Last](https://img.shields.io/github/last-commit/wizand0/SenderNT)
@@ -66,6 +67,7 @@ The following screenshots illustrate key parts of the application:
 - Kotlin Coroutines for asynchronous operations.
 
 ## Versions
+- v1.4.6: Link for Google Play and RuStore. ANd some other fixes
 - v1.4.5: Link for Google Play and RuStore. ANd some other fixes
 - v1.4.4: Redesign
 - v1.4.3: Material design for apps activity

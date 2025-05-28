@@ -71,5 +71,10 @@
     <string name="feedback_title_dialog">请评价我们的应用程序</string>
     <string name="feedback_body_dialog">如果您喜欢此应用，请留下您的评价。这不会花费您太多时间。</string>
     <string name="ask_later">稍后询问</string>
+    <string name="enable_notification_access">允许通知访问</string>
+    <string name="toggle_notification_service">通知服务</string>
+    <string name="button_settings">设置</string>
+    <string name="test_text">Test</string>
+    <string name="test_message">Test Message ✅</string>
 </resources>
 

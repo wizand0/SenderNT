@@ -3,13 +3,29 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="linkColor">#1976D2</color>
-    <!-- Более мягкие фиолетовые цвета -->
-    <color name="purple_200">#D1C4E9</color> <!-- Светлый пастельный фиолетовый -->
+
+    <!-- Основная палитра -->
+    <color name="colorPrimary">#00BCD4</color> <!-- Бирюзовый -->
+    <color name="colorPrimaryVariant">#008BA3</color> <!-- Более глубокий бирюзовый -->
+    <color name="colorOnPrimary">#FFFFFF</color>
+
+    <color name="colorSecondary">#546E7A</color> <!-- Серо-голубой -->
+    <color name="colorOnSecondary">#FFFFFF</color>
+
+    <!-- Фон и поверхность -->
+    <color name="colorBackground">#FAFAFA</color> <!-- Светлый, почти белый -->
+    <color name="colorSurface">#FFFFFF</color> <!-- Белый -->
+    <color name="colorOnBackground">#1A1A1A</color>
+    <color name="colorOnSurface">#1A1A1A</color>
+
+    <!-- Ошибка -->
+    <color name="colorError">#D32F2F</color>
+    <color name="colorOnError">#FFFFFF</color>
+
+    <!-- Дополнительные -->
+    <color name="gray">#B0BEC5</color>
+
     <color name="purple_500">#9575CD</color> <!-- Средний фиолетовый -->
-    <color name="purple_700">#673AB7</color> <!-- Темный, но не слишком насыщенный -->
-
-    <!-- Бирюзовый цвет -->
-    <color name="teal_200">#80CBC4</color> <!-- Более мягкий бирюзовый -->
-    <color name="gray">#CCCCCC</color> <!-- Более мягкий бирюзовый -->
-
+    <color name="purple_700">#673AB7</color> <!-- Тёмный фиолетовый -->
+    <color name="teal_200">#80CBC4</color> <!-- Бирюзовый -->
 </resources>

@@ -2,176 +2,80 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground">
 
-    android:fitsSystemWindows="true"
-    tools:context=".presentation.MainActivity">
-
-    <!-- AppBarLayout для поддержки Material-дизайна -->
-    <com.google.android.material.appbar.AppBarLayout
+    <!-- AppBar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        style="@style/Widget.Material3.Toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+        app:title="@string/app_name"
+        app:titleCentered="true"
+        app:popupTheme="@style/ThemeOverlay.Material3.Light" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:paddingTop="16dp"
-            app:popupTheme="@style/MyPopupMenu"
-            app:title="@string/main" />
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <!-- NestedScrollView для лучшей интеграции с AppBarLayout -->
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
+    <!-- Основное содержимое -->
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="60dp"
-        android:clipToPadding="false"
-        android:fillViewport="true"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:padding="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        >
-
-        <TextView
-            android:id="@+id/textViewMain"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:text="@string/main_name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:spacing="16dp">
 
-        <!-- Подзаголовок -->
-        <TextView
-            android:id="@+id/textViewFullMain"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:text="@string/full_name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewMain" />
+            <!-- Кнопка включения разрешения -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEnableNotificationAccess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enable_notification_access"
+                android:icon="@drawable/ic_notifications"
+                style="@style/Widget.Material3.Button.IconButton.Filled" />
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/switch_service"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:text="@string/service_status"
-            app:layout_constraintTop_toBottomOf="@id/textViewFullMain"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            <!-- Переключатель службы -->
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switch_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/toggle_notification_service" />
 
-        <!-- Основной текстовый блок с возможным оформлением CardView для красоты -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardMainText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            android:padding="8dp"
-            android:layout_margin="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/switch_service">
-
-            <TextView
-                android:id="@+id/textViewText"
+            <!-- Кнопка настроек -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSettings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="@string/big_main_text"
-                android:justificationMode="inter_word"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                android:text="@string/button_settings"
+                android:icon="@drawable/ic_settings"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_marginTop="8dp" />
 
-        </com.google.android.material.card.MaterialCardView>
-
-        <Button
-            android:id="@+id/btnEnableNotificationAccess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/allow_notifications"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardMainText" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardMainText1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            android:padding="8dp"
-            android:layout_margin="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnEnableNotificationAccess">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSendTest"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/preferences"
-                    android:paddingStart="8dp"
-                    android:paddingEnd="8dp"
-                    android:justificationMode="inter_word"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/btnSettings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/go_to_preferences"
-                    android:padding="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textView"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="wrap_content"
+                android:text="@string/test_text"
+                android:icon="@drawable/ic_send"
+                style="@style/Widget.Material3.Button.IconButton.Outlined"
+                android:layout_marginTop="8dp" />
 
 
-        </com.google.android.material.card.MaterialCardView>
-
-
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-    <com.yandex.mobile.ads.banner.BannerAdView
-        android:id="@+id/banner_ad_view"
-        android:layout_width="wrap_content"
-        android:layout_gravity="bottom"
-        android:foregroundGravity="center_horizontal"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/cardMainText1" />
-
+            <!-- Баннерная реклама -->
+            <com.yandex.mobile.ads.banner.BannerAdView
+                android:id="@+id/bannerAdView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -72,4 +72,9 @@
     <string name="feedback_title_dialog">Ilovamizni baholang</string>
     <string name="feedback_body_dialog">Agar ilova sizga yoqsa, iltimos, fikringizni qoldiring. Bu ko\'p vaqt olmaydi.</string>
     <string name="ask_later">Keyinroq so\'rash</string>
+    <string name="enable_notification_access">Allow notification access</string>
+    <string name="toggle_notification_service">Notification service</string>
+    <string name="button_settings">Settings</string>
+    <string name="test_text">Test</string>
+    <string name="test_message">Test Message ✅</string>
 </resources>
