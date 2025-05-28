@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="linkColor">#90CAF9</color> <!-- Светло-синий -->
+
+    <!-- Основная палитра -->
+    <color name="colorPrimary">#00ACC1</color> <!-- Более приглушённый бирюзовый -->
+    <color name="colorPrimaryVariant">#007C91</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+
+    <color name="colorSecondary">#B0BEC5</color> <!-- Светло-серый -->
+    <color name="colorOnSecondary">#000000</color>
+
+    <!-- Фон и поверхность -->
+    <color name="colorBackground">#121212</color> <!-- Глубокий чёрный -->
+    <color name="colorSurface">#1E1E1E</color> <!-- Темно-серый -->
+    <color name="colorOnBackground">#E0E0E0</color>
+    <color name="colorOnSurface">#E0E0E0</color>
+
+    <!-- Ошибка -->
+    <color name="colorError">#EF5350</color>
+    <color name="colorOnError">#000000</color>
+
+    <!-- Дополнительные -->
+    <color name="gray">#757575</color>
+</resources>

@@ -72,4 +72,9 @@
     <string name="feedback_title_dialog">Califica nuestra aplicación</string>
     <string name="feedback_body_dialog">Si te gusta la aplicación, por favor déjanos tu opinión. No te llevará mucho tiempo.</string>
     <string name="ask_later">Preguntar más tarde</string>
+    <string name="enable_notification_access">Permitir acceso a notificaciones</string>
+    <string name="toggle_notification_service">Servicio de notificaciones</string>
+    <string name="button_settings">Configuración</string>
+    <string name="test_text">Test</string>
+    <string name="test_message">Test Message ✅</string>
 </resources>

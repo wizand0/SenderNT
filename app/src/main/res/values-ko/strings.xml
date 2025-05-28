@@ -71,6 +71,11 @@
     <string name="feedback_title_dialog">저희 앱을 평가해 주세요</string>
     <string name="feedback_body_dialog">앱이 마음에 드신다면, 잠깐 시간을 내어 리뷰를 남겨주세요.</string>
     <string name="ask_later">나중에 묻기</string>
+    <string name="enable_notification_access">알림 접근 허용</string>
+    <string name="toggle_notification_service">알림 서비스</string>
+    <string name="button_settings">설정</string>
+    <string name="test_text">Test</string>
+    <string name="test_message">Test Message ✅</string>
 </resources>
 
 

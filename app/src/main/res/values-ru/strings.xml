@@ -53,4 +53,9 @@
     <string name="feedback_title_dialog">Оцените наше приложение</string>
     <string name="feedback_body_dialog">Если вам нравится приложение, оставьте, пожалуйста, отзыв. Это не займет много времени.</string>
     <string name="ask_later">Спросить позднее</string>
+    <string name="enable_notification_access">Разрешить доступ к уведомлениям</string>
+    <string name="toggle_notification_service">Служба уведомлений</string>
+    <string name="button_settings">Настройки</string>
+    <string name="test_text">Test</string>
+    <string name="test_message">Тестовое сообщение ✅</string>
 </resources>
