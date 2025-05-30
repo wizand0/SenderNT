@@ -87,63 +87,40 @@ object TelegramUtils {
         context: Context,
         sbn: StatusBarNotification
     ) {
+        val appContext = context.applicationContext
+        val sharedPref = appContext.getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
+        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, null)
+        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, null)
 
-        // Достаем данные из SharedPreferences
-        val sharedPref = context.getSharedPreferences(SettingsGlobalActivity.PREFS_NAME, Context.MODE_PRIVATE)
-        val botId = sharedPref.getString(SettingsGlobalActivity.KEY_BOT_ID, "No_data")
-        val chatId = sharedPref.getString(SettingsGlobalActivity.KEY_CHAT_ID, "No_data")
-
-
-
-        // Здесь можно реализовать отправку данных на сервер с помощью Retrofit, Volley или любой другой библиотеки.
-        // Для простоты выводим лог.
-
-        // Тестирование работоспособности. Удалить после азвершения тестов
-        val messageTest = sbn.toString()
-        Log.e(TAG, "сформировано:  $messageTest")
+        if (botId.isNullOrBlank() || chatId.isNullOrBlank()) {
+            Log.e(TAG, "Bot ID или Chat ID не указаны. Прерывание отправки.")
+            return
+        }
 
         val packageName = sbn.packageName
         val notification = sbn.notification
-//        val time = sbn.postTime
-        val time = AppUtils.convertTimestampToReadableFormat(sbn.getPostTime())
+        val time = AppUtils.convertTimestampToReadableFormat(sbn.postTime)
         val extras = notification.extras
 
-
-
-
-        // Получаем текст уведомления
         val text = extras.getCharSequence(Notification.EXTRA_TEXT)?.toString() ?: ""
-        // Также можно получить заголовок уведомления
         val title = extras.getCharSequence(Notification.EXTRA_TITLE)?.toString() ?: ""
+        val rawMessage = " -> $packageName:$time - $title - $text"
+        val message = if (rawMessage.length > 4000) rawMessage.take(4000) + "…" else rawMessage
 
-        val message = " -> $packageName:$time - $title - $text"
-
-
-        // Реализация
-//        Log.d(TAG, "Подготавливаем отправку уведомления в Telegram: $message")
-
-        // Формируем URL запроса к Telegram Bot API
-//        val url = "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage"
         val url = "https://api.telegram.org/bot$botId/sendMessage"
-
-        // Формируем тело запроса с параметрами chat_id и text
         val requestBody = FormBody.Builder()
-//            .add("chat_id", TELEGRAM_CHAT_ID)
-            .add("chat_id", chatId!!)
+            .add("chat_id", chatId)
             .add("text", message)
             .build()
 
-        // Создаем POST-запрос
         val request = Request.Builder()
             .url(url)
             .post(requestBody)
             .build()
 
-        // Выполняем запрос асинхронно
         httpClient.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 Log.e(TAG, "Ошибка при отправке сообщения в Telegram: ${e.localizedMessage}")
-
             }
 
             override fun onResponse(call: Call, response: Response) {
@@ -156,6 +133,7 @@ object TelegramUtils {
             }
         })
     }
+
 
 
 }
